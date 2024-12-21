@@ -2,13 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://vergeclash.github.io" />
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-29142.htm" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>2024-10归档 - 第3页 - Verge Clash节点订阅官网</title>
-        <meta name="keywords" content="2024-10归档Verge Clash节点订阅官网" />
-        <meta name="description" content="2024-10归档，当前是第3页" />
+    <title>Pytorch Conv1d()</title>
+        <meta name="description" content="Conv1d  class torch.nn.Conv1d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=" />
         <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <!-- fontawesome css link -->
@@ -40,7 +39,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
         <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
@@ -81,12 +80,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                     <div class="inner-banner-content">
-                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">2024-10 归档</h1>
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Pytorch Conv1d()</h1>
                         <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">首页</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">2024-10 归档</li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
                                 </ol>
                             </nav>
                         </div>
@@ -103,27 +103,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="xcblog-blog-list">
-                                                <div class="about-area item xcblog-blog-item" data-date="2024-10-01">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="about-thumb">
-                                        <a href="/free-nodes/2024-10-1-node-share.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240822/1ffa97490143173de7d25944ad7499a2.webp" alt="「10月1日」最高速度18.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">
-                                        </a>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>Conv1d</h2> </h1> <p id="class-torchnnconv1din95channels-out95channels-kernel95size-stride1-padding0-dilation1-groups1-biastrue">class torch.nn.Conv1d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)</p> <ul> <li>in_channels(<code>int</code>) – 输入信号的通道。在文本分类中，即为词向量的维度</li> <li>out_channels(<code>int</code>) – 卷积产生的通道。有多少个out_channels，就需要多少个1维卷积，实际上就是卷积核的数目。</li> <li>kernel_size(<code>int</code>&nbsp;or&nbsp;<code>tuple</code>) - 卷积核的尺寸，卷积核的大小为(k,)，第二个维度是由in_channels来决定的，所以实际上卷积大小为kernel_size*in_channels</li> <li>stride(<code>int</code>&nbsp;or&nbsp;<code>tuple</code>,&nbsp;<code>optional</code>) - 卷积步长</li> <li>padding (<code>int</code>&nbsp;or&nbsp;<code>tuple</code>,&nbsp;<code>optional</code>)- 输入的每一条边补充0的层数</li> <li>dilation(<code>int</code>&nbsp;or&nbsp;<code>tuple</code>, `optional``) – 卷积核元素之间的间距</li> <li>groups(<code>int</code>,&nbsp;<code>optional</code>) – 从输入通道到输出通道的阻塞连接数</li> <li>bias(<code>bool</code>,&nbsp;<code>optional</code>) - 如果<code>bias=True</code>，添加偏置</li> </ul> <h2>二：怎么去理解这些参数</h2> <p>例如我们输入的矩阵是：(N * in_channels * Lin)，这里N是批次大小，in_channels是我们向量的行，Lin是我们向量的列</p> <p>官方文档说我们最后输出是(N,out_channels,Lout)</p> <p>具体是怎么做的呢？</p> <p>&nbsp;in_channels(<code>int</code>) – 输入信号的通道。在文本分类中，即为词向量的维度，也可以理解是输入数据的行</p> <p>out_channels(<code>int</code>) – 卷积产生的通道。相当于我们希望输出的行。一个卷积核对应一组输出，N个卷积核对应N组输出。而卷积核的数量不用我们给出，我们只要给出kernel_size就行</p> <p>kernel_size(<code>int</code>&nbsp;or&nbsp;<code>tuple</code>) - 卷积核的尺寸，卷积核的大小为(k,)，第二个维度是由in_channels来决定的，所以实际上卷积大小为kernel_size*in_channels</p> <p>我们输出的矩阵是（N,out_channels,Lout）</p> <p>而Lout = (Lin - kernel_size + 1) / stride&nbsp;</p> <p>例如：</p> <pre><code class="language-python">conv1 = nn.Conv1d(in_channels=256,out_channels=100,kernel_size=2) input = torch.randn(32,256,35) out = conv1(input) print(out.size()) #输出结果为：(32,100,34)</code></pre> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-28677.htm">宠物品牌有哪些 宠物品牌有哪些名字</a></p>
+                                        <p>下一个：<a href="/news/article-29144.htm">springboot整合kafka随记</a></p>
                                     </div>
                                 </div>
-                                <div class="col-md-9">
-                                    <a href="/free-nodes/2024-10-1-node-share.htm" class="xcblog-blog-url">
-                                        <h3 class="title xcblog-blog-title">「10月1日」最高速度18.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</h3>
-                                    </a>
-                                    <p>这一次的节点更新覆盖了韩国、美国、新加坡、日本、欧洲、加拿大、香港等地区,最高速度可达18.4 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/date/2024-10/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-10/">1</a></li><li><a href="/date/2024-10/page-2.htm">2</a></li><li><a href="/date/2024-10/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
-                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -131,16 +117,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="「11月13日」最高速度20.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月13日」最高速度20.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-22199.htm" title="动物接种疫苗多少钱一针啊图片大全集（动物疫苗一般多少钱）">动物接种疫苗多少钱一针啊图片大全集（动物疫苗一般多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-clash-verge-rev-node.htm" title="「10月26日」最高速度22.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月26日」最高速度22.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-node-share.htm" title="「9月13日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月13日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-20-node-share.htm" title="「11月20日」最高速度19.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月20日」最高速度19.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-12-clash-verge-rev-node.htm" title="「12月12日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月12日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-26-latest-clash-verge-rev-node.htm" title="「8月26日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「8月26日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-24965.htm" title="vue 图片资源应该如何存放并引入（public、assets）？">vue 图片资源应该如何存放并引入（public、assets）？</a></li>
-                        <li class="py-2"><a href="/news/article-19447.htm" title="广州宠物领养网免费吗现在（广州宠物猫领养中心）">广州宠物领养网免费吗现在（广州宠物猫领养中心）</a></li>
-                        <li class="py-2"><a href="/news/article-22196.htm" title="开一家宠物店需要投资多少（开一家宠物店投资多少钱）">开一家宠物店需要投资多少（开一家宠物店投资多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-latest-clash-verge-rev-node.htm" title="「10月3日」最高速度19.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月3日」最高速度19.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-latest-clash-verge-rev-node.htm" title="「12月5日」最高速度22.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月5日」最高速度22.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-19-clash-verge-rev-node-github.htm" title="「9月19日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月19日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23585.htm" title="python学习记录（文件操作）">python学习记录（文件操作）</a></li>
+                        <li class="py-2"><a href="/news/article-28214.htm" title="宠物医院美团好评回复优美语句 宠物医院美团好评回复优美语句怎么写">宠物医院美团好评回复优美语句 宠物医院美团好评回复优美语句怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-18993.htm" title="动物医院诊室如何管理才能够专业? 动物医院诊室设计图">动物医院诊室如何管理才能够专业? 动物医院诊室设计图</a></li>
+                        <li class="py-2"><a href="/news/article-20819.htm" title="win11系统如何进入高级启动">win11系统如何进入高级启动</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-free-high-speed-nodes.htm" title="「9月11日」最高速度21.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月11日」最高速度21.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-node-share-links.htm" title="「12月3日」最高速度18.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月3日」最高速度18.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
