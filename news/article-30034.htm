@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-30034.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于全志A40i开发板Linux-RT内核应用开发教程</title>
+        <meta name="description" content="目录 1 Linux-RT内核简介 3 2 Linux系统实时性测试 3 3 rt_gpio_ctrl案例 10 4 rt_input案例 15  本文为Linux-RT内核应用开发教程的第一章节——" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">基于全志A40i开发板Linux-RT内核应用开发教程</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<blockquote class="pgc-blockquote-abstract" data-pm-slice="0 0 []"> <p data-track="27"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">目录</span></p> <p data-track="23"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">1 Linux-RT内核简介 3</span></p> <p data-track="24"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">2 Linux系统实时性测试 3</span></p> <p data-track="25"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">3 rt_gpio_ctrl案例 10</span></p> <p data-track="26"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">4 rt_input案例 15</span></p> </blockquote> <p data-track="72"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">本文为Linux-RT内核应用开发教程的第一章节——Linux-RT内核简介、Linux系统实时性测试，欢迎各位阅读！本期用到的案例板子是创龙科技旗下的A40i工业级别开发板，是基于全志科技A40i处理器设计，4核ARM Cortex-A7的高性能低功耗国产开发板，每核主频高达1.2GHz。</span></p> <p class="pgc-img"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img fetchpriority="high" decoding="async" src="http://img.555519.xyz/uploads3/20220509/e7da18957cdfae41057b98f803b34f94.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="557" height="409" style="display: block; margin-left: auto; margin-right: auto" data-ic="false" data-width="841" data-height="618" data-ic-uri=""/></span></p> <p data-track="73"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">基于全志科技A40i开发板，其接口资源丰富，可引出双路网口、双路CAN、双路USB、双路RS485等通信接口，板载Bluetooth、WIFI、4G（选配）模块，同时引出MIPI LCD、LVDS LCD、TFT LCD、HDMI OUT、CVBS OUT、CAMERA、LINE IN、H/P OUT等音视频多媒体接口，支持双屏异显、1080P@45fps H.264视频硬件编码、1080P@60fps H.264视频硬件解码，并支持SATA大容量存储接口。</span></p> <p data-track="74"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">A40i核心板采用100%国产元器件方案，并经过专业的PCB Layout和高低温测试验证，稳定可靠，可满足各种工业应用环境，应用于能源电力、轨道交通、工业控制、工业网关、仪器仪表、安防监控等典型领域。</span></p> <p class="pgc-h-arrow-right" data-track="71"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">Linux-RT内核简介</span></p> <p data-track="28"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">创龙科技提供的Linux-RT内核应用了开源的RT PREEMPT机制进行补丁。PREEMPT_RT补丁的关键是最小化不可抢占的内核代码量，同时最小化必须更改的代码量，以便提供这种附加的可抢占性。PREEMPT_RT补丁利用Linux内核的SMP功能来添加这种额外的抢占性，而不需要完整的内核重写。Linux-RT内核增加PREEMPT_RT补丁后，增加了系统响应的确定性和实时性，但是代价是CPU性能降低。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">Linux-RT内核与普通Linux内核相比，几个主要的相同之处是：</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">（1） 具有相同的开发生态系统，包括相同工具链、文件系统和安装方法，以及相同的POSIX API等。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">（2） 仍然存在内核空间和用户空间的划分。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">（3） Linux应用程序在用户空间中运行。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">Linux-RT内核与普通Linux内核在常规编程方式上的几个主要不同之处是：</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">（1） 调度策略。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">（2） 优先级和内存控制。</span></p> <p data-track="67"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">（3） 基于Linux-RT内核的应用程序使用了调度策略后，系统将根据调度策略对其进行调优。</span></p> <p class="pgc-h-arrow-right"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">Linux系统实时性测试</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">本章节主要介绍使用Cyclictest延迟检测工具测试Linux系统实时性的方法。Cyclictest是rt-tests测试套件下的一个测试工具，也是rt-tests下使用最广泛的测试工具，一般主要用来测试内核的延迟，从而判断内核的实时性。</span></p> <p data-track="66"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">创龙科技默认使用是的Linux内核，同时提供了Linux-RT内核位于产品资料“4-软件资料\Linux\Kernel\bin\linux-3.10.65-[版本号]-[Git系列号]\”目录下，请按照如下方法更换为Linux-RT内核。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">将Linux-RT内核镜像boot-rt.fex和Linux-RT内核配套的内核模块目录modules-rt拷贝至Ubuntu工作目录下，执行如下命令，将boot-rt.fex重命名为boot.fex，并进入modules-rt目录下将内核模块压缩包解压。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>mv boot-rt.fex boot.fex</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>cd modules-rt/</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>tar -zxf 3.10.65-rt69-g1f1e2d0.tar.gz</span></p> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img decoding="async" src="https://p26.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/e5b239a1e1704dc08753659c5c888b8c~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="791" height="177" data-ic="false" data-width="1072" data-height="240" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="65"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 1</span></div> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">将重命名后的内核镜像和解压后的内核模块拷贝至评估板文件系统任意目录下。执行如下命令替换内核镜像和内核模块，评估板重启生效。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">备注：mmcblk1为Micro SD对应的设备节点，如需固化至eMMC，请将设备节点修改为mmcblk0。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>dd if=boot.fex of=/dev/mmcblk1p6</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>cp 3.10.65-rt69-g1f1e2d0/ /lib/modules/ -r</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>rm /system/vendor/ -r</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>sync</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>reboot</span></p> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img decoding="async" src="https://p6.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/e8967069cafd48d98c1e1768b531bbb5~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="717" height="163" data-ic="false" data-width="1222" data-height="278" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="63"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 2</span></div> <div style="text-align: center" data-track="63"></div> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="https://p3.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/fc020386682d4901adfd6a1d0b910915~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="632" height="37" data-ic="false" data-width="1109" data-height="65" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="64"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 3 Linux-RT内核</span></div> <p class="pgc-h-arrow-right"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">Cyclictest工具简介</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">Cyclictest常用于实时系统的基准测试，是评估实时系统相对性能的最常用工具之一。Cyclictest反复测量并精确统计线程的实际唤醒时间，以提供有关系统的延迟信息。它可测量由硬件、固件和操作系统引起的实时系统的延迟。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">为了测量延迟，Cyclictest运行一个非实时主线程（调度类SCHED_OTHER），该线程以定义的实时优先级（调度类SCHED_FIFO）启动定义数量的测量线程。测量线程周期性地被一个到期的计时器（循环报警）所定义的间隔唤醒，随后计算有效唤醒时间，并通过共享内存将其传递给主线程。主线程统计延迟值并打印最小、最大和平均延迟时间。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">参考链接：https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/cyclictest/start?s[]=cyclictest。</span></p> <p class="pgc-h-arrow-right"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">编译Cyclictest工具</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">将产品资料“4-软件资料\Demo\linux-rt-demos\Cyclictest\”目录下的rt-tests.tar.gz压缩包复制到Ubuntu系统，执行如下命令将其解压。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>tar -zxf rt-tests.tar.gz</span></p> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="https://p9.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/9704b48b0f674f5793b035ae23407c80~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="566" height="109" data-ic="false" data-width="1194" data-height="230" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="62"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 4</span></div> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">请先确保已参考Linux系统使用手册编译过LinuxSDK，构建A40i处理器对应的GCC编译器。进入解压生成的rt-tests源文件目录执行如下命令，使用LinuxSDK开发包目录下的GCC编译器进行案例编译。编译完成后，将在当前目录下生成可执行文件。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>CC=/home/tronlong/A40i/lichee/out/sun8iw11p1/linux/common/buildroot/host/usr/bin/arm-linux-gnueabihf-gcc make</span></p> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="https://p26.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/cc2db8a6899b48a88832857e2c1f27e2~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="619" height="311" data-ic="false" data-width="1149" data-height="577" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="60"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 5</span></div> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="https://p6.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/449a2f653aed4ed5a856f3adb12aef26~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="709" height="358" data-ic="false" data-width="1147" data-height="579" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="61"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 6</span></div> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">编译完成后，将在当前路径下生成cyclictest可执行文件，将其复制到评估板文件系统。</span></p> <p class="pgc-h-arrow-right"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">使用Cyclictest测试系统实时性</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">本次测试对比基于Linux-RT-3.10.65内核和Linux-3.10.65内核的Linux系统实时性。参照如下步骤，结合Iperf和Cyclictest工具测试系统的实时性。此处使用Iperf工具不断触发系统中断，提高中断处理负载，以便更好测试系统实时特性。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">在Ubuntu执行如下命令查看IP地址，并以服务器模式启动Iperf测试。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>ifconfig</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Host#</strong>iperf -s -i 1</span></p> <p class="pgc-img"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="http://img.555519.xyz/uploads3/20220509/b36565b60b2c878439929fafe81dc128.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="736" height="632" style="display: block; margin-left: auto; margin-right: auto" data-ic="false" data-width="1336" data-height="1146" data-ic-uri=""/></span></p> <p data-track="59"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 7</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">分别使用Linux-RT-3.10.65内核和Linux-3.10.65内核启动评估板，执行如下命令以客户端模式启动Iperf，并连接到服务器端（Ubuntu系统）。192.168.0.40为Ubuntu的IP地址，"-t3600"指定测试时间为3600秒，&amp;表示让程序在后台运行。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>iperf -c 192.168.0.40 -d -t3600&amp;</span></p> <p class="pgc-img"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="http://img.555519.xyz/uploads3/20220509/60fb20388e18fd4b46187a927f938dc1.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="515" height="142" style="display: block; margin-left: auto; margin-right: auto" data-ic="false" data-width="773" data-height="213" data-ic-uri=""/></span></p> <p data-track="58"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 8</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">执行如下命令使用Cyclictest程序测试系统实时性。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><strong>Target#</strong>./cyclictest -t5 -p98 -m -n -D10m</span></p> <p class="pgc-img"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="http://img.555519.xyz/uploads3/20220509/18487579bc979ff4c34e263231fda7cf.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="626" height="126" style="display: block; margin-left: auto; margin-right: auto" data-ic="false" data-width="978" data-height="197" data-ic-uri=""/></span></p> <div style="text-align: center" data-track="56"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 9 Linux-RT-3.10.65内核测试结果</span></div> <div style="text-align: center" data-track="56"></div> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="https://p3.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/457be31119804cd0825df7bed45ab7e7~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="678" height="155" data-ic="false" data-width="875" data-height="200" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="57"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 10 Linux-3.10.65内核测试结果</span></div> <div style="text-align: center" data-track="57"></div> <div style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">表 1 Cyclictest测试结果说明</span></div> <div style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img decoding="async" src="https://img2022.cnblogs.com/blog/2812951/202204/2812951-20220419144100948-1045738114.png" alt="基于全志A40i开发板Linux-RT内核应用开发教程"></span></span></div> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><br />Cyclictest命令参数解析可执行"./cyclictest --help"查看，如下图所示。对比测试数据，可看到基于Linux-RT-3.10.65内核的系统的延时更加稳定，最大延时更低，系统实时性更佳。</span></p> <p class="pgc-img"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="http://img.555519.xyz/uploads3/20220509/649e9816194843643f1d3cbf5e5c2e98.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="566" height="564" style="display: block; margin-left: auto; margin-right: auto" data-ic="false" data-width="786" data-height="783" data-ic-uri=""/></span></p> <div style="text-align: center" data-track="54"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 11</span></div> <div class="pgc-img" style="text-align: center"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"><img loading="lazy" decoding="async" src="https://p3.toutiaoimg.com/img/tos-cn-i-qvj2lq49k0/84fc8508bd7e4598af66d28c90159c47~tplv-obj.jpg" alt="基于全志A40i开发板Linux-RT内核应用开发教程" width="581" height="236" data-ic="false" data-width="770" data-height="313" data-ic-uri=""/></span></div> <div style="text-align: center" data-track="55"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">图 12</span></div> <p data-track="75"><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">好了，到这里本次开发例程的第一章节就阅读完毕，如需看到更多案例，请返回点击更多文章阅读，欢迎您的关注，也可以在评论区留言获取更多资料。</span></p> <p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px"></span></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29607.htm">动物防疫站***免费吗今天（动物防疫***收费吗）</a></p>
+                                        <p>下一个：<a href="/news/article-30035.htm">猫粮生产工艺及设备有哪些厂家（猫粮加工设备及配方）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28675.htm" title="中国动物疫苗十强上市公司有哪些（中国动物疫苗生产企业排名）">中国动物疫苗十强上市公司有哪些（中国动物疫苗生产企业排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-subscribe-node.htm" title="「9月6日」最高速度20.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月6日」最高速度20.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19905.htm" title="动物疫苗防疫站上班时间安排最新（动物疫苗防疫站上班时间安排最新规定）">动物疫苗防疫站上班时间安排最新（动物疫苗防疫站上班时间安排最新规定）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-clash-verge-rev-node.htm" title="「11月4日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月4日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-clash-verge-rev-node-share.htm" title="「8月25日」最高速度21.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「8月25日」最高速度21.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share-links.htm" title="「10月10日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月10日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23114.htm" title="动物疫苗接种时间表最新版 动物疫苗接种时间表最新版图片">动物疫苗接种时间表最新版 动物疫苗接种时间表最新版图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-today-clash-verge-rev-node.htm" title="「12月7日」最高速度21.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月7日」最高速度21.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-free-clash-verge-rev-node.htm" title="「9月10日」最高速度18.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月10日」最高速度18.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-node-share-links.htm" title="「9月20日」最高速度20.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月20日」最高速度20.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
