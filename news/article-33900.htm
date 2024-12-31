@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-33900.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpringBoot实战实现WEB的常用功能</title>
+        <meta name="description" content="前言 通常在 Web 开发中，会涉及静态资源的访问支持、视图解析器的配置、转换器和格式化器的定制、文件上传下载等功能，甚至还需要考虑到与Web服务器关联的 Servlet相关组件的定制。Spring " />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">SpringBoot实战实现WEB的常用功能</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="前言">前言</h2> <p>通常在 Web 开发中，会涉及静态资源的访问支持、视图解析器的配置、转换器和格式化器的定制、文件上传下载等功能，甚至还需要考虑到与Web服务器关联的 Servlet相关组件的定制。Spring Boot框架支持整合一些常用Web框架，从而实现Web开发，并默认支持Web开发中的一些通用功能。本文将对Spring Boot实现Web开发中涉及的三大组件Servlet、Filter、Listener以及文件上传下载功能以及打包部署进行实现。</p> <h2 id="springmvc整合支持">SpringMVC整合支持</h2> <p>为了实现并简化Web开发，Spring Boot为一些常用的Web开发框架提供了整合支持，例如 Spring MVC、Spring WebFlux等框架。使用Spring Boot进行Web开发时，只需要在项目中引入对应Web开发框架的依赖启动器即可。</p> <h3 id="spring-mvc自动配置">Spring MVC自动配置</h3> <p>在Spring Boot项目中，一旦引入了Web依赖启动器spring-boot-starter-web，那么SpringBoot整合 Spring MVC 框架默认实现的一些xxxAutoConfiguration自动配置类就会自动生效，几乎可以在无任何额外配置的情况下进行Web开发。Spring Boot为整合Spring MVC 框架实现Web开发，主要提供了以下自动化配置的功能特性。<br /> (1)内置了两个视图解析器：ContentNegotatingViewResolver和BeanNameViewReso<br /> (2)支持静态资源以及WebJars。<br /> (3)自动注册了转换器和格式化器。<br /> (4)支持Http消息转换器。<br /> (5)自动注册了消息代码解析器。<br /> (6)支持静态项目首页index.html。<br /> (7)支持定制应用图标favicon.ico。<br /> (8)自动初始化Web数据绑定器ConfigurableWebBindinglnitializer。<br /> Spring Boot 整合 Spring MVC进行Web开发时提供了很多默认配置，而且大多数时候使用默认配置即可满足开发需求。例如，Spring Boot整合Spring MVC进行Web开发时，不需要外配置视图解析器。</p> <h2 id="spring-mvc功能扩展实现">Spring MVC功能扩展实现</h2> <p>Spring Boot 整合 Spring MVC进行Web开发时提供了很多的自动化配置，但在实际开发中还需要开发者对一些功能进行扩展实现。下面我们通过一个具体的案例讲解 Spring Boot整合Spring MVC框架实现Web开发的扩展功能。</p> <h4 id="项目基础环境搭建">项目基础环境搭建</h4> <p>使用Spring Inifializr方式创建名称为springboot02的Spring Boot项目，并导入Web依赖和Thymeleaf依赖。<br /> 让后我们启动该项目访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/"  target="_blank" rel="nofollow">http://localhost:8080/</a> 可以看到下面的界面就表示访问成功，也代表我们项目创建成功。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e7bdcfbf87e7cf940f53ef21760142f3.jpg" alt="SpringBoot实战实现WEB的常用功能"></p> <p>我们在resources下的templates包里创建一个登录界面login.html</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;     &lt;title&gt;login&lt;/title&gt;  &lt;/head&gt; &lt;body&gt; &lt;form&gt;     &lt;input type="text" name="username"&gt;     &lt;input type="password" name="password"&gt;     &lt;input type="submit" value="submit"&gt; &lt;/form&gt; &lt;/body&gt; &lt;/html&gt;</code></pre> <p>最后在com.hjk包下创建controller包并创建LoginController类</p> <pre><code class="language-java">package com.hjk.controller;  import org.springframework.stereotype.Controller; import org.springframework.ui.Model; import org.springframework.web.bind.annotation.GetMapping;  import java.util.Calendar;   @Controller public class LoginController {     /**      * 获取并封装当前年份跳转到登录页login.html      */     @GetMapping("/toLoginPage")     public String toLoginPage(Model model){         model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));         return "login";     } }</code></pre> <h4 id="功能扩展实现">功能扩展实现</h4> <p>接下来使用Spring Boot 整合Spring MVC进行Web开发，实现简单的页面跳转功能，这里我们将使用Spring Boot提供的WebMvcConfigurer接口编写自定义配置，并对Web功能进行适当扩展。我们在这里分别演示视图管理器和拦截器的实现。</p> <h5 id="注册视图管理器">注册视图管理器</h5> <p>在springboot项目的 com.hjk下创建config包并创建一个实现WebMvcConfigurer 接口的配置类 MyMVCconfig，用于对 MVC框架功能进行扩展</p> <pre><code class="language-java">package com.hjk.config;   import org.springframework.context.annotation.Configuration; import org.springframework.web.servlet.config.annotation.InterceptorRegistry; import org.springframework.web.servlet.config.annotation.ViewControllerRegistry; import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;  import javax.annotation.Resource;  @Configuration public class MyMVCconfig implements WebMvcConfigurer {      @Override     public void addViewControllers(ViewControllerRegistry registry){         registry.addViewController("/toLoginPage").setViewName("login");         registry.addViewController("/login.html").setViewName("login");     }  }</code></pre> <ul> <li>MMVCconig实现了接口 WebMvcConigurer 的addViewControllerse(ViewControllerRegistry registry)方法。在addViewControllers()方法内部，使用ViewControllerRegistry的 addviewController()方法分别定义了“tologinPage”和“login.html”的请求控制，并使setViewName("login")方法将路径映射为login.html页面。<br /> 定制完MVC的视图管理功能后，</li> <li>就可以进行效果测试了。为了演示这种定制效果,重启chapter05项目，项目启动成功态，在浏览器上分别访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/toLoginPage"  target="_blank" rel="nofollow">http://localhost:8080/toLoginPage</a>和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/login.htm"  target="_blank" rel="nofollow">http://localhost:8080/login.htm</a> 都可以访问login.html页面</li> <li>使用WebMvcConfigurer接口定义的用户请求控制方法也实现了用户请求控制跳转的效果，相比于传统的请求处理方法而言，这种方法更加简洁、直观和方便。同时也可以看出，使用这种方式无法获取后台处理的数据。需要说明的是，使用WebMvcConfigurer 接口中的addViewControllers(ViewControllelRegistry registry)方法定制视图控制，只适合较为简单的无参数视图Get方式请求，有参数或需要业务处理的跳转需求，最好还是采用传统方式处理请求。</li> </ul> <h5 id="注册自定义拦截器">注册自定义拦截器</h5> <p>WebMvcConfigurer接口提供了许多MVC开发相关方法，添加拦截器方法addInterceptors()，添加格式化的器的方法addFormatters()我们这里实现拦截器的方法。</p> <p>我们在config包下创建一个自定义拦截器类MyInterceptor，代码如下。</p> <pre><code class="language-java">package com.hjk.config;  import org.springframework.stereotype.Component; import org.springframework.web.servlet.HandlerInterceptor; import org.springframework.web.servlet.ModelAndView;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; import java.util.Calendar;  @Component public class MyInterceptor implements HandlerInterceptor {      @Override     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {         String uri = request.getRequestURI();         Object loginUser = request.getSession().getAttribute("loginUser");         if (uri.startsWith("/admin")&amp;&amp; null==loginUser){             try {                 response.sendRedirect("/toLoginPage");             } catch (IOException e) {                 e.printStackTrace();             }             return false;         }         return true;     }      @Override     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {        System.out.println("拦截器拦截");     }      @Override     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {      } }</code></pre> <ul> <li>自定义拦截器类Mylnterceptor实现了HandlerInterceptor接口。在preHandle()方法方法中，如果用户请求以“/admin”开头，即访问如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/admin"  target="_blank" rel="nofollow">http://localhost:8080/admin</a> 的地址则判断用户是否登录，如果没有登录，则重定向到“hoLoginPage”请求对应的登录页面。</li> <li>在postHandle()方法中，在控制台打印拦截器拦截。</li> </ul> <p>然后在config包下自定义配置类MyMVCconfig中，重写addlnterceptors()方法注册自定义的拦截器。添加以下代码。</p> <pre><code class="language-java">@Autowired private MyInterceptor myInterceptor; @Override public void addInterceptors(InterceptorRegistry registry) {     registry.addInterceptor(myInterceptor).addPathPatterns("/**").excludePathPatterns("/login.html"); }</code></pre> <ul> <li>先使用@Autowired注解引入自定义的 Mylnterceptor拦截器组件，然后重写其中的 addinterceptors()方法注册自定义的拦截器。在注册自定义拦截器时，使用addPathPatterns("/**)方法拦截所有路径请求，excludePathPatterns("/login.htm")方法对“login.html”路径的请求进行了放行处理。</li> </ul> <p>测试：我们可以访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/admin"  target="_blank" rel="nofollow">http://localhost:8080/admin</a> 可以发现它重定向大toLoginPage界面了。</p> <h2 id="spring整合servlet三大组件">Spring整合Servlet三大组件</h2> <p>在这里我们使用组件注册方式对Servlet、Filter、Listener三大组件进行整合，我们只需要将自定义的组件通过ServletRegistrationBean、FilterRegistrationBean、ServletListenerRegistrationBean类注册到容器中即可。</p> <h2 id="使用注册方式整合">使用注册方式整合</h2> <h3 id="使用组件注册方式整合servlet">使用组件注册方式整合Servlet</h3> <p>我们在com.hjk包下创建servletComponent的包，在该包下创建MyServlet类并继承HttpServlet类。</p> <pre><code class="language-java">package com.hjk.servletCompont;  import org.springframework.stereotype.Component;  import javax.servlet.ServletException; import javax.servlet.http.HttpServlet; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; @Component public class MyServlet extends HttpServlet {     @Override     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {         super.doGet(req, resp);     }      @Override     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {         resp.getWriter().write("hello MyServlet");     } }</code></pre> <ul> <li>@Component注解将MyServlet类作为组件注入Spring容器。MySeret类继承自HttpServlet，通过HttpServletResponse对象向页面输出“hello MyServlet”。</li> </ul> <p>创建 Servlet组件配置类。在项目com.hjk.confg包下创建一个Servlet组件配置类servietConfig，用来对 Servlet相关组件进行注册，</p> <pre><code class="language-java">package com.hjk.config;  import com.hjk.servletCompont.MyServlet; import org.springframework.boot.web.servlet.ServletRegistrationBean; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration;  @Configuration public class ServletConfig {     @Bean     public ServletRegistrationBean getServlet(MyServlet myServlet){         ServletRegistrationBean registrationBean = new ServletRegistrationBean(myServlet, "/myServlet");         return registrationBean;     }  }</code></pre> <ul> <li>使用@Configuration 注解将ServletConfig标注为配置类，ServletConfig类内部的 getServlet()方法用于注册自定义的MyServlet，并返回 ServletRegistrationBean类型的Bean对象。</li> </ul> <p>测试：项目启动成功后，在浏览器上访问“<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/myServlet"  target="_blank" rel="nofollow">http://localhost:8080/myServlet</a>"myServlet并正常显示数据，说明 Spring Boot成功整合Servlet组件。</p> <h3 id="使用组件注册方式整合filter">使用组件注册方式整合Filter</h3> <p>在servletCompont包下创建一个MyFilter类并实现Filter接口，这个Filter的包别导错了</p> <pre><code class="language-java">package com.hjk.servletCompont;   import org.springframework.stereotype.Component;  import javax.servlet.*; import java.io.IOException; @Component public class MyFilter implements Filter {      @Override     public void init(FilterConfig filterConfig) throws ServletException {      }      @Override     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {         System.out.println("hello MyFilter");     }      @Override     public void destroy() {      } }</code></pre> <p>在config包下的ServletConfig类中进行注册，即在该类中添加方法。</p> <pre><code class="language-java">@Bean public FilterRegistrationBean getFilter(MyFilter myFilter){     FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(myFilter);     filterRegistrationBean.setUrlPatterns(Arrays.asList("/toLogin","/myFilter"));     return filterRegistrationBean; }</code></pre> <ul> <li>使用 setUrilPatterns(Arrays.asList("/toLoginPage",/myFilter')方法定义了过滤的请求路径<br /> “/toLoginPage”和“/myFilter”，同时使用@Bean 注解将当前组装好的FilterRegistrationBea对象作为Bean组件返回。</li> </ul> <p>测试：在浏览器上访问“<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/myFilter%E2%80%9D%E6%9F%A5%E7%9C%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%89%93%E5%8D%B0%E6%95%88%E6%9E%9C"  target="_blank" rel="nofollow">http://localhost:8080/myFilter”查看控制台打印效果</a>(由于没有编写对应路径的请求处理方法，所以浏览器会出现404 错误页面，这里重点关注控制台即可)，浏览器访问“<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/"  target="_blank" rel="nofollow">http://localhost:8080/</a><br /> myFilter”时，控制台打印出了自定义 Filter中定义 图5-6 使用组件注册方式整合Filter的运行结果的输出语句“hello MyFilter”，这也就说明Spring Boot 整合自定义Filter 组件成功。</p> <h3 id="使用组件注册方式整合-listener">使用组件注册方式整合 Listener</h3> <p>(1)创建自定义Listener类。在com.itheima.senleiComponent包下创建一个类MyListener实现ServletContextListener接口</p> <pre><code class="language-java">package com.hjk.servletCompont;  import org.springframework.stereotype.Component;  import javax.servlet.ServletContextEvent; import javax.servlet.ServletContextListener;  @Component public class MyListener implements ServletContextListener {     @Override     public void contextInitialized(ServletContextEvent sce) {         System.out.println("contextnitialized...");     }      @Override     public void contextDestroyed(ServletContextEvent sce) {         System.out.println("contextDestroyed...");      } }</code></pre> <p>在servletConfig添加注册</p> <pre><code class="language-java">@Bean public ServletListenerRegistrationBean getServletListener(MyListener myListener){     ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean(myListener);     return servletListenerRegistrationBean; }</code></pre> <p>需要说明的是，Servlet 容器提供了很多 Listener 接口，例如 ServletRequestListener、ritpSessionListener、ServletContextListener等，我们在自定义Listener类时要根据自身需求选择实现对应接口即可。</p> <p>测试：程序启动成功后，控制台会打印出自定义Listener组件中定义的输出语句“contextlnitialized..”。单击图中的【Exit】按钮关闭当前项目(注意，如果直接单击红色按钮会强制关闭程序，浏览器就无法打印关闭监听信息)，再次查看控制台打印效果。<br /> 程序成功关闭后，控制台打印出了自定义Listener组件中定义的输出语句“contextDestroyed..”。通过效果演示，说明了Spring Boot整合自定义Listener组件成功。</p> <h2 id="文件上传与下载">文件上传与下载</h2> <p>开发web应用时，文件上传是很常见的一个需求，浏览器通过表单形式将文件以流的形式传递给服务器，服务器在对上传的数据解析处理。</p> <h3 id="文件上传">文件上传</h3> <h4 id="编写上传表单界面">编写上传表单界面</h4> <p>这个表单界面名为upload.html,在templates文件夹下</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;title&gt;文件上传&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div style="text-align: center"&gt;     &lt;form action="/uploadFile" method="post" enctype="multipart/form-data"&gt;         上传：&lt;input type="file" name="filename"/&gt;         &lt;input type="submit" value="submit"/&gt;     &lt;/form&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;</code></pre> <p>我们通过表单<from>上传文件，表单提交给uploadFile控制器，提交方式为post必须为这种方式，因为get上传比较少，必须包含enctype="multipart/form-data".</from></p> <p>我们通过提交的地址也应该清楚，我们肯定会写一个uploadFile的控制器。</p> <h5 id="添加文件上传的相关配置">添加文件上传的相关配置</h5> <p>我们在application.properties文件中添加配置，上传文件的大小限制。</p> <pre><code class="language-xml">## 文件最大限制为10mb，默认为1mb spring.servlet.multipart.max-file-size=1MB</code></pre> <ul> <li>如果文件超过限制大小，会报错。</li> </ul> <h4 id="编写控制器">编写控制器</h4> <p>我们在com.hjk.controller包下船舰一个名为FileController的类，用于实现文件上传的控制器。</p> <p>我们这个文件上传只是实现一个简单的文件上传，并没有考虑上传文件重名的情况，实际上重名的话会覆盖之前的文件。要实现文件上传，我们肯定要给它一个唯一名称这个可以使用uuid实现，这里也没考虑文件存放位置问题，都是我自己把地址写死了，这里我们就不实现了。</p> <p><mark>实现历程</mark>：写这个控制器的时候，我的代码是正确的，前端文件也能提交，但是后端获取的文件就是null，我也看了很多博客，有的说是没有注册multipartResolver这个Bean，有的说是版本问题等等，但是都没有解决。最后一个不经意的小细节导致了我这次的代码不能获取到文件。那就是我们有在<code>(@RequestParam("filename") MultipartFile file)</code>前面加@RequestParam这个注解。反正我的这个是加上之后就能用了，我的这个springboot版本是2.6.6.至于真正原因现在不想思考了，等以后遇到再改吧。</p> <ul> <li> <p>@RequestPara("filename")必须获取参数名为filename的file参数</p> </li> <li> <p>@RequestParam()默认为必传属性，可以通过@RequestParam(required = false)设置为非必传。因为required值默认是true，所以默认必传</p> </li> <li> <p>@RequestParam("filename")或者@RequestParam(value = "filename")指定参数名</p> </li> <li> <p>@RequestParam(defaultValue = "0")指定参数默认值</p> </li> </ul> <pre><code class="language-java">package com.hjk.controller;  import org.springframework.stereotype.Controller; import org.springframework.web.bind.annotation.*; import org.springframework.web.multipart.MultipartFile;  import java.io.File; import java.io.IOException;  @Controller public class FileController {     @GetMapping("/toUpload")     public String toUpload(){         return "upload";     }       @RequestMapping(value = "/uploadFile",method = RequestMethod.POST)     public String uploadFile(@RequestParam("filename") MultipartFile file){         String filename = file.getOriginalFilename();         String dirPath = "D:/file/";         File filePath = new File(dirPath);          if (!filePath.exists()){             filePath.mkdir();         }         try {             file.transferTo(new File(dirPath+filename));         } catch (IOException e) {             e.printStackTrace();         }          return "upload";     }  }</code></pre> <p>在这里我们提交三张图片用于下面的文件下载<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ab266c076d233c592092631f40b082ac.jpg" alt="SpringBoot实战实现WEB的常用功能"></p> <h3 id="文件下载">文件下载</h3> <p>文件下载很多框架都没有进行封装处理，不同的浏览器解析处理不同，有可能出现乱码情况。</p> <p>在添加完依赖之后我们创建一个名为filedownload.html的html，一会用于编写下载界面。</p> <h4 id="添加依赖">添加依赖</h4> <pre><code class="language-xml">&lt;dependency&gt;     &lt;groupId&gt;commons-io&lt;/groupId&gt;     &lt;artifactId&gt;commons-io&lt;/artifactId&gt;     &lt;version&gt;2.6&lt;/version&gt; &lt;/dependency&gt;</code></pre> <h4 id="下载处理控制器">下载处理控制器</h4> <p>我们还是再FileController类里添加下载处理方法。直接在里面添加就行。</p> <pre><code class="language-java">@GetMapping("/toDownload") public String toDownload(){     return "filedownload"; }   @GetMapping("/download") public ResponseEntity&lt;byte[]&gt; fileDownload(String filename){     //指定下载地址文件路径     String dirPath = "D:/file/";     //创建文件下载对象     File file = new File(dirPath + File.separator + filename);     //设置响应头     HttpHeaders httpHeaders = new HttpHeaders();     //通知浏览器以下载方式打开     httpHeaders.setContentDispositionFormData("attachment",filename);     //定义以流的形式下载返回文件     httpHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);      try {         return new ResponseEntity&lt;&gt;(FileUtils.readFileToByteArray(file),httpHeaders, HttpStatus.OK);     } catch (IOException e) {         e.printStackTrace();         return new ResponseEntity&lt;byte[]&gt;(e.getMessage().getBytes(), HttpStatus.EXPECTATION_FAILED);     }  }</code></pre> <h4 id="编写前端代码">编写前端代码</h4> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en" xmlns:th="http://www.thymeleaf.org"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;title&gt;文件下载&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div style="margin-bottom: 10px"&gt;文件下载列表&lt;/div&gt; &lt;table&gt;     &lt;tr&gt;         &lt;td&gt;0000001.jpg&lt;/td&gt;         &lt;td&gt;&lt;a th:href="@{/download(filename='0000001.jpg')}"&gt;下载文件&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;     &lt;tr&gt;         &lt;td&gt;0000002.jpg&lt;/td&gt;         &lt;td&gt;&lt;a th:href="@{/download(filename='0000002.jpg')}"&gt;下载文件&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt;     &lt;tr&gt;         &lt;td&gt;0000003.jpg&lt;/td&gt;         &lt;td&gt;&lt;a th:href="@{/download(filename='0000003.jpg')}"&gt;下载文件&lt;/a&gt; &lt;/td&gt;     &lt;/tr&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt;</code></pre> <p>我们这次使用了thymeleaf写前端代码。</p> <hr/> <p>实际上我们可能会遇到下载中文文件的问题，那样可能会乱码。</p> <p>我么在这里写一个解决中文乱码的例子。例如：我把0000001.jpg改为"你好jpg"再重新部署下载，会发现名字为_.jpg</p> <p>下面我们直接在我们在fileController类的里面加一个getFileName方法，并修改fileDownload方法上做修改。</p> <pre><code class="language-java">public String getFileName(HttpServletRequest request,String filename) throws Exception {     String[] IEBrowserKeyWords = {"MSIE","Trident","Edge"};     String userAgent = request.getHeader("User-Agent");     for (String ieBrowserKeyWord : IEBrowserKeyWords) {         if (userAgent.contains(ieBrowserKeyWord)){             return URLEncoder.encode(filename,"UTF-8").replace("+"," ");         }     }     return new String(filename.getBytes(StandardCharsets.UTF_8),"ISO-8859-1"); }       @GetMapping("/download")     public ResponseEntity&lt;byte[]&gt; fileDownload(HttpServletRequest request,String filename) throws Exception {         //指定下载地址文件路径         String dirPath = "D:/file/";         //创建文件下载对象         File file = new File(dirPath + File.separator + filename);         //设置响应头         HttpHeaders httpHeaders = new HttpHeaders();         //通知浏览器下载七千及性能转码         filename = getFileName(request,filename);         //通知浏览器以下载方式打开         httpHeaders.setContentDispositionFormData("attachment",filename);         //定义以流的形式下载返回文件         httpHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);          try {             return new ResponseEntity&lt;&gt;(FileUtils.readFileToByteArray(file),httpHeaders, HttpStatus.OK);         } catch (IOException e) {             e.printStackTrace();             return new ResponseEntity&lt;byte[]&gt;(e.getMessage().getBytes(), HttpStatus.EXPECTATION_FAILED);         }      }</code></pre> <h2 id="springboot的打包部署">SpringBoot的打包部署</h2> <p>springboot使用的嵌入式Servlet容器，所以默认是以jar包打包的。也可以进行war包打包，但是需要进行一些配置。</p> <h3 id="jar包形式打包">jar包形式打包</h3> <p>我们在创建springboot项目是默认会给我们导入maven的打包插件，如果没有我们手动加上即可。</p> <pre><code class="language-xml">&lt;build&gt;     &lt;plugins&gt;         &lt;plugin&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;         &lt;/plugin&gt;     &lt;/plugins&gt; &lt;/build&gt;</code></pre> <p>双击package等待即可</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ef6133e765345aba37a93a4298177dc1.jpg" alt="SpringBoot实战实现WEB的常用功能"></p> <p>等待完成，可以看到打包时间，存放jar包位置等信息。我们也可以在target包下查看打成的jar包。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/80efc8e5cf533d3243130ab7f0294f6b.jpg" alt="SpringBoot实战实现WEB的常用功能"></p> <h4 id="启动jar包">启动jar包</h4> <p>我们可以在关闭已启动的springboot项目后，在idea控制台输入命令启动。</p> <pre><code>java -jar target\springboot02-0.0.1-SNAPSHOT.jar</code></pre> <p>我们也可以在系统自带的终端窗口启动</p> <h3 id="war包形式打包">war包形式打包</h3> <p>我们首先要把默认打包方式修改为war包</p> <pre><code class="language-xml">&lt;name&gt;springboot02&lt;/name&gt; &lt;description&gt;Demo project for Spring Boot&lt;/description&gt; &lt;packaging&gt;war&lt;/packaging&gt; &lt;properties&gt;     &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;/properties&gt;</code></pre> <p>导入外部Tomcat服务器</p> <pre><code class="language-xml">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;     &lt;scope&gt;provided&lt;/scope&gt; &lt;/dependency&gt;</code></pre> <p>打开启动类，继承springbootServletInitializer类</p> <pre><code class="language-java">package com.hjk;  import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; import org.springframework.boot.builder.SpringApplicationBuilder; import org.springframework.boot.web.servlet.ServletComponentScan; import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;  @ServletComponentScan @SpringBootApplication public class Springboot02Application extends SpringBootServletInitializer {      public static void main(String[] args) {         SpringApplication.run(Springboot02Application.class, args);     }       @Override     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {         return builder.sources(Springboot02Application.class);     } }</code></pre> <p>然后就和jar包方式一样了，双击package，等待打包完成。</p> <h4 id="war包的部署">war包的部署</h4> <p>war包的部署相比于jar包比较麻烦，我们需要外部的服务器，我们需要把war包复制到tomcat安装目录下的webapps目录中，执行目录里的startup.bat命令启动war包，这样我们就完成了。</p> <h2 id="总结">总结</h2> <p>我们对MVC进行了功能扩展和定制、servlet三大组件定制、文件上传和下载、以及两种方式打包部署。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33398.htm">运动内衣哪种款式好(运动型内衣哪个牌子好一点)</a></p>
+                                        <p>下一个：<a href="/news/article-33902.htm">动物疫苗接种途径有哪些方法 动物疫苗接种途径有哪些方法呢</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-clash-verge-rev-node.htm" title="「10月5日」最高速度19.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月5日」最高速度19.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-26333.htm" title="宠物领养系统论文中期检查表格（宠物领养系统论文中期检查表格怎么写）">宠物领养系统论文中期检查表格（宠物领养系统论文中期检查表格怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-clash-verge-rev-node.htm" title="「11月4日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月4日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-today-clash-verge-rev-node.htm" title="「11月16日」最高速度21.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月16日」最高速度21.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-25428.htm" title="宠物领养平台app推荐哪个最好 宠物领养平台app推荐哪个最好用">宠物领养平台app推荐哪个最好 宠物领养平台app推荐哪个最好用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-clash-verge-rev-node.htm" title="「12月12日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月12日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="「11月13日」最高速度20.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月13日」最高速度20.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-18992.htm" title="动物疫苗生产厂家排名前十名有几家企业 动物疫苗生产厂家排名前十名有几家企业">动物疫苗生产厂家排名前十名有几家企业 动物疫苗生产厂家排名前十名有几家企业</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-clash-verge-rev-windows.htm" title="「9月4日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月4日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-clash-verge-rev-node-github.htm" title="「11月25日」最高速度22.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月25日」最高速度22.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
