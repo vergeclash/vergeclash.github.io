@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-34855.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>信号量Semaphore的使用</title>
+        <meta name="description" content="信号量为多线程协作提供了更为强大的控制方法。广义上说，信号量是对锁的扩展。无论是内部锁synchronized还是重入锁ReentrantLock，一次都只允许一个线程访问一个资源，而信号量指定多个线" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">信号量Semaphore的使用</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="content-detail markdown-body"> </h1> <p>信号量为多线程协作提供了更为强大的控制方法。广义上说，信号量是对锁的扩展。无论是内部锁synchronized还是重入锁ReentrantLock，一次都只允许一个线程访问一个资源，而信号量指定多个线程访问同一个资源。<br />信号主要提供以下的构造函数。</p> <pre><code>public Semaphore(int permits);//permits 指定信号量的准入数 public Semaphore(int permits,boolean fair);//第二个参数指定是否公平</code></pre> <p>在构造信号量时，必须指定信号量的准入数，即同时能申请多少许可，若一个线程每次只申请一个许可，这就相当于指定了同时允许多少个线程能访问同一资源。<br />信号量的主要逻辑方法包括以下几种：</p> <pre><code>public void acquire(); public void acquireUninterruptibly(); public boolean tryAcquire(); public boolean tryAcquire(long timeout,TimeUnit unit); public void release();</code></pre> <p>acquire()方法尝试获得一个准入的许可。若无法获得，线程会等待，直到有线程释放一个许可或者线程被中断。acquireUninterruptibly()方法和acquire()方法类似，但是不能相应中断。tryacquire()尝试获得一个许可，成功返回true失败返回false，他不会进行等待，立即返回。release()用于在线程访问资源结束后，释放一个许可，使其他线程可以进行资源访问。<br />下面我们使用一个例子来演示信号量的使用：</p> <pre><code>import java.util.concurrent.ExecutorService; import java.util.concurrent.Executors; import java.util.concurrent.Semaphore;  public class SemapDemo implements Runnable {      final Semaphore semp=new Semaphore(5);      @Override     public void run() {         // TODO Auto-generated method stub         try {             semp.acquire();             Thread.sleep(2000);             System.out.println(Thread.currentThread().getId()+":done!");             semp.release();         }catch(InterruptedException e) {             e.printStackTrace();         }     }      public static void main(String[] args) {         // TODO Auto-generated method stub         ExecutorService exec=Executors.newFixedThreadPool(20);         final SemapDemo demo=new SemapDemo();         for(int i=0;i&lt;20;i++) {             exec.submit(demo);         }     }  }</code></pre> <p>可以看到程序会限制执行这段代码的线程数，观察结果可以看到每次5个线程一组，因为我们设置了允许5个许可的信号量。</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34379.htm">南京免费领养宠物的平台是哪个（南京最大的宠物店免费领养）</a></p>
+                                        <p>下一个：<a href="/news/article-34856.htm">宠物粮食产地 宠物粮食产地排名</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21282.htm" title="小型狗粮加工厂的流程图（办一个小型狗粮加工厂）">小型狗粮加工厂的流程图（办一个小型狗粮加工厂）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-latest-clash-verge-rev-node.htm" title="「9月28日」最高速度19.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月28日」最高速度19.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-node-share.htm" title="「11月27日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月27日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-subscribe-node.htm" title="「11月3日」最高速度22.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月3日」最高速度22.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-high-speed-nodes.htm" title="「1月2日」最高速度19.9M/S，2025年Clash Verge每天更新免费机场订阅链接地址">「1月2日」最高速度19.9M/S，2025年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-free-high-speed-nodes.htm" title="「9月11日」最高速度21.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月11日」最高速度21.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22655.htm" title="动物疫苗使用前的注意事项 动物疫苗使用前的注意事项有哪些">动物疫苗使用前的注意事项 动物疫苗使用前的注意事项有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-24033.htm" title="养猫需要打的疫苗（养猫咪需要打什么疫苗）">养猫需要打的疫苗（养猫咪需要打什么疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-21697.htm" title="通州区美联众合动物医院（美联众合动物医院京西分院）">通州区美联众合动物医院（美联众合动物医院京西分院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-node-share.htm" title="「10月1日」最高速度18.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月1日」最高速度18.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
