@@ -2,13 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://vergeclash.github.io" />
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-35096.htm" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>2024-12归档 - 第9页 - Verge Clash节点订阅官网</title>
-        <meta name="keywords" content="2024-12归档Verge Clash节点订阅官网" />
-        <meta name="description" content="2024-12归档，当前是第9页" />
+    <title>Pycharm中pyenv和virtualenv使用详解</title>
+        <meta name="description" content="Pycharm中pyenv和pyvenv使用详解  背景 python多版本控制工具的差异   1、概念理解 2、对应模块的部署以及使用(这里只介绍 virtualenv和pyenv的使用)   2." />
         <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <!-- fontawesome css link -->
@@ -40,7 +39,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
         <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
@@ -81,12 +80,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                     <div class="inner-banner-content">
-                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">2024-12 归档</h1>
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Pycharm中pyenv和virtualenv使用详解</h1>
                         <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">首页</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">2024-12 归档</li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
                                 </ol>
                             </nav>
                         </div>
@@ -103,61 +103,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="xcblog-blog-list">
-                                                <div class="about-area item xcblog-blog-item" data-date="2024-12-01">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="about-thumb">
-                                        <a href="/news/article-19905.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240822/4f7f22e33bffa56de3b05cf73f556ce3.webp" alt="动物疫苗防疫站上班时间安排最新（动物疫苗防疫站上班时间安排最新规定）">
-                                        </a>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>Pycharm中pyenv和pyvenv使用详解</h3> <ul> <li><a href="#_2" rel="nofollow">背景</a></li> <li><a href="#python_6" rel="nofollow">python多版本控制工具的差异</a></li> <li> <ul> <li><a href="#1_11" rel="nofollow">1、概念理解</a></li> <li><a href="#2_virtualenvpyenv_21" rel="nofollow">2、对应模块的部署以及使用(这里只介绍 virtualenv和pyenv的使用)</a></li> <li> <ul> <li><a href="#21_virtualenv_23" rel="nofollow">2.1 virtualenv的安装和使用</a></li> <li><a href="#22_pyenvpyenvvirtualenv_51" rel="nofollow">2.2 pyenv和pyenv-virtualenv的使用(这里实在懒得写了,就用我日常的指令代替,大家自行理会)</a></li> </ul> </li> </ul> </li> </ul> </div> </h1> <p>由于有一次ELK的升级文档写了半天,却忘记保存,以为自动保存的,结果发现没有了,打击了积极心,很久不曾更新这个博客,但是最近开发一个项目,需要python的多环境,使用的技术pyenv和pyvenv,最初几个概念老是搞混,耽误了很多时间,网上各种博客也没有解释清楚(当然也有可能是自己理解有误),这里就把我的一些理解说出来,供大家参考下:</p> </h1> <p>这里介绍几个工具:pyenv、pyvenv、 venv、virtualenv、pyenv-virtualenv</p> <h2><a id="1_11" rel="nofollow"></a>1、概念理解</h2> <p><strong>virtualenv</strong>: 是针对python的包的多版本管理，通过将python包安装到一个模块来作为python的包虚拟环境，通过切换目录来实现不同包环境间的切换。其实不是非常爱捣腾的话,此工具就已经可以应付同python版本多环境问题了,安装使用也非常简单<br /><strong>virtualenvwrapper</strong>: 是一组对virtualenv的扩展（请参阅docs ）。 它给你的命令像mkvirtualenv ， lssitepackages ，特别是在不同的virtualenv目录之间切换的工作。 如果您想要多个virtualenv目录，此工具特别有用,由于我使用的pycharm来开发的,每个项目里面一个,所以这个对我来说没啥用</p> <p><strong>pyenv</strong>: 用于隔离Python版本,这样可以来系统中随意使用python版本,而不至于影响到线上环境<br /><strong>pyenv-virtualenv</strong>: pyenv-virtualenv是与pyenv相同的作者pyenv的插件，可以方便地同时使用pyenv和virtualenv,如果是用vim进行开发的话,那么这个非常的方便,但是由于我使用的是pycharm开发,所以这里我并没有使用.</p> <p><strong>pyvenv</strong>:是Python 3附带的脚本但是 在Python 3.6中弃用 因为它有问题（更不用说令人困惑的名字）。在Python 3.6+中，确切的等价物是 python3 -m venv<br /><strong>venv</strong>: 是Python 3附带的一个包，您可以使用它运行 python3 -m venv （虽然由于某种原因，一些发行版将它分成一个单独的发行版包，例如 python3-venv 在Ubuntu / Debian上）。它的用途与此类似 virtualenv，并以非常类似的方式工作，但它不需要复制Python二进制文件（除了在Windows上）。如果你不需要支持Python 2可以尝试.实际上我部分业务的部署是使用的这个模块</p> <h2><a id="2_virtualenvpyenv_21" rel="nofollow"></a>2、对应模块的部署以及使用(这里只介绍 virtualenv和pyenv的使用)</h2> <h3><a id="21_virtualenv_23" rel="nofollow"></a>2.1 virtualenv的安装和使用</h3> <ul> <li>安装 virtualenv:</li> </ul> <pre><code>pip install virtualenv</code></pre> <ul> <li>使用方法:</li> </ul> <pre><code>#创建 cd project_dir virtualenv venv virtualenv -p /usr/local/bin/python3 venv # 指定python版本  #激活虚拟环境(autoenv感兴趣的人可以试试,自动激活) cd venv source ./bin/activate  #退出虚拟环境 deactivate</code></pre> <ul> <li> <p>pycharm中的使用 (自带了这个模块,只用配置即可)<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/dac36ebd255bbdfcfeaa20b8e48e2447.jpg" alt="Pycharm中pyenv和virtualenv使用详解"></p> <p>我这里用pyenv管理python模块,所以解释器的路径如上图所示,大家可以根据自己的需要在Base interpreter:那栏里填上自己想要的python版本(相当于指令指定python版本),可以放心使用,不会影响到本身的python</p> </li> </ul> <h3><a id="22_pyenvpyenvvirtualenv_51" rel="nofollow"></a>2.2 pyenv和pyenv-virtualenv的使用(这里实在懒得写了,就用我日常的指令代替,大家自行理会)</h3> <pre><code>brew install pyenv brew intall pyenv-virtualenv echo -ne “ export PYENV_ROOT=/usr/local/var/pyenv if which pyenv &gt; /dev/null; then eval "$(pyenv init -)"; fi if which pyenv-virtualenv-init &gt; /dev/null; then eval "$(pyenv virtualenv-init -)"; fi “ &gt;&gt; ~/.zshrc brew link zlib --force #install CFLAGS="-I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include" \ LDFLAGS="-L$(brew --prefix openssl)/lib" \ pyenv install -v 3.6.3 pyenv rehash # 卸载 $ pyenv uninstall 2.7.3 #常见错误 1、如果提示没有pip这个指令 pyenv shell 2.7.5 curl https://bootstrap.pypa.io/get-pip.py | python #pyenv常用指令 pyenv virtualenv 2.7.5 env275 pyenv virtualenv-delete env275 $ pyenv shell pypy-2.2.1 $ pyenv shell —unset $ pyenv activate env271 # 退回到系统环境 $ pyenv deactivate</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/0a0e2826d795784b3d955f130a0e6287.jpg" alt="Pycharm中pyenv和virtualenv使用详解"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35095.htm">深度学习网络篇——DenseNet</a></p>
                                     </div>
                                 </div>
-                                <div class="col-md-9">
-                                    <a href="/news/article-19905.htm" class="xcblog-blog-url">
-                                        <h3 class="title xcblog-blog-title">动物疫苗防疫站上班时间安排最新（动物疫苗防疫站上班时间安排最新规定）</h3>
-                                    </a>
-                                    <p>摘要：       本篇文章给大家谈谈动物疫苗防疫站上班时间安排最新，以及动物疫苗防疫站上班时间安排最新规定对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、关于狗狗疫苗,上..</p>
-                                </div>
-                            </div>
-                        </div>
-                                                <div class="about-area item xcblog-blog-item" data-date="2024-12-01">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="about-thumb">
-                                        <a href="/news/article-19904.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240822/47cb145c759aa097dadff71eb8ff93c7.webp" alt="宠物猫批发市场在哪里进货（宠物猫进货渠道）">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <a href="/news/article-19904.htm" class="xcblog-blog-url">
-                                        <h3 class="title xcblog-blog-title">宠物猫批发市场在哪里进货（宠物猫进货渠道）</h3>
-                                    </a>
-                                    <p>摘要：       今天给各位分享宠物猫批发市场在哪里进货的知识，其中也会对宠物猫进货渠道进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、北京哪里有猫狗市场..</p>
-                                </div>
-                            </div>
-                        </div>
-                                                <div class="about-area item xcblog-blog-item" data-date="2024-12-01">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="about-thumb">
-                                        <a href="/free-nodes/2024-12-1-node-share.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240822/278dc6e47bd71c655bf8e393a2bd025b.webp" alt="「12月1日」最高速度22M/S，2024年Clash Verge每天更新免费机场订阅节点链接">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <a href="/free-nodes/2024-12-1-node-share.htm" class="xcblog-blog-url">
-                                        <h3 class="title xcblog-blog-title">「12月1日」最高速度22M/S，2024年Clash Verge每天更新免费机场订阅节点链接</h3>
-                                    </a>
-                                    <p>这一次的节点更新覆盖了香港、新加坡、加拿大、日本、欧洲、美国、韩国等地区,最高速度可达22 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/date/2024-12/page-9.htm">&laquo;</a></li> <li><a href="/date/2024-12/">1</a></li><li><a href="/date/2024-12/page-2.htm">2</a></li><li><a href="/date/2024-12/page-3.htm">3</a></li><li><a href="/date/2024-12/page-4.htm">4</a></li><li><a href="/date/2024-12/page-5.htm">5</a></li><li><a href="/date/2024-12/page-6.htm">6</a></li><li><a href="/date/2024-12/page-7.htm">7</a></li><li><a href="/date/2024-12/page-8.htm">8</a></li><li><a href="/date/2024-12/page-9.htm">9</a></li><li class="active"><span>10</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
-                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -165,16 +116,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-node-share-links.htm" title="「9月9日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月9日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-clash-verge-rev-node.htm" title="「12月2日」最高速度19.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月2日」最高速度19.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-10-clash-verge-rev-node-share.htm" title="「12月10日」最高速度22.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月10日」最高速度22.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-28213.htm" title="GoLang搭建gin项目">GoLang搭建gin项目</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-17-clash-verge-rev-github.htm" title="「9月17日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月17日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-subscribe-node.htm" title="「9月6日」最高速度20.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月6日」最高速度20.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-node-share.htm" title="「12月29日」最高速度22.6M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月29日」最高速度22.6M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22655.htm" title="动物疫苗使用前的注意事项 动物疫苗使用前的注意事项有哪些">动物疫苗使用前的注意事项 动物疫苗使用前的注意事项有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-clash-verge-rev-github.htm" title="「12月13日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月13日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21281.htm" title="系统设计的11个考虑编程一生">系统设计的11个考虑编程一生</a></li>
+                        <li class="py-2"><a href="/news/article-28214.htm" title="宠物医院美团好评回复优美语句 宠物医院美团好评回复优美语句怎么写">宠物医院美团好评回复优美语句 宠物医院美团好评回复优美语句怎么写</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-23-free-high-speed-nodes.htm" title="「11月23日」最高速度21.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月23日」最高速度21.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share.htm" title="「11月21日」最高速度18M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月21日」最高速度18M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-24965.htm" title="vue 图片资源应该如何存放并引入（public、assets）？">vue 图片资源应该如何存放并引入（public、assets）？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-26-latest-clash-verge-rev-node.htm" title="「8月26日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「8月26日」最高速度21.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-clash-verge-rev-node.htm" title="「12月22日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月22日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30034.htm" title="基于全志A40i开发板Linux-RT内核应用开发教程">基于全志A40i开发板Linux-RT内核应用开发教程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-clash-verge-rev-node-github.htm" title="「11月25日」最高速度22.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月25日」最高速度22.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-high-speed-nodes.htm" title="「11月18日」最高速度19.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月18日」最高速度19.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
