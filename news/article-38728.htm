@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-38728.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KestrelServer详解自定义一个迷你版的KestrelServer</title>
+        <meta name="description" content="和所有的服务器一样，KestrelServer最终需要解决的是网络传输的问题。在《网络连接的创建》，我们介绍了KestrelServer如何利用连接接听器的建立网络连接，并再次基础上演示了如何直接利用" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">KestrelServer详解自定义一个迷你版的KestrelServer</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>和所有的服务器一样，KestrelServer最终需要解决的是网络传输的问题。在《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/artech/p/inside-asp-net-core-6-30.html"  rel="nofollow">网络连接的创建</a>》，我们介绍了KestrelServer如何利用连接接听器的建立网络连接，并再次基础上演示了如何直接利用建立的连接接收请求和回复响应。本篇更进一步，我们根据其总体设计，定义了<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/jiangjinnan/InsideAspNet6/tree/main/18/S1804"  rel="nofollow">迷你版的KestrelServer</a>让读者看看这个重要的服务器大体是如何实现的。本文提供的示例演示已经同步到《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/artech/p/inside-asp-net-core-6.html"  rel="nofollow">ASP.NET Core 6框架揭秘-实例演示版</a>》）</p> <blockquote> <p>一、ConnectionDelegate<br /> 二、IConnectionBuilder<br /> 三、HTTP 1.x/HTTP 2.x V.S. HTTP 3<br /> 四、MiniKestrelServer</p> </blockquote> </h1> <p>ASP.NET CORE在“应用”层将针对请求的处理抽象成由中间件构建的管道，实际上KestrelServer面向“传输”层的连接也采用了这样的设计。当代表连接的ConnectionContext上下文创建出来之后，后续的处理将交给由连接中间件构建的管道进行处理。我们可以根据需要注册任意的中间件来处理连接，比如可以将并发连结的控制实现在专门的连接中间件中。ASP.NET CORE管道利用RequestDelegate委托来表示请求处理器，连接管道同样定义了如下这个ConnectionDelegate委托。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">delegate</span> Task ConnectionDelegate(ConnectionContext connection);</pre> </div> </h1> <p>ASP.NET CORE管道中的中间件体现为一个Func&lt;RequestDelegate, RequestDelegate&gt;委托，连接管道的中间件同样可以利用Func&lt;ConnectionDelegate, ConnectionDelegate&gt;委托来表示。ASP.NET CORE管道中的中间件注册到IApplicationBuilder对象上并利用它将管道构建出来。连接管道依然具有如下这个IConnectionBuilder接口，ConnectionBuilder实现了该接口。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">interface</span> IConnectionBuilder {     IServiceProvider ApplicationServices {<span style="color: rgba(0, 0, 255, 1)">get</span>; }     IConnectionBuilder Use(Func&lt;ConnectionDelegate, ConnectionDelegate&gt; middleware);     ConnectionDelegate Build(); }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> ConnectionBuilder : IConnectionBuilder {<span style="color: rgba(0, 0, 255, 1)">public</span> IServiceProvider ApplicationServices {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> ConnectionDelegate Build();<span style="color: rgba(0, 0, 255, 1)">public</span> IConnectionBuilder Use(Func&lt;ConnectionDelegate, ConnectionDelegate&gt; middleware); }</pre> </div> <p>IConnectionBuilder接口还定义了如下三个扩展方法来注册连接中间件。第一个Use方法使用Func&lt;ConnectionContext, Func&lt;Task&gt;, Task&gt;委托来表示中间件。其余两个方法用来注册管道末端的中间件，这样的中间件本质上就是一个ConnectionDelegate委托，我们可以将其定义成一个派生于ConnectionHandler的类型。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">class</span> ConnectionBuilderExtensions {<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> IConnectionBuilder Use(<span style="color: rgba(0, 0, 255, 1)">this</span> IConnectionBuilder connectionBuilder,Func&lt;ConnectionContext, Func&lt;Task&gt;, Task&gt; middleware);<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> IConnectionBuilder Run(<span style="color: rgba(0, 0, 255, 1)">this</span> IConnectionBuilder connectionBuilder,Func&lt;ConnectionContext, Task&gt; middleware);<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> IConnectionBuilder UseConnectionHandler&lt;TConnectionHandler&gt;(<span style="color: rgba(0, 0, 255, 1)">this</span> IConnectionBuilder connectionBuilder) where TConnectionHandler : ConnectionHandler; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">abstract</span><span style="color: rgba(0, 0, 255, 1)">class</span> ConnectionHandler {<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">abstract</span> Task OnConnectedAsync(ConnectionContext connection); }</pre> </div> </h1> <p>KestrelServer针对HTTP 1.X/2和HTTP 3的设计和实现基本上独立的，这一点从监听器的定义就可以看出来。就连接管道来说，基于HTTP 3的多路复用连接通过MultiplexedConnectionContext表示，它也具有“配套”的MultiplexedConnectionDelegate委托和IMultiplexedConnectionBuilder接口。ListenOptions类型同时实现了IConnectionBuilder和IMultiplexedConnectionBuilder接口，意味着我们在注册终结点的时候还可以注册任意中间件。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">delegate</span> Task MultiplexedConnectionDelegate(MultiplexedConnectionContext connection);<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">interface</span> IMultiplexedConnectionBuilder {     IServiceProvider ApplicationServices {<span style="color: rgba(0, 0, 255, 1)">get</span>; }     IMultiplexedConnectionBuilder Use(Func&lt;MultiplexedConnectionDelegate, MultiplexedConnectionDelegate&gt; middleware);     MultiplexedConnectionDelegate Build(); }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> MultiplexedConnectionBuilder : IMultiplexedConnectionBuilder {<span style="color: rgba(0, 0, 255, 1)">public</span> IServiceProvider ApplicationServices {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> IMultiplexedConnectionBuilder Use(Func&lt;MultiplexedConnectionDelegate, MultiplexedConnectionDelegate&gt; middleware);<span style="color: rgba(0, 0, 255, 1)">public</span> MultiplexedConnectionDelegate Build(); }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> ListenOptions : IConnectionBuilder, IMultiplexedConnectionBuilder</pre> </div> </h1> <p>在了解了KestrelServer的连接管道后，我们来简单模拟一下这种服务器类型的实现，为此我们定义了一个名为MiniKestrelServer的服务器类型。简单起见，MiniKestrelServer只提供针对HTTP 1.1的支持。对于任何一个服务来说，它需要将请求交付给一个IHttpApplication&lt;TContext&gt;对象进行处理，MiniKestrelServer将这项工作实现在如下这个HostedApplication&lt;TContext&gt;类型中。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> HostedApplication&lt;TContext&gt; : ConnectionHandler where TContext : notnull {<span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> IHttpApplication&lt;TContext&gt; _application;<span style="color: rgba(0, 0, 255, 1)">public</span> HostedApplication(IHttpApplication&lt;TContext&gt; application) =&gt; _application = application;<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">override</span> async Task OnConnectedAsync(ConnectionContext connection)     {         var reader = connection!.Transport.Input;<span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span>)         {             var result = await reader.ReadAsync();<span style="color: rgba(0, 0, 255, 1)">using</span> (var body =<span style="color: rgba(0, 0, 255, 1)">new</span> MemoryStream())             {                 var (features, request, response) = CreateFeatures(result, body);                 var closeConnection = request.Headers.TryGetValue("<span style="color: rgba(139, 0, 0, 1)">Connection</span>",<span style="color: rgba(0, 0, 255, 1)">out</span> var vallue) &amp;&amp; vallue == "<span style="color: rgba(139, 0, 0, 1)">Close</span>";                 reader.AdvanceTo(result.Buffer.End);                  var context = _application.CreateContext(features);                 Exception? exception =<span style="color: rgba(0, 0, 255, 1)">null</span>;<span style="color: rgba(0, 0, 255, 1)">try</span>                 {                     await _application.ProcessRequestAsync(context);                     await ApplyResponseAsync(connection, response, body);                 }<span style="color: rgba(0, 0, 255, 1)">catch</span> (Exception ex)                 {                     exception = ex;                 }<span style="color: rgba(0, 0, 255, 1)">finally</span>                 {                     _application.DisposeContext(context, exception);                 }<span style="color: rgba(0, 0, 255, 1)">if</span> (closeConnection)                 {                     await connection.DisposeAsync();<span style="color: rgba(0, 0, 255, 1)">return</span>;                 }             }<span style="color: rgba(0, 0, 255, 1)">if</span> (result.IsCompleted)             {<span style="color: rgba(0, 0, 255, 1)">break</span>;             }         }<span style="color: rgba(0, 0, 255, 1)">static</span> (IFeatureCollection, IHttpRequestFeature, IHttpResponseFeature) CreateFeatures(ReadResult result, Stream body)         {             var handler =<span style="color: rgba(0, 0, 255, 1)">new</span> HttpParserHandler();             var parserHandler =<span style="color: rgba(0, 0, 255, 1)">new</span> HttpParser(handler);             var length = (<span style="color: rgba(0, 0, 255, 1)">int</span>)result.Buffer.Length;             var array = ArrayPool&lt;<span style="color: rgba(0, 0, 255, 1)">byte</span>&gt;.Shared.Rent(length);<span style="color: rgba(0, 0, 255, 1)">try</span>             {                 result.Buffer.CopyTo(array);                 parserHandler.Execute(<span style="color: rgba(0, 0, 255, 1)">new</span> ArraySegment&lt;<span style="color: rgba(0, 0, 255, 1)">byte</span>&gt;(array, 0, length));             }<span style="color: rgba(0, 0, 255, 1)">finally</span>             {                 ArrayPool&lt;<span style="color: rgba(0, 0, 255, 1)">byte</span>&gt;.Shared.Return(array);             }             var bodyFeature =<span style="color: rgba(0, 0, 255, 1)">new</span> StreamBodyFeature(body);              var features =<span style="color: rgba(0, 0, 255, 1)">new</span> FeatureCollection();             var responseFeature =<span style="color: rgba(0, 0, 255, 1)">new</span> HttpResponseFeature();             features.Set&lt;IHttpRequestFeature&gt;(handler.Request);             features.Set&lt;IHttpResponseFeature&gt;(responseFeature);             features.Set&lt;IHttpResponseBodyFeature&gt;(bodyFeature);<span style="color: rgba(0, 0, 255, 1)">return</span> (features, handler.Request, responseFeature);         }<span style="color: rgba(0, 0, 255, 1)">static</span> async Task ApplyResponseAsync(ConnectionContext connection, IHttpResponseFeature response, Stream body)         {             var builder =<span style="color: rgba(0, 0, 255, 1)">new</span> StringBuilder();             builder.AppendLine($"<span style="color: rgba(139, 0, 0, 1)">HTTP/1.1 {response.StatusCode} {response.ReasonPhrase}</span>");<span style="color: rgba(0, 0, 255, 1)">foreach</span> (var kv<span style="color: rgba(0, 0, 255, 1)">in</span> response.Headers)             {                 builder.AppendLine($"<span style="color: rgba(139, 0, 0, 1)">{kv.Key}: {kv.Value}</span>");             }             builder.AppendLine($"<span style="color: rgba(139, 0, 0, 1)">Content-Length: {body.Length}</span>");             builder.AppendLine();             var bytes = Encoding.UTF8.GetBytes(builder.ToString());              var writer = connection.Transport.Output;             await writer.WriteAsync(bytes);             body.Position = 0;             await body.CopyToAsync(writer);         }     } }</pre> </div> <p>HostedApplication&lt;TContext&gt;是对一个IHttpApplication&lt;TContext&gt;对象的封装。它派生于抽象类ConnectionHandler，重写的OnConnectedAsync方法将针对请求的读取和处理置于一个无限循环中。为了将读取的请求转交给IHostedApplication&lt;TContext&gt;对象进行处理，它需要根据特性集合将TContext上下文创建出来。这里提供的特性集合只包含三种核心的特性，一个是描述请求的HttpRequestFeature特性，它是利用HttpParser解析请求荷载内容得到的。另一个是描述响应的HttpResponseFeature特性，至于提供响应主体的特性由如下所示的StreamBodyFeature对象来表示。这三个特性的创建实现在CreateFeatures方法中。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> StreamBodyFeature : IHttpResponseBodyFeature {<span style="color: rgba(0, 0, 255, 1)">public</span> Stream 	Stream {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> PipeWriter 	Writer {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> StreamBodyFeature(Stream stream)     {         Stream = stream;         Writer = PipeWriter.Create(Stream);     }<span style="color: rgba(0, 0, 255, 1)">public</span> Task CompleteAsync() =&gt; Task.CompletedTask;<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">void</span> DisableBuffering() { }<span style="color: rgba(0, 0, 255, 1)">public</span> Task SendFileAsync(<span style="color: rgba(0, 0, 255, 1)">string</span> path,<span style="color: rgba(0, 0, 255, 1)">long</span> offset,<span style="color: rgba(0, 0, 255, 1)">long</span>? count,     CancellationToken cancellationToken =<span style="color: rgba(0, 0, 255, 1)">default</span>)=&gt;<span style="color: rgba(0, 0, 255, 1)">throw</span><span style="color: rgba(0, 0, 255, 1)">new</span> NotImplementedException();<span style="color: rgba(0, 0, 255, 1)">public</span> Task StartAsync(CancellationToken cancellationToken =<span style="color: rgba(0, 0, 255, 1)">default</span>) =&gt; Task.CompletedTask; }</pre> </div> <p>包含三大特性的集合随后作为参数调用了IHostedApplication&lt;TContext&gt;对象的CreateContext方法将TContext上下文创建出来，此上下文作为参数传入了同一对象的ProcessRequestAsync方法，此时中间件管道接管请求。待中间件管道完成处理后， ApplyResponseAsync方法被调用以完成最终的响应工作。ApplyResponseAsync方法将响应状态从HttpResponseFeature特性中提取并生成首行响应内容（“HTTP/1.1 {StatusCode} {ReasonPhrase}”），然后再从这个特性中将响应报头提取出来并生成相应的文本。响应报文的首行内容和报头文本按照UTF-8编码生成二进制数组后利用ConnectionContext上下文的Transport属性返回的IDuplexPipe对象发送出去后，它再将StreamBodyFeature特性收集到的响应主体输出流“拷贝”到这个IDuplexPipe对象中，进而完成了针对响应主体内容的输出。</p> <p>如下所示的是MiniKestrelServer类型的完整定义。该类型的构造函数中注入了用于提供配置选项的IOptions&lt;KestrelServerOptions&gt;特性和IConnectionListenerFactory工厂，并且创建了一个ServerAddressesFeature对象并注册到Features属性返回的特性集合中。</p> <div class="cnblogs_code"> <pre><p><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> MiniKestrelServer : IServer {<span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> KestrelServerOptions _options;<span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> IConnectionListenerFactory _factory;<span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> List&lt;IConnectionListener&gt; _listeners =<span style="color: rgba(0, 0, 255, 1)">new</span>();<span style="color: rgba(0, 0, 255, 1)">public</span> IFeatureCollection Features {<span style="color: rgba(0, 0, 255, 1)">get</span>; } =<span style="color: rgba(0, 0, 255, 1)">new</span> FeatureCollection();<span style="color: rgba(0, 0, 255, 1)">public</span> MiniKestrelServer(IOptions&lt;KestrelServerOptions&gt; optionsAccessor, IConnectionListenerFactory factory)     {         _factory = factory;         _options = optionsAccessor.Value;         Features.Set&lt;IServerAddressesFeature&gt;(<span style="color: rgba(0, 0, 255, 1)">new</span> ServerAddressesFeature());     }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">void</span> Dispose() =&gt; StopAsync(CancellationToken.None).GetAwaiter().GetResult();<span style="color: rgba(0, 0, 255, 1)">public</span> Task StartAsync&lt;TContext&gt;(IHttpApplication&lt;TContext&gt; application, CancellationToken cancellationToken) where TContext : notnull     {         var feature = Features.Get&lt;IServerAddressesFeature&gt;()!;         IEnumerable&lt;ListenOptions&gt; listenOptions;<span style="color: rgba(0, 0, 255, 1)">if</span> (feature.PreferHostingUrls)         {             listenOptions = BuildListenOptions(feature);         }<span style="color: rgba(0, 0, 255, 1)">else</span>         {             listenOptions = _options.GetListenOptions();<span style="color: rgba(0, 0, 255, 1)">if</span> (!listenOptions.Any())             {                 listenOptions = BuildListenOptions(feature);             }         }<span style="color: rgba(0, 0, 255, 1)">foreach</span> (var options<span style="color: rgba(0, 0, 255, 1)">in</span> listenOptions)         {             _ = StartAsync(options);         }<span style="color: rgba(0, 0, 255, 1)">return</span> Task.CompletedTask;          async Task StartAsync(ListenOptions litenOptions)         {             var listener = await _factory.BindAsync(litenOptions.EndPoint,cancellationToken);             _listeners.Add(listener!);</p><p><font color="#ff0000"><strong>var hostedApplication = new HostedApplication&lt;TContext&gt;(application);             var pipeline = litenOptions.Use(next =&gt; context =&gt; hostedApplication.OnConnectedAsync(context)).Build();</strong></font></p><p><span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span>)             {                 var connection = await listener.AcceptAsync();<span style="color: rgba(0, 0, 255, 1)">if</span> (connection !=<span style="color: rgba(0, 0, 255, 1)">null</span>)                 {                     _ = pipeline(connection);                 }             }         }          IEnumerable&lt;ListenOptions&gt; BuildListenOptions(IServerAddressesFeature feature)         {             var options =<span style="color: rgba(0, 0, 255, 1)">new</span> KestrelServerOptions();<span style="color: rgba(0, 0, 255, 1)">foreach</span> (var address<span style="color: rgba(0, 0, 255, 1)">in</span> feature.Addresses)             {                 var url =<span style="color: rgba(0, 0, 255, 1)">new</span> Uri(address);<span style="color: rgba(0, 0, 255, 1)">if</span> (<span style="color: rgba(0, 0, 255, 1)">string</span>.Compare("<span style="color: rgba(139, 0, 0, 1)">localhost</span>", url.Host,<span style="color: rgba(0, 0, 255, 1)">true</span>) == 0)                 {                     options.ListenLocalhost(url.Port);                 }<span style="color: rgba(0, 0, 255, 1)">else</span>                 {                     options.Listen(IPAddress.Parse(url.Host), url.Port);                 }              }<span style="color: rgba(0, 0, 255, 1)">return</span> options.GetListenOptions();         }     }<span style="color: rgba(0, 0, 255, 1)">public</span> Task StopAsync(CancellationToken cancellationToken) =&gt; Task.WhenAll(_listeners.Select(it =&gt; it.DisposeAsync().AsTask())); }</p></pre> </div> <p>实现的StartAsync&lt;TContext&gt;方法先将IServerAddressesFeature特性提取出来，并利用其PreferHostingUrls属性决定应该使用直接注册到KestrelOptions配置选项上的终结点还是使用注册在该特定上的监听地址。如果使用后者，注册的监听地址会利用BuildListenOptions方法转换成对应的ListenOptions列表，否则直接从KestrelOptions对象的ListenOptions属性提取所有的ListenOptions列表，由于这是一个内部属性，不得不利用如下这个扩展方法以反射的方式获取这个列表。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">class</span> KestrelServerOptionsExtensions {<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> IEnumerable&lt;ListenOptions&gt; GetListenOptions(<span style="color: rgba(0, 0, 255, 1)">this</span> KestrelServerOptions options)     {         var property =<span style="color: rgba(0, 0, 255, 1)">typeof</span>(KestrelServerOptions).GetProperty("<span style="color: rgba(139, 0, 0, 1)">ListenOptions</span>",BindingFlags.NonPublic | BindingFlags.Instance);<span style="color: rgba(0, 0, 255, 1)">return</span> (IEnumerable&lt;ListenOptions&gt;)property!.GetValue(options)!;     } }</pre> </div> <p>对于每一个表示注册终结点的ListenOptions配置选项，StartAsync&lt;TContext&gt;方法利用IConnectionListenerFactory工厂将对应的IConnectionListener监听器创建出来，并绑定到指定的终结点上监听连接请求。表示连接的ConnectionContext上下文一旦被创建出来后，该方法便会利用构建的连接管道对它进行处理。在调用ListenOptions配置选项的Build方法构建连接管道前，StartAsync&lt;TContext&gt;方法将HostedApplication&lt;TContext&gt;对象创建出来并作为中间件进行了注册。所以针对连接的处理将被这个HostedApplication&lt;TContext&gt;对象接管。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">using</span> App;<span style="color: rgba(0, 0, 255, 1)">using</span> Microsoft.AspNetCore.Hosting.Server;<span style="color: rgba(0, 0, 255, 1)">using</span> Microsoft.Extensions.DependencyInjection.Extensions;  var builder = WebApplication.CreateBuilder(); builder.WebHost.UseKestrel(kestrel =&gt; kestrel.ListenLocalhost(5000));<font color="#ff0000"><strong>builder.Services.Replace(ServiceDescriptor.Singleton&lt;IServer, MiniKestrelServer&gt;());</strong></font> var app = builder.Build(); app.Run(context =&gt; context.Response.WriteAsync("<span style="color: rgba(139, 0, 0, 1)">Hello World!</span>")); app.Run();</pre> </div> <p>如上所示的演示程序将替换了针对IServer的服务注册，意味着默认的KestrelServer将被替换成自定义的MiniKestrelServer。启动该程序后，由浏览器发送的HTTP请求（不支持HTTPS）同样会被正常处理，并得到如图18-6所示的响应内容。需要强调一下，MiniKestrelServer仅仅用来模拟KestrelServer的实现原理，不要觉得真实的实现会如此简单。</p> <p><a href="https://img2022.cnblogs.com/blog/19327/202203/19327-20220330075051408-582317978.jpg" rel="nofollow" class="fancybox" data-fancybox-group="button"><img decoding="async" width="240" height="103" title="clip_image002" style="border: 0 currentColor; border-image: none; display: inline; background-image: none" alt="clip_image002" src="http://img.555519.xyz/uploads3/20220510/33cda654492fec4ed89d784531961e71.jpg"></a><br />图1 由MiniKestrelServer回复的响应内容</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38239.htm">瑞派宠物医院工作怎么样（瑞派宠物医院工作怎么样 知乎）</a></p>
+                                        <p>下一个：<a href="/news/article-38729.htm">妙三多猫三联间隔多久（妙三多猫三联预防哪些病）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-clash-verge-rev-node.htm" title="「12月22日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月22日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25891.htm" title="广州宠物领养中心在哪里有 广州宠物领养中心在哪里有啊">广州宠物领养中心在哪里有 广州宠物领养中心在哪里有啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-clash-verge-rev-node-share.htm" title="「11月15日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月15日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-37255.htm" title="小型颗粒饲料机器多少钱一台（小型饲料颗粒机原理动态图）">小型颗粒饲料机器多少钱一台（小型饲料颗粒机原理动态图）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-high-speed-nodes.htm" title="「11月23日」最高速度21.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月23日」最高速度21.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-27752.htm" title="宠物领养店怎么收费的（宠物店领养需要钱吗）">宠物领养店怎么收费的（宠物店领养需要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-clash-verge-rev-node-github.htm" title="「11月12日」最高速度21.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月12日」最高速度21.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-37779.htm" title="宠物粮在哪里买便宜又好吃（宠物狗粮在哪里买）">宠物粮在哪里买便宜又好吃（宠物狗粮在哪里买）</a></li>
+                        <li class="py-2"><a href="/news/article-22196.htm" title="开一家宠物店需要投资多少（开一家宠物店投资多少钱）">开一家宠物店需要投资多少（开一家宠物店投资多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-31412.htm" title="燕窝隔水炖是怎么炖(燕窝隔水炖要炖多久才有营养)">燕窝隔水炖是怎么炖(燕窝隔水炖要炖多久才有营养)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
