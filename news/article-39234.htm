@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-39234.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>victoriaMetrics库之布隆过滤器</title>
+        <meta name="description" content="victoriaMetrics库之布隆过滤器 代码路径：/lib/bloomfilter 概述 victoriaMetrics的vmstorage组件会接收上游传递过来的指标，在现实场景中，指标或瞬时" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">victoriaMetrics库之布隆过滤器</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="victoriametrics库之布隆过滤器">victoriaMetrics库之布隆过滤器</h2> <p>代码路径：<code>/lib/bloomfilter</code></p> <h3 id="概述">概述</h3> <p>victoriaMetrics的<code>vmstorage</code>组件会接收上游传递过来的指标，在现实场景中，指标或瞬时指标的数量级可能会非常恐怖，如果不限制缓存的大小，有可能会由于cache miss而导致出现过高的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.victoriametrics.com/FAQ.html#what-is-a-slow-insert"  target="_blank" rel="nofollow">slow insert</a>。</p> <p>为此，vmstorage提供了两个参数：<code>maxHourlySeries</code>和<code>maxDailySeries</code>，用于限制每小时/每天添加到缓存的唯一序列。</p> <blockquote> <p>唯一序列指表示唯一的时间序列，如<code>metrics{label1="value1",label2="value2"}</code>属于一个时间序列，但多条不同值的<code>metrics{label1="value1",label2="value2"}</code>属于同一条时间序列。victoriaMetrics使用如下方式来获取时序的唯一标识：</p> <pre><code class="language-go">func getLabelsHash(labels []prompbmarshal.Label) uint64 { 	bb := labelsHashBufPool.Get() 	b := bb.B[:0] 	for _, label := range labels { 		b = append(b, label.Name...) 		b = append(b, label.Value...) 	} 	h := xxhash.Sum64(b) 	bb.B = b 	labelsHashBufPool.Put(bb) 	return h }</code></pre> </blockquote> <h3 id="限速器的初始化">限速器的初始化</h3> <p>victoriaMetrics使用了一个类似限速器的概念，限制每小时/每天新增的唯一序列，但与普通的限速器不同的是，它需要在序列级别进行限制，即判断某个序列是否是新的唯一序列，如果是，则需要进一步判断一段时间内缓存中新的时序数目是否超过限制，而不是简单地在请求层面进行限制。</p> <pre><code class="language-go">hourlySeriesLimiter = bloomfilter.NewLimiter(*maxHourlySeries, time.Hour) dailySeriesLimiter = bloomfilter.NewLimiter(*maxDailySeries, 24*time.Hour)</code></pre> <p>下面是新建限速器的函数，传入一个最大(序列)值，以及一个刷新时间。该函数中会：</p> <ol> <li>初始化一个限速器，限速器的最大元素个数为<code>maxItems</code></li> <li>则启用了一个goroutine，当时间达到<code>refreshInterval</code>时会重置限速器</li> </ol> <pre><code class="language-go">func NewLimiter(maxItems int, refreshInterval time.Duration) *Limiter { 	l := &amp;Limiter{ 		maxItems: maxItems, 		stopCh:   make(chan struct{}), 	} 	l.v.Store(newLimiter(maxItems)) //1 	l.wg.Add(1) 	go func() { 		defer l.wg.Done() 		t := time.NewTicker(refreshInterval) 		defer t.Stop() 		for { 			select { 			case &lt;-t.C: 				l.v.Store(newLimiter(maxItems))//2 			case &lt;-l.stopCh: 				return 			} 		} 	}() 	return l }</code></pre> <p>限速器只有一个核心函数<code>Add</code>，当vmstorage接收到一个指标之后，会(通过<code>getLabelsHash</code>计算该指标的唯一标识(h)，然后调用下面的<code>Add</code>函数来判断该唯一标识是否存在于缓存中。</p> <p>如果当前存储的元素个数大于等于允许的最大元素，则通过过滤器判断缓存中是否已经存在该元素；否则将该元素直接加入过滤器中，后续允许将该元素加入到缓存中。</p> <pre><code class="language-go">func (l *Limiter) Add(h uint64) bool { 	lm := l.v.Load().(*limiter) 	return lm.Add(h) }  func (l *limiter) Add(h uint64) bool { 	currentItems := atomic.LoadUint64(&amp;l.currentItems) 	if currentItems &gt;= uint64(l.f.maxItems) { 		return l.f.Has(h) 	} 	if l.f.Add(h) { 		atomic.AddUint64(&amp;l.currentItems, 1) 	} 	return true }</code></pre> <p>上面的过滤器采用的是布隆过滤器，核心函数为<code>Has</code>和<code>Add</code>，分别用于判断某个元素是否存在于过滤器中，以及将元素添加到布隆过滤器中。</p> <p>过滤器的初始化函数如下，<code>bitsPerItem</code>是个常量，值为16。<code>bitsCount</code>统计了过滤器中的总bit数，每个bit表示某个值的存在性。<code>bits</code>以64bit为单位的(后续称之为slot，目的是为了在bitsCount中快速检索目标bit)。计算<code>bits</code>时加上<code>63</code>的原因是为了四舍五入向上取值，比如当maxItems=1时至少需要1个unit64的slot。</p> <pre><code class="language-go">func newFilter(maxItems int) *filter { 	bitsCount := maxItems * bitsPerItem 	bits := make([]uint64, (bitsCount+63)/64) 	return &amp;filter{ 		maxItems: maxItems, 		bits:     bits, 	} }</code></pre> <blockquote> <p>为什么<code>bitsPerItem</code>为16？<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/282864286"  target="_blank" rel="nofollow">这篇文章</a>给出了如何计算布隆过滤器的大小。在本代码中，k为4(<code>hashesCount</code>)，期望的漏失率为0.003(可以从官方的<code>filter_test.go</code>中看出)，则要求总存储和总元素的比例为15，为了方便检索slot(64bit，为16的倍数)，将之设置为16。</p> <pre><code class="language-go">	if p &gt; 0.003 { 		t.Fatalf("too big false hits share for maxItems=%d: %.5f, falseHits: %d", maxItems, p, falseHits) 	}</code></pre> <p><img decoding="async" src="https://img2022.cnblogs.com/blog/1334952/202204/1334952-20220404235017277-1492083064.png" alt="victoriaMetrics库之布隆过滤器" style="zoom: 80%"/></p></blockquote> <p>下面是过滤器的<code>Add</code>操作，目的是在过滤器中添加某个元素。<code>Add</code>函数中没有使用多个哈希函数来计算元素的哈希值，转而改变同一个元素的值，然后对相应的值应用相同的哈希函数，元素改变的次数受<code>hashesCount</code>的限制。</p> <ol> <li>获取过滤器的完整存储，并转换为以bit单位</li> <li>将元素<code>h</code>转换为byte数组，便于xxhash.Sum64计算</li> <li>后续将执行hashesCount次哈希，降低漏失率</li> <li>计算元素h的哈希</li> <li>递增元素<code>h</code>，为下一次哈希做准备</li> <li>取余法获取元素的bit范围</li> <li>获取元素所在的slot(即uint64大小的bit范围)</li> <li>获取元素所在的slot中的bit位，该位为1表示该元素存在，为0表示该元素不存在</li> <li>获取元素所在bit位的掩码</li> <li>加载元素所在的slot的数值</li> <li>如果<code>w &amp; mask</code>结果为0，说明该元素不存在，</li> <li>将元素所在的slot(<code>w</code>)中的元素所在的bit位(mask)置为1，表示添加了该元素</li> <li>由于<code>Add</code>函数可以并发访问，因此<code>bits[i]</code>有可能被其他操作修改，因此需要通过重新加载(14)并通过循环来在<code>bits[i]</code>中设置该元素的存在性</li> </ol> <pre><code class="language-go">func (f *filter) Add(h uint64) bool { 	bits := f.bits 	maxBits := uint64(len(bits)) * 64 //1 	bp := (*[8]byte)(unsafe.Pointer(&amp;h))//2 	b := bp[:] 	isNew := false 	for i := 0; i &lt; hashesCount; i++ {//3 		hi := xxhash.Sum64(b)//4 		h++ //5 		idx := hi % maxBits //6 		i := idx / 64 //7 		j := idx % 64 //8 		mask := uint64(1) &lt;&lt; j //9 		w := atomic.LoadUint64(&amp;bits[i])//10 		for (w &amp; mask) == 0 {//11 			wNew := w | mask //12 			if atomic.CompareAndSwapUint64(&amp;bits[i], w, wNew) {//13 				isNew = true//14 				break 			} 			w = atomic.LoadUint64(&amp;bits[i])//14 		} 	} 	return isNew }</code></pre> <p>看懂了<code>Add</code>函数，<code>Has</code>就相当简单了，它只是<code>Add</code>函数的缩减版，无需设置<code>bits[i]</code>：</p> <pre><code class="language-go">func (f *filter) Has(h uint64) bool { 	bits := f.bits 	maxBits := uint64(len(bits)) * 64 	bp := (*[8]byte)(unsafe.Pointer(&amp;h)) 	b := bp[:] 	for i := 0; i &lt; hashesCount; i++ { 		hi := xxhash.Sum64(b) 		h++ 		idx := hi % maxBits 		i := idx / 64 		j := idx % 64 		mask := uint64(1) &lt;&lt; j 		w := atomic.LoadUint64(&amp;bits[i]) 		if (w &amp; mask) == 0 { 			return false 		} 	} 	return true }</code></pre> <h3 id="总结">总结</h3> <p>由于victoriaMetrics的过滤器采用的是布隆过滤器，因此它的限速并不精准，在源码条件下， 大约有3%的偏差。但同样地，由于采用了布隆过滤器，降低了所需的内存以及相关计算资源。此外victoriaMetrics的过滤器实现了并发访问。<br /> 过滤器为了支持并发访问，使用atomic来实现数值存储和加载以及数值变更等操作。</p> <p>在大流量场景中，如果需要对请求进行相对精准的过滤，可以考虑使用布隆过滤器，降低所需要的资源，但前提是过滤的结果能够忍受一定程度的漏失率。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38729.htm">妙三多猫三联间隔多久（妙三多猫三联预防哪些病）</a></p>
+                                        <p>下一个：<a href="/news/article-39235.htm">广州在哪里可以领养狗狗（广州在哪里可以领养狗狗狗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-verge-rev-node-share.htm" title="「11月22日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月22日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share.htm" title="「11月21日」最高速度18M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月21日」最高速度18M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-node-share.htm" title="「11月20日」最高速度19.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月20日」最高速度19.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-today-clash-verge-rev-node.htm" title="「11月1日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月1日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-20819.htm" title="win11系统如何进入高级启动">win11系统如何进入高级启动</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-clash-verge-rev-nodes.htm" title="「10月21日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月21日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-35630.htm" title="猫粮品牌大全进口有哪些牌子（猫粮进口什么牌子好）">猫粮品牌大全进口有哪些牌子（猫粮进口什么牌子好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-latest-clash-verge-rev-node.htm" title="「11月9日」最高速度19.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月9日」最高速度19.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32484.htm" title="动物医院的仪器设备是什么意思（动物医院的仪器设备是什么意思啊）">动物医院的仪器设备是什么意思（动物医院的仪器设备是什么意思啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-clash-verge-rev-node.htm" title="「12月15日」最高速度21.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月15日」最高速度21.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
