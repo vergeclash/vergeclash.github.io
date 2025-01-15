@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-41215.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>带你了解了解Future和CompletableFuture</title>
+        <meta name="description" content="Callable与Runnable  Future + Callable  Future 总结  来看个案例  案例的代码  结果 目录  			       “ 文本已收录至我的GitHub仓库，欢" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">带你了解了解Future和CompletableFuture</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="Callable与Runnable">Callable与Runnable</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="Future + Callable">Future + Callable</a></li> <li><i class="be be-arrowright"></i> <a href="#title-2" title="Future 总结">Future 总结</a></li> <li><i class="be be-arrowright"></i> <a href="#title-3" title="来看个案例">来看个案例</a></li> <li><i class="be be-arrowright"></i> <a href="#title-4" title="案例的代码">案例的代码</a></li> <li><i class="be be-arrowright"></i> <a href="#title-5" title="结果">结果</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <div id="js_content"> </h1> <blockquote><p>   “</p> <p>文本已收录至我的GitHub仓库，欢迎Star：https://github.com/bin392328206<br />种一棵树最好的时间是十年前，其次是现在</p> <p>  ”  </p></blockquote> <h2>絮叨</h2> <p>并发 多线程 异步 编程一直是我们开发人员的一个难点，因为我们基本上大部分的业务流程都可以用同步的方式处理，久而久之，其实很多可以用异步多线程优化的场景也会因为我们的不熟悉而不去使用，而是把系统优化的能力放到了缓存，数据库的 JVM的优化上了。所以呢？今天就跟大家来聊聊Future和CompletableFuture</p> <h2>Future模式</h2> <p>Java 1.5开始，提供了Callable和Future，通过它们可以在任务执行完毕之后得到任务执行结果。Future接口可以构建异步应用，是多线程开发中常见的设计模式。当我们需要调用一个函数方法时。如果这个函数执行很慢,那么我们就要进行等待。但有时候,我们可能并不急着要结果。因此,我们可以让被调用者立即返回,让他在后台慢慢处理这个请求。对于调用者来说,则可以先处理一些其他任务,在真正需要数据的场合再去尝试获取需要的数据。</p> <p> <img decoding="async" src="http://img.555519.xyz/uploads/20230205/e233461ee79c0d2b06dd80abdeb94653.jpg" alt="带你了解了解Future和CompletableFuture"/></p> <p>大家从图中可以看出，我们其实就是并行的去做一些事情，这样我们就可以利用多核cpu的优势，来减少系统的消化的时间。</p> <span class="directory"></span><h4 id="title-0">Callable与Runnable</h4> <p>java.lang.Runnable是一个接口，在它里面只声明了一个run()方法，run返回值是void，任务执行完毕后无法返回任何结果</p> <pre class="has"><code class="language-go">public&nbsp;interface&nbsp;Runnable&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;abstract&nbsp;void&nbsp;run(); } </code></pre> <p>Callable位于java.util.concurrent包下，它也是一个接口，在它里面也只声明了一个方法叫做call()，这是一个泛型接口，call()函数返回的类型就是传递进来的V类型</p> <pre class="has"><code class="language-go">public&nbsp;interface&nbsp;Callable&lt;V&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;call()&nbsp;throws&nbsp;Exception; } </code></pre> <span class="directory"></span><h4 id="title-1">Future + Callable</h4> <p>Future就是对于具体的Runnable或者Callable任务的执行结果进行取消、查询是否完成、获取结果。必要时可以通过get方法获取执行结果，该方法会阻塞直到任务返回结果</p> <pre class="has"><code class="language-go">public&nbsp;interface&nbsp;Future&lt;V&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;cancel(boolean&nbsp;mayInterruptIfRunning); &nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;isCancelled(); &nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;isDone(); &nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;get()&nbsp;throws&nbsp;InterruptedException,&nbsp;ExecutionException; &nbsp;&nbsp;&nbsp;&nbsp;V&nbsp;get(long&nbsp;timeout,&nbsp;TimeUnit&nbsp;unit) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws&nbsp;InterruptedException,&nbsp;ExecutionException,&nbsp;TimeoutException; } </code></pre> <h5>示例代码</h5> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.Random; import&nbsp;java.util.concurrent.*;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;10:50 &nbsp;*/ public&nbsp;class&nbsp;A&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;throws&nbsp;Exception&nbsp;{  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExecutorService&nbsp;executor&nbsp;=&nbsp;Executors.newCachedThreadPool(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Future&lt;Integer&gt;&nbsp;result&nbsp;=&nbsp;executor.submit(new&nbsp;Callable&lt;Integer&gt;()&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Integer&nbsp;call()&nbsp;throws&nbsp;Exception&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;Random().nextInt(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//shutdown调用后，不可以再submit新的task，已经submit的将继续执行。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;executor.shutdown();  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("result:"&nbsp;+&nbsp;result.get()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(InterruptedException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(ExecutionException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;}  } </code></pre> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.Random; import&nbsp;java.util.concurrent.*;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;10:50 &nbsp;*/ public&nbsp;class&nbsp;A&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;throws&nbsp;Exception&nbsp;{  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//第一种方式 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FutureTask&lt;Integer&gt;&nbsp;task&nbsp;=&nbsp;new&nbsp;FutureTask&lt;Integer&gt;(new&nbsp;Callable&lt;Integer&gt;()&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Integer&nbsp;call()&nbsp;throws&nbsp;Exception&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;Random().nextInt(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Thread(task).start(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//第二种方方式 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExecutorService&nbsp;executor&nbsp;=&nbsp;Executors.newSingleThreadExecutor(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FutureTask&lt;Integer&gt;&nbsp;task1&nbsp;=&nbsp;new&nbsp;FutureTask&lt;Integer&gt;(new&nbsp;Callable&lt;Integer&gt;()&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Integer&nbsp;call()&nbsp;throws&nbsp;Exception&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;Random().nextInt(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;executor.submit(task1);  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("result:&nbsp;"+task.get()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(InterruptedException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(ExecutionException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;} } &nbsp;&nbsp;&nbsp;&nbsp; </code></pre> <span class="directory"></span><h4 id="title-2">Future 总结</h4> <ul> <li> <p>首先呢？future 是多线程有返回结果的一种，它的使用方式，第一种就是callback,第二种就是futureTask</p> </li> <li> <p>然后就是它的局限性了，Future很难直接表述多个Future 结果之间的依赖性，开发中，我们经常需要达成以下目的：将两个异步计算合并为一个（这两个异步计算之间相互独立，同时第二个又依赖于第一个的结果）等待 Future 集合中的所有任务都完成。仅等待 Future 集合中最快结束的任务完成，并返回它的结果。</p> </li> </ul> <span class="directory"></span><h4 id="title-3">来看个案例</h4> <p>一个烧水泡茶的例子<img decoding="async" src="http://img.555519.xyz/uploads/20230205/1d3392a6a47180556357d6ac7ecdf365.jpg" alt="带你了解了解Future和CompletableFuture"/></p> <span class="directory"></span><h4 id="title-4">案例的代码</h4> <p> <img decoding="async" src="http://img.555519.xyz/uploads/20230205/4996b2b4d2cd1280b4eeea7bb35eb40a.jpg" alt="带你了解了解Future和CompletableFuture"/></p> <ul> <li> <p>线程T2 为啥先写T2呢？因为T2是需要先完成的，完成的结果要给到T1线程</p> </li> </ul> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.concurrent.Callable; import&nbsp;java.util.concurrent.TimeUnit;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;11:14 &nbsp;*/ public&nbsp;class&nbsp;T2Task&nbsp;implements&nbsp;Callable&lt;String&gt;&nbsp;{  &nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;String&nbsp;call()&nbsp;throws&nbsp;Exception&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T2:洗茶壶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeUnit.SECONDS.sleep(1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T2:洗茶杯..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeUnit.SECONDS.sleep(2); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T2:拿茶叶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeUnit.SECONDS.sleep(1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;"龙井"; &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <ul> <li> <p>线程T1 T1的构造方法还得注入t2</p> </li> </ul> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.concurrent.Callable; import&nbsp;java.util.concurrent.FutureTask; import&nbsp;java.util.concurrent.TimeUnit;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;11:15 &nbsp;*/ public&nbsp;class&nbsp;T1Task&nbsp;implements&nbsp;Callable&lt;String&gt;&nbsp;{  &nbsp;&nbsp;&nbsp;&nbsp;FutureTask&lt;String&gt;&nbsp;ft2;&nbsp;//&nbsp;T1任务需要T2任务的FutureTask  &nbsp;&nbsp;&nbsp;&nbsp;T1Task(FutureTask&lt;String&gt;&nbsp;ft2)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.ft2&nbsp;=&nbsp;ft2; &nbsp;&nbsp;&nbsp;&nbsp;}  &nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;String&nbsp;call()&nbsp;throws&nbsp;Exception&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:洗水壶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeUnit.SECONDS.sleep(1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:烧开水..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeUnit.SECONDS.sleep(15); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;获取T2线程的茶叶 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//总结总利用Java并发包提供的Future可以很容易获得异步任务的执行结果，无论异步任务是通过线程池 ThreadPoolExecutor执行的，还是通过手工创建子线程来执行的。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Future可以类比为现实世界里&nbsp;//&nbsp;获取T2线程的茶叶 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;tf&nbsp;=&nbsp;ft2.get(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:拿到茶叶:"&nbsp;+&nbsp;tf); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:泡茶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;"上茶:"&nbsp;+&nbsp;tf; &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <ul> <li> <p>测试类</p> </li> </ul> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.Random; import&nbsp;java.util.concurrent.*;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;10:50 &nbsp;*/ public&nbsp;class&nbsp;A&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;throws&nbsp;Exception&nbsp;{  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FutureTask&lt;String&gt;&nbsp;ft2&nbsp;=&nbsp;new&nbsp;FutureTask&lt;&gt;(new&nbsp;T2Task());  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FutureTask&lt;String&gt;&nbsp;ft1&nbsp;=&nbsp;new&nbsp;FutureTask&lt;&gt;(new&nbsp;T1Task(ft2)); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;线程T1执行任务ft1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread&nbsp;T1&nbsp;=&nbsp;new&nbsp;Thread(ft1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T1.start();  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread&nbsp;T2&nbsp;=&nbsp;new&nbsp;Thread(ft2);&nbsp;T2.start();  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(ft1.get()); &nbsp;&nbsp;&nbsp;&nbsp;} }  </code></pre> <span class="directory"></span><h4 id="title-5">结果</h4> <p> <img decoding="async" src="http://img.555519.xyz/uploads/20230205/f53682039ef5a54e77041734752d1b14.jpg" alt="带你了解了解Future和CompletableFuture"/></p> <p>这个就是并行的玩法。</p> <h2>CompletableFuture</h2> <p>首先，CompletableFuture类实现了CompletionStage和Future接口，因此你可以像Future那样使用它。莫急，下面通过例子来一步一步解释CompletableFuture的使用。</p> <h3>创建CompletableFuture对象</h3> <p>说明：Async结尾的方法都是可以异步执行的，如果指定了线程池，会在指定的线程池中执行，如果没有指定，默认会在ForkJoinPool.commonPool()中执行。下面很多方法都是类似的，不再做特别说明。四个静态方法用来为一段异步执行的代码创建CompletableFuture对象，方法的参数类型都是函数式接口，所以可以使用lambda表达式实现异步任务 runAsync方法：它以Runnabel函数式接口类型为参数，所以CompletableFuture的计算结果为空。supplyAsync方法以Supplier函数式接口类型为参数，CompletableFuture的计算结果类型为U。</p> <pre class="has"><code class="language-go">public&nbsp;static&nbsp;CompletableFuture&lt;Void&gt;&nbsp;runAsync(Runnable&nbsp;runnable) public&nbsp;static&nbsp;CompletableFuture&lt;Void&gt;&nbsp;runAsync(Runnable&nbsp;runnable,&nbsp;Executor&nbsp;executor) public&nbsp;static&nbsp;&lt;U&gt;&nbsp;CompletableFuture&lt;U&gt;&nbsp;supplyAsync(Supplier&lt;U&gt;&nbsp;supplier) public&nbsp;static&nbsp;&lt;U&gt;&nbsp;CompletableFuture&lt;U&gt;&nbsp;supplyAsync(Supplier&lt;U&gt;&nbsp;supplier,&nbsp;Executor&nbsp;executor) </code></pre> <h3>变换结果</h3> <pre class="has"><code class="language-go">public&nbsp;&lt;U&gt;&nbsp;CompletionStage&lt;U&gt;&nbsp;thenApply(Function&lt;?&nbsp;super&nbsp;T,?&nbsp;extends&nbsp;U&gt;&nbsp;fn); public&nbsp;&lt;U&gt;&nbsp;CompletionStage&lt;U&gt;&nbsp;thenApplyAsync(Function&lt;?&nbsp;super&nbsp;T,?&nbsp;extends&nbsp;U&gt;&nbsp;fn); public&nbsp;&lt;U&gt;&nbsp;CompletionStage&lt;U&gt;&nbsp;thenApplyAsync(Function&lt;?&nbsp;super&nbsp;T,?&nbsp;extends&nbsp;U&gt;&nbsp;fn,Executor&nbsp;executor); </code></pre> <p>这些方法的输入是上一个阶段计算后的结果，返回值是经过转化后结果</p> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.concurrent.CompletableFuture;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;11:40 &nbsp;*/ public&nbsp;class&nbsp;TestCompleteFuture&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;result&nbsp;=&nbsp;CompletableFuture.supplyAsync(()-&gt;{return&nbsp;"Hello&nbsp;";}).thenApplyAsync(v&nbsp;-&gt;&nbsp;v&nbsp;+&nbsp;"world").join(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(result); &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <p>其实上面的代码，本身就是同步的代码，也没必要写成异步的。</p> <h3>消费结果</h3> <pre class="has"><code class="language-go">public&nbsp;CompletionStage&lt;Void&gt;&nbsp;thenAccept(Consumer&lt;?&nbsp;super&nbsp;T&gt;&nbsp;action); public&nbsp;CompletionStage&lt;Void&gt;&nbsp;thenAcceptAsync(Consumer&lt;?&nbsp;super&nbsp;T&gt;&nbsp;action); public&nbsp;CompletionStage&lt;Void&gt;&nbsp;thenAcceptAsync(Consumer&lt;?&nbsp;super&nbsp;T&gt;&nbsp;action,Executor&nbsp;executor); </code></pre> <pre class="has"><code class="language-go">public&nbsp;class&nbsp;TestCompleteFuture&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompletableFuture.supplyAsync(()-&gt;{return&nbsp;"Hello&nbsp;";}).thenAccept(v&nbsp;-&gt;&nbsp;{&nbsp;System.out.println("consumer:&nbsp;"&nbsp;+&nbsp;v);}); &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <h3>结合两个CompletionStage的结果，进行转化后返回</h3> <pre class="has"><code class="language-go">public&nbsp;&lt;U,V&gt;&nbsp;CompletionStage&lt;V&gt;&nbsp;thenCombine(CompletionStage&lt;?&nbsp;extends&nbsp;U&gt;&nbsp;other,BiFunction&lt;?&nbsp;super&nbsp;T,?&nbsp;super&nbsp;U,?&nbsp;extends&nbsp;V&gt;&nbsp;fn); public&nbsp;&lt;U,V&gt;&nbsp;CompletionStage&lt;V&gt;&nbsp;thenCombineAsync(CompletionStage&lt;?&nbsp;extends&nbsp;U&gt;&nbsp;other,BiFunction&lt;?&nbsp;super&nbsp;T,?&nbsp;super&nbsp;U,?&nbsp;extends&nbsp;V&gt;&nbsp;fn); public&nbsp;&lt;U,V&gt;&nbsp;CompletionStage&lt;V&gt;&nbsp;thenCombineAsync(CompletionStage&lt;?&nbsp;extends&nbsp;U&gt;&nbsp;other,BiFunction&lt;?&nbsp;super&nbsp;T,?&nbsp;super&nbsp;U,?&nbsp;extends&nbsp;V&gt;&nbsp;fn,Executor&nbsp;executor) </code></pre> <p>需要上一阶段的返回值，并且other代表的CompletionStage也要返回值之后，把这两个返回值，进行转换后返回指定类型的值。说明：同样，也存在对两个CompletionStage结果进行消耗的一组方法，例如thenAcceptBoth，这里不再进行示例。</p> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.concurrent.CompletableFuture;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;11:40 &nbsp;*/ public&nbsp;class&nbsp;TestCompleteFuture&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;res&nbsp;=&nbsp;CompletableFuture.supplyAsync(()&nbsp;-&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(1000);  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(InterruptedException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;"hello"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).thenCombine(CompletableFuture.supplyAsync(()&nbsp;-&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(1000); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(InterruptedException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;"word"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}),&nbsp;(s1,&nbsp;s2)&nbsp;-&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;s1&nbsp;+&nbsp;"&nbsp;"&nbsp;+&nbsp;s2; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).join(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(res); &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <h3>案例</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230205/44c36cdc1d2b7ae7fb44601cb4186d1e.jpg" alt="带你了解了解Future和CompletableFuture"/></p> <p>还是上面的案例，我们把它分为3步，三个线程，我们称为分治过程。</p> <pre class="has"><code class="language-go">package&nbsp;com.xiaoliuliu.test.jdk;  import&nbsp;java.util.Random; import&nbsp;java.util.concurrent.*;  /** &nbsp;*&nbsp;@author&nbsp;小六六 &nbsp;*&nbsp;@version&nbsp;1.0 &nbsp;*&nbsp;@date&nbsp;2020/11/10&nbsp;10:50 &nbsp;*/ public&nbsp;class&nbsp;A&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;throws&nbsp;Exception&nbsp;{  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//任务1：洗水壶-&gt;烧开水 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompletableFuture&lt;Void&gt;&nbsp;f1&nbsp;=&nbsp;CompletableFuture.runAsync(()&nbsp;-&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:洗水壶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(1000); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:烧开水..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(15000); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(InterruptedException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//任务2：洗茶壶-&gt;洗茶杯-&gt;拿茶叶 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompletableFuture&lt;String&gt;&nbsp;f2&nbsp;=&nbsp;CompletableFuture.supplyAsync(()&nbsp;-&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T2:洗茶壶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(1000); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T2:洗茶杯..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(2000); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T2:拿茶叶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(1000);  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(InterruptedException&nbsp;e)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;"龙井"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//任务3：任务1和任务2完成后执行：泡茶 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompletableFuture&lt;String&gt;&nbsp;f3&nbsp;=&nbsp;f1.thenCombine(f2,&nbsp;(__,&nbsp;tf)&nbsp;-&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:拿到茶叶:"&nbsp;+&nbsp;tf); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("T1:泡茶..."); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;"上茶:"&nbsp;+&nbsp;tf; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//等待任务3执行结果 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(f3.join());  &nbsp;&nbsp;&nbsp;&nbsp;} }  </code></pre> <p>一些基本的用法，就到这里了。</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-40714.htm">猫粮十大品牌排行榜前十名（猫粮十大品牌排行榜前十名有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-41216.htm">k8s入门之PV和PVC</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29142.htm" title="Pytorch Conv1d()">Pytorch Conv1d()</a></li>
+                        <li class="py-2"><a href="/news/article-26334.htm" title="宠康动物医院招聘 宠康动物医院招聘电话">宠康动物医院招聘 宠康动物医院招聘电话</a></li>
+                        <li class="py-2"><a href="/news/article-34378.htm" title="动物疫苗价格表图片大全大图高清下载（动物疫苗价格表图片大全大图高清下载软件）">动物疫苗价格表图片大全大图高清下载（动物疫苗价格表图片大全大图高清下载软件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-clash-verge-rev-github.htm" title="「10月28日」最高速度20M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月28日」最高速度20M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-verge-rev-windows.htm" title="「12月4日」最高速度20M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月4日」最高速度20M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-clash-verge-rev-node-share.htm" title="「11月15日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月15日」最高速度22.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-node-share-links.htm" title="「10月11日」最高速度18.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月11日」最高速度18.5M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-clash-verge-rev-nodes.htm" title="「10月21日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月21日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21697.htm" title="通州区美联众合动物医院（美联众合动物医院京西分院）">通州区美联众合动物医院（美联众合动物医院京西分院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-clash-verge-rev-windows.htm" title="「1月11日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月11日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
