@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-50155.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nuxt3 rc.11 填坑 配置 element-plus</title>
+        <meta name="description" content="网上各种版本都有，就是都不太行，不太完整。 先看下package.json {   "private": true,   "scripts": {     "build": "nuxt build"," />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-50155.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="Nuxt3 rc.11 填坑 配置 element-plus" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/1ffa97490143173de7d25944ad7499a2.webp" />
+        <meta property="og:release_date" content="2025-02-02T09:28:19" />
+    <meta property="og:updated_time" content="2025-02-02T09:28:19" />
+        <meta property="og:description" content="网上各种版本都有，就是都不太行，不太完整。 先看下package.json {   "private": true,   "scripts": {     "build": "nuxt build"," />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Nuxt3 rc.11 填坑 配置 element-plus">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                                                <a class="site-logo site-title" href="/"><span>Verge Clash</span></a>
+                                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Nuxt3 rc.11 填坑 配置 element-plus</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>网上各种版本都有，就是都不太行，不太完整。</p> <p>先看下package.json</p> <pre><code class="language-javascript">{   "private": true,   "scripts": {     "build": "nuxt build",     "dev": "nuxt dev",     "generate": "nuxt generate",     "preview": "nuxt preview",     "postinstall": "nuxt prepare"   },   "devDependencies": {     "nuxt": "3.0.0-rc.11",     "sass": "^1.49.8",     "sass-loader": "^12.6.0",     "unplugin-auto-import": "^0.10.3",     "unplugin-icons": "^0.13.2",     "unplugin-vue-components": "^0.22.8"   },   "dependencies": {     "element-plus": "^2.2.17"   } } </code></pre> <p>tsconfig.json</p> <pre><code class="language-javascript">{   // https://v3.nuxtjs.org/concepts/typescript   "extends": "./.nuxt/tsconfig.json",   "compilerOptions": {     // ...     "types": ["element-plus/global"]   } } </code></pre> <p>nuxt.config.ts</p> <pre><code class="language-javascript">import AutoImport from 'unplugin-auto-import/vite' import Components from "unplugin-vue-components/vite"; import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' import IconsResolver from "unplugin-icons/resolver"; const lifecycle = process.env.npm_lifecycle_event; export default defineNuxtConfig({     vite: {         plugins: [             AutoImport({                 resolvers: [                     ElementPlusResolver(                     ),                     IconsResolver()]             }),             Components({                 dts: true,                 resolvers: [ElementPlusResolver(                     {                         importStyle: false                     }                 )]             }),         ],     },     components: true,     css: ["~/assets/scss/index.scss"],     transpile: ["element-plus"],     build: {         transpile: lifecycle === "build" ? ["element-plus"] : [],     }, }) </code></pre> <p>按照上面的配置在代码中就可以直接引用组件了，例如index.vue中的按钮</p> <pre><code class="language-javascript">&lt;template&gt;   &lt;div&gt;     &lt;h1&gt;Welcome to the homepage&lt;/h1&gt;     &lt;AppAlert&gt; This is an auto-imported component &lt;/AppAlert&gt;     &lt;el-button&gt;I am ElButton&lt;/el-button&gt;      &lt;div&gt;       &lt;el-radio-group v-model="radio1" size="large"&gt;         &lt;el-radio-button label="New York" /&gt;         &lt;el-radio-button label="Washington" /&gt;         &lt;el-radio-button label="Los Angeles" /&gt;         &lt;el-radio-button label="Chicago" /&gt;       &lt;/el-radio-group&gt;     &lt;/div&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script lang="ts" setup&gt; import { ref } from "vue"; const radio1 = ref('New York') &lt;/script&gt; &lt;style lang='scss' scoped&gt; &lt;/style&gt;</code></pre> <p>这时候可能会报错如下</p> <pre><code class="language-javascript">ElementPlusError: [IdInjection] Looks like you are using server rendering, you must provide a id provider to ensure the hydration process to be succeed usage: app.provide(ID_INJECTION_KEY, {   prefix: number,   current: number, })     at debugWarn (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/utils/error.mjs:15:37)     at useId (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/hooks/use-id/index.mjs:16:5)     at setup (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/components/radio/src/radio-group2.mjs:26:21)     at callWithErrorHandling (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:157:22)     at setupStatefulComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:7118:29)     at setupComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:7073:11)     at renderComponentVNode (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js:172:17)     at Module.ssrRenderComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js:612:12)     at _sfc_ssrRender (E:/h5/vuestudy/vue3Study/nuxt-app/pages/index.vue:58:31)     a</code></pre> <p>这是因为 在SSR下elementui需要配置一个provide</p> <p>需要在 plugins文件夹下建立一个element-plus.ts</p> <pre><code class="language-javascript">import { ID_INJECTION_KEY } from 'element-plus';  export default defineNuxtPlugin(nuxtApp =&gt; {     // Doing something with nuxtApp     nuxtApp.vueApp.provide(ID_INJECTION_KEY,{         prefix: Math.floor(Math.random() * 10000),         current: 0,     })   })</code></pre> <p>然后再进行重启服务 npm run dev，就可以运行正常了，控制台也不会有警告和错误了</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49635.htm">深圳宠物领养中心电话多少号码（深圳宠物领养救助站）</a></p>
+                                        <p>下一个：<a href="/news/article-50156.htm">动物疫苗注射方法视频教程图片（动物疫苗接种方法有哪些）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-45172.htm" title="宠物粮食品牌前十名排名图片大全（宠物粮食品牌前十名排名图片大全及价格）">宠物粮食品牌前十名排名图片大全（宠物粮食品牌前十名排名图片大全及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-clash-verge-rev-node-github.htm" title="「10月17日」最高速度20.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月17日」最高速度20.6M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-latest-clash-verge-rev-node.htm" title="「12月30日」最高速度20.8M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月30日」最高速度20.8M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-node-share-links.htm" title="「11月30日」最高速度18.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月30日」最高速度18.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-clash-verge-rev-node.htm" title="「11月17日」最高速度22.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月17日」最高速度22.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-clash-verge-rev-node.htm" title="「11月11日」最高速度23M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月11日」最高速度23M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39724.htm" title="领养协议书模板图片大全高清（领养协议范本）">领养协议书模板图片大全高清（领养协议范本）</a></li>
+                        <li class="py-2"><a href="/news/article-36149.htm" title="天津宠物猫领养中心地址 天津宠物猫领养中心地址电话">天津宠物猫领养中心地址 天津宠物猫领养中心地址电话</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-node-share.htm" title="「12月26日」最高速度18.3M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月26日」最高速度18.3M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-clash-verge-rev-node.htm" title="「1月7日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月7日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
