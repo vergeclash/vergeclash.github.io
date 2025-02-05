@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://vergeclash.github.io/news/article-29144.htm" />
@@ -9,6 +9,34 @@
     <title>springboot整合kafka随记</title>
         <meta name="description" content="除了网上说的使用@KafkaListener注解之外，还可以通过实现CommandLineRunner接口的方式来配置kafka的消费者。 @Component@Slf4jpublicclassKaf" />
         <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-29144.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="springboot整合kafka随记" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/8e79465c706643e72eb3afc749e6fb01.webp" />
+        <meta property="og:release_date" content="2024-12-21T10:10:57" />
+    <meta property="og:updated_time" content="2024-12-21T10:10:57" />
+        <meta property="og:description" content="除了网上说的使用@KafkaListener注解之外，还可以通过实现CommandLineRunner接口的方式来配置kafka的消费者。 @Component@Slf4jpublicclassKaf" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot整合kafka随记">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <!-- fontawesome css link -->
     <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
@@ -117,16 +145,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-20-node-share.htm" title="「11月20日」最高速度19.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月20日」最高速度19.4M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-21696.htm" title="pandas的apply函数常见用法总结">pandas的apply函数常见用法总结</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share-links.htm" title="「10月10日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「10月10日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-subscribe-node.htm" title="「12月11日」最高速度19.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月11日」最高速度19.2M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-subscribe-node.htm" title="「9月6日」最高速度20.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月6日」最高速度20.3M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-verge-rev-windows.htm" title="「12月4日」最高速度20M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月4日」最高速度20M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-today-clash-verge-rev-node.htm" title="「9月2日」最高速度21.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「9月2日」最高速度21.7M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-clash-verge-rev-node.htm" title="「12月24日」最高速度18.2M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月24日」最高速度18.2M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-node-share.htm" title="「12月21日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月21日」最高速度22.7M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-node-subscribe-links.htm" title="「12月18日」最高速度21.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月18日」最高速度21.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-clash-verge-rev-node.htm" title="「12月8日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月8日」最高速度18.9M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-clash-verge-rev-node-github.htm" title="「12月17日」最高速度19M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月17日」最高速度19M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-clash-verge-rev-node.htm" title="「12月22日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月22日」最高速度20.5M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24033.htm" title="养猫需要打的疫苗（养猫咪需要打什么疫苗）">养猫需要打的疫苗（养猫咪需要打什么疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-40714.htm" title="猫粮十大品牌排行榜前十名（猫粮十大品牌排行榜前十名有哪些）">猫粮十大品牌排行榜前十名（猫粮十大品牌排行榜前十名有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-19447.htm" title="广州宠物领养网免费吗现在（广州宠物猫领养中心）">广州宠物领养网免费吗现在（广州宠物猫领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-41215.htm" title="带你了解了解Future和CompletableFuture">带你了解了解Future和CompletableFuture</a></li>
+                        <li class="py-2"><a href="/news/article-44692.htm" title="我们如何从MySQL表中删除所有行？">我们如何从MySQL表中删除所有行？</a></li>
+                        <li class="py-2"><a href="/news/article-47173.htm" title="python中os.path模块">python中os.path模块</a></li>
+                        <li class="py-2"><a href="/news/article-28677.htm" title="宠物品牌有哪些 宠物品牌有哪些名字">宠物品牌有哪些 宠物品牌有哪些名字</a></li>
                     </ul>
     </div>
 </div>
@@ -138,22 +166,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
