@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-54408.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Django学习——图书管理系统图书修改、orm常用和非常用字段（了解）、 orm字段参数（了解）、字段关系（了解）、手动创建第三张表、Meta元信息、原生SQL、Django与ajax(入门)_在线工具</title>
+        <meta name="description" content="1 图书管理系统图书修改  1.1 views    修改图书获取id的两种方案    1  &lt;input type="hidden" name="id" value="{{ book.nid " />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-54408.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="Django学习——图书管理系统图书修改、orm常用和非常用字段（了解）、 orm字段参数（了解）、字段关系（了解）、手动创建第三张表、Meta元信息、原生SQL、Django与ajax(入门)_在线工具" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/b6cf5fb863992c5e87563faea72c3901.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:39:23" />
+    <meta property="og:updated_time" content="2025-02-10T07:39:23" />
+        <meta property="og:description" content="1 图书管理系统图书修改  1.1 views    修改图书获取id的两种方案    1  &lt;input type="hidden" name="id" value="{{ book.nid " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Django学习——图书管理系统图书修改、orm常用和非常用字段（了解）、 orm字段参数（了解）、字段关系（了解）、手动创建第三张表、Meta元信息、原生SQL、Django与ajax(入门)_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Django学习——图书管理系统图书修改、orm常用和非常用字段（了解）、 orm字段参数（了解）、字段关系（了解）、手动创建第三张表、Meta元信息、原生SQL、Django与ajax(入门)_在线工具</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>1 图书管理系统图书修改</p> <pre><code> 1.1 views    修改图书获取id的两种方案    1  &lt;input type="hidden" name="id" value="{{ book.nid }}"&gt;    2  &lt;form action="/update_book/?id={{ book.nid }}" method="post"&gt;{% csrf_token %}     1.2 路由urls  1.3 前端模板   - book   - publish   - author </code></pre> <p>2 orm常用和非常用字段（了解）</p> <pre><code>1 常用 1 AutoField  int自增列，必须填入参数 primary_key=True。当model中如果没有自增列，则自动会创建一个列名为id的列。 2 IntegerField 一个整数类型,范围在 -2147483648 to 2147483647。 3 CharField 字符类型，必须提供max_length参数， max_length表示字符长度。 4 DateField 日期字段，日期格式 YYYY-MM-DD，相当于Python中的datetime.date()实例。 5 DateTimeField 日期时间字段，格式 YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]，相当于Python中的datetime.datetime()实例      2 不常用： FileField(Field) - 字符串，路径保存在数据库，文件上传到指定目录 - 参数： upload_to = ""      上传文件的保存路径 storage = None      存储组件，默认django.core.files.storage.FileSystemStorage  TextField(Field) - 文本类型  BooleanField(Field) - 布尔值类型  3 对应关系 对应关系：     'AutoField': 'integer AUTO_INCREMENT',     'BigAutoField': 'bigint AUTO_INCREMENT',     'BinaryField': 'longblob',     'BooleanField': 'bool',     'CharField': 'varchar(%(max_length)s)',     'CommaSeparatedIntegerField': 'varchar(%(max_length)s)',     'DateField': 'date',     'DateTimeField': 'datetime',     'DecimalField': 'numeric(%(max_digits)s, %(decimal_places)s)',     'DurationField': 'bigint',     'FileField': 'varchar(%(max_length)s)',     'FilePathField': 'varchar(%(max_length)s)',     'FloatField': 'double precision',     'IntegerField': 'integer',     'BigIntegerField': 'bigint',     'IPAddressField': 'char(15)',     'GenericIPAddressField': 'char(39)',     'NullBooleanField': 'bool',     'OneToOneField': 'integer',     'PositiveIntegerField': 'integer UNSIGNED',     'PositiveSmallIntegerField': 'smallint UNSIGNED',     'SlugField': 'varchar(%(max_length)s)',     'SmallIntegerField': 'smallint',     'TextField': 'longtext',     'TimeField': 'time',     'UUIDField': 'char(32)', </code></pre> <p>3 orm字段参数（了解）</p> <pre><code>1 #### null  用于表示某个字段可以为空。  2 #### **unique**  如果设置为unique=True 则该字段在此表中必须是唯一的 。  3 #### **db_index**  如果db_index=True 则代表着为此字段设置索引。  4 #### **default**  为该字段设置默认值。  5 ###  DateField和DateTimeField  #### auto_now_add  配置auto_now_add=True，创建数据记录的时候会把当前时间添加到数据库。  #### auto_now  (对象.属性  对象.save())    queryset.update 无效  配置上auto_now=True，每次更新数据记录的时候会更新该字段。 6 choices 	在model表模型定义的时候给某个字段指定choice 	sex_choice=((1,'男'),(2,'女'),(0,'未知')) 	sex=models.IntegerField(default=1,choices=sex_choice) 	在使用的时候，直接取出中文 		对象.get_sex_display()  null              数据库中字段是否可以为空 db_column           数据库中字段的列名 db_tablespace default             数据库中字段的默认值 primary_key          数据库中字段是否为主键 db_index            数据库中字段是否可以建立索引 unique              数据库中字段是否可以建立唯一索引 unique_for_date     数据库中字段【日期】部分是否可以建立唯一索引 unique_for_month    数据库中字段【月】部分是否可以建立唯一索引 unique_for_year     数据库中字段【年】部分是否可以建立唯一索引 了解： verbose_name        Admin中显示的字段名称 blank               Admin中是否允许用户输入为空 editable            Admin中是否可以编辑 help_text           Admin中该字段的提示信息 choices             Admin中显示选择框的内容，用不变动的数据放在内存中从而避免跨表操作 如：gf = models.IntegerField(choices=[(0, '何穗'),(1, '大表姐'),],default=1)  error_messages      自定义错误信息（字典类型），从而定制想要显示的错误信息； 字典健：null, blank, invalid, invalid_choice, unique, and unique_for_date 如：{'null': "不能为空.", 'invalid': '格式错误'}  validators          自定义错误验证（列表类型），从而定制想要的验证规则 from django.core.validators import RegexValidator from django.core.validators import EmailValidator,URLValidator,DecimalValidator,\ MaxLengthValidator,MinLengthValidator,MaxValueValidator,MinValueValidator 如： test = models.CharField( max_length=32, error_messages={ 'c1': '优先错信息1', 'c2': '优先错信息2', 'c3': '优先错信息3', }, validators=[ RegexValidator(regex='root_\d+', message='错误了', code='c1'), RegexValidator(regex='root_112233\d+', message='又错误了', code='c2'), EmailValidator(message='又错误了', code='c3'), ]                             ) </code></pre> <p>4 字段关系（了解）</p> <pre><code>1 一对一 一对多 多对多  一对多  2 ForeignKey 外键类型在ORM中用来表示外键关联关系，一般把ForeignKey字段设置在 ‘一对多’中’多’的一方。 ForeignKey可以和其他表做关联关系同时也可以和自身做关联关系。     -to     设置要关联的表     -to_field     设置要关联的表的字段     -related_name     反向操作时，使用的字段名，用于代替原反向查询时的’表名_set’。     -related_query_name 	反向查询操作时，使用的连接前缀，用于替换表名。   on_delete 　　当删除关联表中的数据时，当前表与其关联的行的行为。 　　models.CASCADE 　　删除关联数据，与之关联也删除 　　models.DO_NOTHING 　　删除关联数据，什么都不做 　　models.PROTECT 　　删除关联数据，引发错误ProtectedError 　　models.SET_NULL 　　删除关联数据，与之关联的值设置为null（前提FK字段需要设置为可空） 　　models.SET_DEFAULT 　　删除关联数据，与之关联的值设置为默认值（前提FK字段需要设置默认值） 　　models.SET 　　删除关联数据， 　　a. 与之关联的值设置为指定值，设置：models.SET(值) 　　b. 与之关联的值设置为可执行对象的返回值，设置：models.SET(可执行对象)           db_constraint 是否在数据库中创建外键约束，默认为True。  False  不建立外键 	-外键是否建立：     插入数据，会去检索关联，有个校验     -好处：不会出现脏数据     -坏处：插入的时候，效率低     -企业中，通常不建立，程序员控制      3 一对一  OneToOneField   同ForeignKey一样  4 多对多  ManyToManyField ：如何手动创建第三张表 </code></pre> <p>5 手动创建第三张表</p> <pre><code>-字段参数 	-db_table：指定第三张表的名字    默认创建第三张表时，数据库中表的名称。 	-to: 设置要关联的表 	-related_name: 同ForeignKey字段。 	-related_query_name: 同ForeignKey字段。          	-through: 手动创建第三张表来管理多对多关系，通过through来指定第三张表的表名。 	-through_fields: 设置关联的字段。          -多对多关系建立的三种方式 	-第一种：自动创建（常用：第三张表没有其他字段） 	-第二种：手动创建第三张（比较常用：第三张表有多余字段） 	-第三种：完全手动写第三张表      -第三种： class Book(models.Model):     title = models.CharField(max_length=32, verbose_name="书名")  class Author(models.Model):     name = models.CharField(max_length=32, verbose_name="作者姓名")  # 自己创建第三张表，分别通过外键关联书和作者 class Author2Book(models.Model):     author = models.ForeignKey(to="Author")     book = models.ForeignKey(to="Book")      class Meta:         unique_together = ("author", "book")          -第一种： class Book(models.Model):     title = models.CharField(max_length=32, verbose_name="书名")  # 通过ORM自带的ManyToManyField自动创建第三张表 class Author(models.Model):     name = models.CharField(max_length=32, verbose_name="作者姓名")     books = models.ManyToManyField(to="Book", related_name="authors")      -第二种： class Book(models.Model):     title = models.CharField(max_length=32, verbose_name="书名")   # 自己创建第三张表，并通过ManyToManyField指定关联 class Author(models.Model):     name = models.CharField(max_length=32, verbose_name="作者姓名")     books = models.ManyToManyField(to="Book", through="Author2Book", through_fields=("author", "book"))     # through_fields接受一个2元组（'field1'，'field2'）：     # 其中field1是定义ManyToManyField的模型外键的名（author），field2是关联目标模型（book）的外键名。   class Author2Book(models.Model):     author = models.ForeignKey(to="Author")     book = models.ForeignKey(to="Book")      class Meta:         unique_together = ("author", "book")  # through_fields 元组的第一个值是ManyToManyField所在的表去中间表通过哪个字段，就写在第一个位置  # 基于对象的跨表查询 还能继续使用 # 基于双下划线连表查 # 原来的多对多操作api用不了，需要手动操作 </code></pre> <p>6 Meta元信息</p> <pre><code>ORM对应的类里面包含另一个Meta类，而Meta类封装了一些数据库的信息。主要字段如下:  db_table ORM在数据库中的表名默认是 app_类名，可以通过db_table可以重写表名。  index_together 联合索引。  unique_together 联合唯一索引。  ordering 指定默认按什么字段排序。  只有设置了该属性，我们查询到的结果才可以被reverse()。   class UserInfo(models.Model):     nid = models.AutoField(primary_key=True)     username = models.CharField(max_length=32)      class Meta:         # 数据库中生成的表名称 默认 app名称 + 下划线 + 类名         db_table = "table_name"          # 联合索引         index_together = [             ("pub_date", "deadline"),         ]          # 联合唯一索引         unique_together = (("driver", "restaurant"),)                  ordering = ('name',)                  # admin中显示的表名称         verbose_name='哈哈'          # verbose_name加s         verbose_name_plural=verbose_name </code></pre> <p>7 原生SQL</p> <pre><code>from django.db import connection, connections  cursor = connection.cursor() # connection=default数据 cursor = connections['db2'].cursor()  cursor.execute("""SELECT * from auth_user where id = %s""", [1])  row = cursor.fetchone() row = cursor.fetchall()   ret = models.Author.objects.raw('select * from app01_author where nid&gt;1') print(ret) for i in ret:     print(i) print(ret.query) # 会把book的字段放到author对象中 ret = models.Author.objects.raw('select * from app01_book where nid&gt;1') print(ret) for i in ret:     print(i.price)     print(type(i)) </code></pre> <p>8 Django与ajax(入门)</p> <pre><code>1 概念 AJAX（Asynchronous Javascript And XML）翻译成中文就是“异步Javascript和XML”。即使用Javascript语言与服务器进行异步交互，传输的数据为XML（当然，传输的数据不只是XML,现在更多使用json数据）。 2 异步：请求发出去，不会卡在这，可以干其他事 3 局部刷新：js的DOM操作，使页面局部刷新 4 基本上web页面都有很多ajax请求 </code></pre> <p>8.1 写ajax跟后端交互</p> <pre><code>1 使用原生js写ajax请求（没有人用） 	-第一：麻烦 	-第二：区分浏览器，需要做浏览器兼容 2 现在主流做法 （现成有人封装好了，jquery,axios..） 	-以jQuery为例讲    前后端混合 	-后面会讲axios     前后端分离 </code></pre> <p>回顾</p> <pre><code>1 图书管理系统编辑功能 2 常用和非常用字段 3 字段参数 4 字段关系：to, to_fileds, related_name, related_query_name, on_delete, db_constraint 5 第三张表建立的三种方式 	-纯手动建立（不使用manytomany） 	-自动创建第三张表  	-手动创建第三张表，使用manytomany（多对多api用不了） 6 Meta元信息 7 原生sql 8 orm框架（了解） 	-python：Django的orm，sqlalchemy(独立使用，集成到flask) 	-go:beego自带的orm框架，gorm 	-java：mybatis,Hibernate      9 ajax:js跟后端交互     -异步     -局部刷新     -原生js写（麻烦，兼容浏览器）     -jQuery的ajax     -axios     发给请求 拿到数据 js渲染页面</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53860.htm">济南宠物领养中心电话多少 济南宠物领养中心电话多少号</a></p>
+                                        <p>下一个：<a href="/news/article-54409.htm">宠物店一个月能挣多少钱（宠物店生意好的一般多少收入一个月）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-node-subscribe-links.htm" title="「12月27日」最高速度20.9M/S，2024年Clash Verge每天更新免费机场订阅链接地址">「12月27日」最高速度20.9M/S，2024年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43689.htm" title="动物接种注意事项包括（动物接种法的优缺点）">动物接种注意事项包括（动物接种法的优缺点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-subscribe-node.htm" title="「1月5日」最高速度19.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月5日」最高速度19.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-53859.htm" title="宠颐生动物中心医院怎么样（宠颐生动物医院方庄店）">宠颐生动物中心医院怎么样（宠颐生动物医院方庄店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-clash-verge-rev-node-github.htm" title="「12月19日」最高速度18.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月19日」最高速度18.8M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32485.htm" title="美迪青储机厂家电话地址（美迪青储机3300价格）">美迪青储机厂家电话地址（美迪青储机3300价格）</a></li>
+                        <li class="py-2"><a href="/news/article-47171.htm" title="pytorch 自动构建任意层的深度神经网络(DNN)">pytorch 自动构建任意层的深度神经网络(DNN)</a></li>
+                        <li class="py-2"><a href="/news/article-41216.htm" title="k8s入门之PV和PVC">k8s入门之PV和PVC</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-subscribe-node.htm" title="「2月6日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月6日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43191.htm" title="生物疫苗和疫苗有区别吗（疫苗生物和生物可以混打吗）">生物疫苗和疫苗有区别吗（疫苗生物和生物可以混打吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
