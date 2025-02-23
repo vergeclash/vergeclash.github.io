@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-60636.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C语言算法进阶——递归</title>
+        <meta name="description" content="文章目录  前言 一、递归是什么？ 二、递归的用途   1.解决一些数学问题 2.简化链表中一些操作 3.解决树的绝大多数问题 3.使用递归技巧   三、总结     学习算法的过程中，总会遇到一个让" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-60636.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="C语言算法进阶——递归" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/7dcc0d90a2b9c2eb78755cab9b39ddbf.webp" />
+        <meta property="og:release_date" content="2025-02-21T09:22:11" />
+    <meta property="og:updated_time" content="2025-02-21T09:22:11" />
+        <meta property="og:description" content="文章目录  前言 一、递归是什么？ 二、递归的用途   1.解决一些数学问题 2.简化链表中一些操作 3.解决树的绝大多数问题 3.使用递归技巧   三、总结     学习算法的过程中，总会遇到一个让" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C语言算法进阶——递归">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">C语言算法进阶——递归</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#_4" rel="nofollow">前言</a></li> <li><a href="#_9" rel="nofollow">一、递归是什么？</a></li> <li><a href="#_17" rel="nofollow">二、递归的用途</a></li> <li> <ul> <li><a href="#1_18" rel="nofollow">1.解决一些数学问题</a></li> <li><a href="#2_49" rel="nofollow">2.简化链表中一些操作</a></li> <li><a href="#3_72" rel="nofollow">3.解决树的绝大多数问题</a></li> <li><a href="#3_99" rel="nofollow">3.使用递归技巧</a></li> </ul> </li> <li><a href="#_104" rel="nofollow">三、总结</a></li> </ul> </div> <hr/> </h1> <p>学习算法的过程中，总会遇到一个让你耳目一新，惊为天算的方法——递归</p> <hr/> </h1> <p>1、递归的定义非常简单：函数直接或间接的调用自己；<br /> 2、但是在这短短几个字中，也蕴含着递归的思想：<strong>分而治之</strong>；<br /> 3、分而治之又是什么呢？其实也很简单，就是：将一个大问题分成多个小问题来解决；<br /> 4、递归分为两个过程，我个人喜欢称这两个过程为<strong>递</strong>和<strong>归</strong>；<br /> 5、递的过程就是分解大问题的过程，归的过程是整合小问题的过程，整体就像是栈，递是向栈中存数据，归是向栈中取数据。<br /> 说了这么多，递归到底是解决什么样的问题呢？</p> </h1> <h2> <a id="1_18" rel="nofollow"></a>1.解决一些数学问题</h2> <p>（1）斐波那契数列<br /> 题目：斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …<br /> 求n阶斐波那契数列。</p> <pre><code class="prism language-c"><span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>（2）小青蛙跳台阶<br /> 题目：一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法？</p> <pre><code class="prism language-c"><span class="token keyword">int</span> <span class="token function">numWays</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token function">numWays</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">numWays</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="2_49" rel="nofollow"></a>2.简化链表中一些操作</h2> <p>（1）清空链表</p> <pre><code class="prism language-c"><span class="token keyword">void</span> <span class="token function">free_list</span><span class="token punctuation">(</span>Node <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> 		<span class="token keyword">return</span> <span class="token punctuation">;</span> 	head<span class="token operator">=</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	<span class="token function">free_list</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">free</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>（2）移除链表元素</p> <pre><code class="prism language-c"><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> <span class="token function">removeElements</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> head<span class="token punctuation">;</span>     head<span class="token operator">-&gt;</span>next<span class="token operator">=</span><span class="token function">removeElements</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> head<span class="token operator">-&gt;</span>val<span class="token operator">==</span>val<span class="token operator">?</span>head<span class="token operator">-&gt;</span>next<span class="token operator">:</span>head<span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h2> <a id="3_72" rel="nofollow"></a>3.解决树的绝大多数问题</h2> <p>（1）树的反转</p> <pre><code class="prism language-c"><span class="token keyword">void</span> <span class="token function">reverse_tree</span><span class="token punctuation">(</span>Tree_Node <span class="token operator">*</span>root<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>     <span class="token punctuation">{<!-- --></span> 		Tree_Node <span class="token operator">*</span>s<span class="token punctuation">;</span>         s <span class="token operator">=</span> root<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>         root<span class="token operator">-&gt;</span>left <span class="token operator">=</span> root<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>         root<span class="token operator">-&gt;</span>right <span class="token operator">=</span> s<span class="token punctuation">;</span>         <span class="token function">reverse_tree</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token function">reverse_tree</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>（2）树的遍历</p> <pre><code class="prism language-c"><span class="token keyword">void</span> <span class="token function">pre_traverse</span><span class="token punctuation">(</span>Tree_Node <span class="token operator">*</span>root<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> 		<span class="token keyword">return</span><span class="token punctuation">;</span> 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%-5d"</span><span class="token punctuation">,</span>root<span class="token operator">-&gt;</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">pre_traverse</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">pre_traverse</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="3_99" rel="nofollow"></a>3.使用递归技巧</h2> <p>1、递归对解决链式结构问题有着天然优势，解决单链表通常只需要调用自己一次，解决二叉树通常要调用自己两次；<br /> 2、递归解决问题也分为两种方式，一个是在递的过程中解决问题，另一个是在归的过程中解决问题，比较经典的就是快速排序和归并排序(我之后会更新)。</p> <hr/> </h1> <p>1、递归在使用中是非常灵活的，也是非常难去想的，往往一个小问题都会在大脑中一遍一遍的绕，直到大脑爆栈。<br /> 2、作为一个小白来说，写这篇进阶确实不太好驾驭，还需要通过做题去熟悉，去磨练自己，第一篇文章的每日一练其实本意是挺好的，但是之后的题我没有去发，看看之后补发一下。<br /> 3、引用一下力扣书中的一句话——<strong>学习好递归的重要方法是：先模仿，再练习</strong>，所以现在不会也没关系，多多模仿，懂我意思吧！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60071.htm">动物疫苗价格查询官网入口下载手机版 动物疫苗价格查询官网入口下载手机版</a></p>
+                                        <p>下一个：<a href="/news/article-60637.htm">vue 遍历数组</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-30035.htm" title="猫粮生产工艺及设备有哪些厂家（猫粮加工设备及配方）">猫粮生产工艺及设备有哪些厂家（猫粮加工设备及配方）</a></li>
+                        <li class="py-2"><a href="/news/article-43689.htm" title="动物接种注意事项包括（动物接种法的优缺点）">动物接种注意事项包括（动物接种法的优缺点）</a></li>
+                        <li class="py-2"><a href="/news/article-40222.htm" title="猫三联加狂犬疫苗一共几针,多少钱（猫三联加狂犬疫苗要打多久）">猫三联加狂犬疫苗一共几针,多少钱（猫三联加狂犬疫苗要打多久）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-node-share.htm" title="「11月27日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「11月27日」最高速度21M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-40221.htm" title="动物疫苗接种禁忌症和注意事项图片视频 动物疫苗接种禁忌症和注意事项图片视频讲解">动物疫苗接种禁忌症和注意事项图片视频 动物疫苗接种禁忌症和注意事项图片视频讲解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-high-speed-nodes.htm" title="「1月14日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月14日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-clash-verge-rev-node.htm" title="「12月15日」最高速度21.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接">「12月15日」最高速度21.1M/S，2024年Clash Verge每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-41702.htm" title="宠物粮批发网站大全免费（宠物粮网店）">宠物粮批发网站大全免费（宠物粮网店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-today-clash-verge-rev-node.htm" title="「2月7日」最高速度22.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月7日」最高速度22.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-34856.htm" title="宠物粮食产地 宠物粮食产地排名">宠物粮食产地 宠物粮食产地排名</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
