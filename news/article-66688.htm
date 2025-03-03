@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-66688.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Halo 开源项目学习（六）：事件监听机制_在线工具</title>
+        <meta name="description" content="基本介绍 Halo 项目中，当用户或博主执行某些操作时，服务器会发布相应的事件，例如博主登录管理员后台时发布 "日志记录" 事件，用户浏览文章时发布 "访问文章" 事件。事件发布后，负责监听的 Bea" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-66688.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="Halo 开源项目学习（六）：事件监听机制_在线工具" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/9635309660cccd3f09bd53198c803802.webp" />
+        <meta property="og:release_date" content="2025-03-03T08:15:07" />
+    <meta property="og:updated_time" content="2025-03-03T08:15:07" />
+        <meta property="og:description" content="基本介绍 Halo 项目中，当用户或博主执行某些操作时，服务器会发布相应的事件，例如博主登录管理员后台时发布 "日志记录" 事件，用户浏览文章时发布 "访问文章" 事件。事件发布后，负责监听的 Bea" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Halo 开源项目学习（六）：事件监听机制_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Halo 开源项目学习（六）：事件监听机制_在线工具</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="基本介绍">基本介绍</h2> <p>Halo 项目中，当用户或博主执行某些操作时，服务器会发布相应的事件，例如博主登录管理员后台时发布 "日志记录" 事件，用户浏览文章时发布 "访问文章" 事件。事件发布后，负责监听的 Bean 会做出相应的处理，这种设计称为事件监听机制，其作用是可以实现业务逻辑之间的解耦，提高程序的扩展性和可维护性。</p> <h2 id="applicationevent-和-listener">ApplicationEvent 和 Listener</h2> <p>Halo 使用 ApplicationEvent 和 Listener 来实现事件的发布与监听，二者由 Spring 提供，其中 ApplicationEvent 是需要发布的事件，Listener 则是监听器。用户可在监听器中自定义事件的处理逻辑，当事件发生时，只需要将事件发布，监听器会根据用户定义的逻辑自动处理该事件。</p> <p><strong>定义事件</strong></p> <p>事件需要继承 ApplicationEvent 类，且需要重载构造方法，以 LogEvent 为例：</p> <pre><code class="language-java">public class LogEvent extends ApplicationEvent {      private final LogParam logParam;      /**      * Create a new ApplicationEvent.      *      * @param source the object on which the event initially occurred (never {@code null})      * @param logParam login param      */     public LogEvent(Object source, LogParam logParam) {         super(source);          // Validate the log param         ValidationUtils.validate(logParam);          // Set ip address         logParam.setIpAddress(ServletUtils.getRequestIp());          this.logParam = logParam;     }      public LogEvent(Object source, String logKey, LogType logType, String content) {         this(source, new LogParam(logKey, logType, content));     }      public LogParam getLogParam() {         return logParam;     } } </code></pre> <p>构造方法中的 source 指的是触发事件的 Bean，也称为事件源，通常用 this 关键字代替，其它参数可由用户任意指定。</p> <p><strong>发布事件</strong></p> <p>ApplicationContext 接口的 publishEvent 方法可用于发布事件，例如博客初始化完成后发布 LogEvent 事件（InstallConroller 中的 installBlog 方法）：</p> <pre><code class="language-java">public BaseResponse&lt;String&gt; installBlog(@RequestBody InstallParam installParam) {     // 省略部分代码      eventPublisher.publishEvent(         new LogEvent(this, user.getId().toString(), LogType.BLOG_INITIALIZED, "博客已成功初始化")     );      return BaseResponse.ok("安装完成！"); } </code></pre> <p><strong>监听器</strong></p> <p>监听器的创建方式有多种，例如实现 ApplicationListener 接口、SmartApplicationListener 接口，或者添加 @EventListener 注解。项目中使用注解来定义监听器，如 LogEventListener：</p> <pre><code class="language-java">@Component public class LogEventListener {      private final LogService logService;      public LogEventListener(LogService logService) {         this.logService = logService;     }      @EventListener     @Async     public void onApplicationEvent(LogEvent event) {         // Convert to log         Log logToCreate = event.getLogParam().convertTo();          // Create log         logService.create(logToCreate);     } } </code></pre> <p>用户可在 @EventListener 注解修饰的方法中定义事件的处理逻辑，方法接收的参数为监听的事件类型。@Async 注解的作用是实现异步监听，以上文中的 installBlog 方法为例，如果不添加该注解，那么程序需要等待 onApplicationEvent 方法执行结束后才能返回 "安装完成！"。加上 @Async 注解后，onApplicationEvent 方法会在新的线程中执行，installBlog 方法可以立即返回。若要使 @Async 注解生效，还需要在启动类或配置类上添加 @EnableAsync 注解。</p> <h2 id="事件处理">事件处理</h2> <p>接下来我们分析一下 Halo 项目中不同事件的处理过程：</p> <p><strong>日志记录事件</strong></p> <p>日志记录事件 LogEvent 由 LogEventListener 中的 onApplicationEvent 方法处理，该方法的处理逻辑非常简单，就是在 logs 表中插入一条系统日志，插入的记录用于在管理员界面展示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/cf0cd2b4a56aa2c0300d7a6c8b69ec0d.jpg" alt="Halo 开源项目学习（六）：事件监听机制_在线工具"></p> <p>需要注意的是，不同类型日志的 logKey、logType 以及 content 会有所区别，例如用户登录时，logKey 为用户的 userName，logType 为 LogType.LOGGED_IN，content 为用户的 nickName：</p> <pre><code class="language-java">eventPublisher.publishEvent(         new LogEvent(this, user.getUsername(), LogType.LOGGED_IN, user.getNickname())); </code></pre> <p>发布文章时，logKey 为文章的 id，logType 为 LogType.POST_PUBLISHED，content 为文章的 title：</p> <pre><code class="language-java">LogEvent logEvent = new LogEvent(this, createdPost.getId().toString(),     LogType.POST_PUBLISHED, createdPost.getTitle()); eventPublisher.publishEvent(logEvent); </code></pre> <p><strong>文章访问事件</strong></p> <p>文章访问事件 PostVisitEvent 由  AbstractVisitEventListener 中的 handleVisitEvent 方法处理，该方法的处理的逻辑是将当前文章的访问量加一：</p> <pre><code class="language-java">protected void handleVisitEvent(@NonNull AbstractVisitEvent event) throws InterruptedException {     Assert.notNull(event, "Visit event must not be null");     // 获取文章 id     // Get post id     Integer id = event.getId();      log.debug("Received a visit event, post id: [{}]", id);      // 如果当前 postId 具有对应的 BlockingQueue, 那么直接返回该 BlockingQueue, 否则为当前 postId 创建一个新的 BlockingQueue     // Get post visit queue     BlockingQueue&lt;Integer&gt; postVisitQueue =         visitQueueMap.computeIfAbsent(id, this::createEmptyQueue);     // 如果当前 postId 具有对应的 PostVisitTask, 不做任何处理, 否则为当前 postId 创建一个新的 PostVisitTask 任务     visitTaskMap.computeIfAbsent(id, this::createPostVisitTask);     // 将当前 postId 存入到对应的 BlockingQueue     // Put a visit for the post     postVisitQueue.put(id); } </code></pre> <p>上述方法首先获取当前被访问文章的 postId，然后查询 visitQueueMap 中是否存在 postId 对应的阻塞队列（实际类型为 LinkedBlockingQueue），如果存在那么直接返回该队列, 否则为当前 postId 创建一个新的阻塞队列并存入到 visitQueueMap。接着查询 visitTaskMap 中是否存在 postId 对应的 PostVisitTask 任务（任务的作用是将文章的访问量加一），如果没有，那么就为 postId 创建一个新的 PostVisitTask 任务，并将该任务交给线程池 ThreadPoolExecutor（Executors.newCachedThreadPool()）执行。之后将 postId 添加到对应的阻塞队列，这一步的目的是管理 PostVisitTask 任务的执行次数。</p> <p>visitQueueMap 和 visitTaskMap 都是 ConcurrentHashMap 类型的对象，使用 ConcurrentHashMap 是为了保证线程安全，因为监听器的事件处理方法被 @Async 注解修饰。默认情况下，@Async 注解修饰的方法会由 Spring 创建的线程池 ThreadPoolTaskExecutor 中的线程执行，因此当某一篇文章被多个用户同时浏览时，ThreadPoolTaskExecutor 中的多个线程可能会同时在 visitQueueMap 中创建阻塞队列，或在 visitTaskMap 中创建 PostVisitTask 任务。</p> <p>下面看一下 PostVisitTask 任务中 run 方法的处理逻辑：</p> <pre><code class="language-java">public void run() {     while (!Thread.currentThread().isInterrupted()) {         try {             BlockingQueue&lt;Integer&gt; postVisitQueue = visitQueueMap.get(id);             Integer postId = postVisitQueue.take();              log.debug("Took a new visit for post id: [{}]", postId);              // Increase the visit             basePostService.increaseVisit(postId);              log.debug("Increased visits for post id: [{}]", postId);         } catch (InterruptedException e) {             log.debug(                 "Post visit task: " + Thread.currentThread().getName() + " was interrupted",                 e);             // Ignore this exception         }     }      log.debug("Thread: [{}] has been interrupted", Thread.currentThread().getName()); }  </code></pre> <p>线程池 ThreadPoolExecutor 中的一个线程处理该任务：</p> <ol> <li> <p>从 visitQueueMap 获取 postId 对应的阻塞队列（这里的 id 其实就是 postId），并取出队首元素。</p> </li> <li> <p>将 postId 对应的文章的点赞量加一。</p> </li> <li> <p>只要线程不被中断，就一直重复步骤 1 和步骤 2，如果队列为空，那么线程进入阻塞。</p> </li> </ol> <p>综上，文章访问事件的处理流程总结如下：</p> <p>当 id 为 postId 的文章被访问时，系统会为其创建一个 LinkedBlockingQueue 类型的阻塞队列和一个负责将文章点赞量加一的 PostVisitTask 任务。然后 postId 入队，线程池 ThreadPoolExecutor 分配一个线程执行 PostVisitTask 任务，阻塞队列有多少个 postId 该任务就执行多少次。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/558ccd4b30162739ee01d56f96678b0f.jpg" alt="Halo 开源项目学习（六）：事件监听机制_在线工具"></p> <p><strong>结语</strong></p> <p>事件监听机制是一个非常重要的知识点，实际开发中，如果某些业务处理起来比较耗时，且与主要业务的关联性并不是很强，那么可以考虑做任务拆分，利用事件监听机制将串行执行异步化，改为并行执行（当然也可以使用消息队列）。Halo 中还有新增评论、主题更新等事件，这些事件的的处理思路与文章访问事件相似，所以本文就不再过多陈述了 ( ⊙‿⊙)。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66092.htm">动物疫苗叫什么名称啊（动物疫苗叫什么名称啊英文）</a></p>
+                                        <p>下一个：<a href="/news/article-66691.htm">宠物领养协议书范本图片模板下载 宠物领养协议书范本图片模板下载大全</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-node-subscribe-links.htm" title="「1月9日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月9日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-clash-verge-rev-node-share.htm" title="「2月10日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月10日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54408.htm" title="Django学习——图书管理系统图书修改、orm常用和非常用字段（了解）、 orm字段参数（了解）、字段关系（了解）、手动创建第三张表、Meta元信息、原生SQL、Django与ajax(入门)_在线工具">Django学习——图书管理系统图书修改、orm常用和非常用字段（了解）、 orm字段参数（了解）、字段关系（了解）、手动创建第三张表、Meta元信息、原生SQL、Django与ajax(入门)_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-24965.htm" title="vue 图片资源应该如何存放并引入（public、assets）？">vue 图片资源应该如何存放并引入（public、assets）？</a></li>
+                        <li class="py-2"><a href="/news/article-28677.htm" title="宠物品牌有哪些 宠物品牌有哪些名字">宠物品牌有哪些 宠物品牌有哪些名字</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-clash-verge-rev-nodes.htm" title="「2月2日」最高速度21.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月2日」最高速度21.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-56632.htm" title="新手开店适合开什么店利润高（新手开店卖什么东西赚钱）">新手开店适合开什么店利润高（新手开店卖什么东西赚钱）</a></li>
+                        <li class="py-2"><a href="/news/article-49146.htm" title="宠物医院办证流程（宠物医院办证流程图片）">宠物医院办证流程（宠物医院办证流程图片）</a></li>
+                        <li class="py-2"><a href="/news/article-21696.htm" title="pandas的apply函数常见用法总结">pandas的apply函数常见用法总结</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-clash-verge-rev-node-github.htm" title="「1月18日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月18日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
