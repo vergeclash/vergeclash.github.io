@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-68607.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中动态改变样式</title>
+        <meta name="description" content="vue中动态改变样式    最快捷迅速的做法 对象语法 数组语法     最快捷迅速的做法  1. vue中可以 自定义class类,同时允许存在v-bind：class指令来进行书写样式，这两者并不" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-68607.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="vue中动态改变样式" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/7dcc0d90a2b9c2eb78755cab9b39ddbf.webp" />
+        <meta property="og:release_date" content="2025-03-06T11:03:54" />
+    <meta property="og:updated_time" content="2025-03-06T11:03:54" />
+        <meta property="og:description" content="vue中动态改变样式    最快捷迅速的做法 对象语法 数组语法     最快捷迅速的做法  1. vue中可以 自定义class类,同时允许存在v-bind：class指令来进行书写样式，这两者并不" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue中动态改变样式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">vue中动态改变样式</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>vue中动态改变样式</h3> <ul> <li> <ul> <li><a href="#_1" rel="nofollow">最快捷迅速的做法</a></li> <li><a href="#_90" rel="nofollow">对象语法</a></li> <li><a href="#_166" rel="nofollow">数组语法</a></li> </ul> </li> </ul> </div> <h2><a id="_1" rel="nofollow"></a>最快捷迅速的做法</h2> <pre><code> 1. vue中可以 自定义class类,同时允许存在v-bind：class指令来进行书写样式，这两者并不冲突，可以并存。  2. 根据第一条，我们可以： class中书写必有的样式，然后用 :class搭配三元运算符进行动态样式判断  3. 这个方法其实就是组件中 data   style  三元运算符的应用 好理解，易上手，极力推荐</code></pre> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"grid-content"</span> @mouseover<span class="token operator">=</span><span class="token string">"mouseOver"</span> @mouseleave<span class="token operator">=</span><span class="token string">"mouseLeave"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"select_icon level_center"</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"active == true ? 'select_a' : 'select_b'"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"select_char level_center"</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"active == true ? 'select_charActive' : 'select_charNoactive'"</span><span class="token operator">&gt;</span>         能力图谱<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>       active<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span>   methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">mouseOver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>active<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">mouseLeave</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>active<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   computed<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">'less'</span> scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>grid<span class="token operator">-</span>content<span class="token punctuation">{<!-- --></span><span class="token comment">//使用gutter使其自适应了,高度关掉</span><span class="token comment">// width: 300px;</span>   height<span class="token punctuation">:</span><span class="token number">300</span>px<span class="token punctuation">;</span>   background<span class="token punctuation">:</span> #<span class="token number">1</span>b1f27<span class="token punctuation">;</span>   border<span class="token punctuation">:</span><span class="token number">1</span>px solid #<span class="token number">6</span>c93e3<span class="token punctuation">;</span>   border<span class="token operator">-</span>radius<span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>   position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span><span class="token punctuation">.</span>select_icon<span class="token punctuation">{<!-- --></span>     width<span class="token punctuation">:</span><span class="token number">165</span>px<span class="token punctuation">;</span>     height<span class="token punctuation">:</span><span class="token number">144</span>px<span class="token punctuation">;</span>     position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>     top<span class="token punctuation">:</span><span class="token number">48</span>px<span class="token punctuation">;</span>     transition<span class="token punctuation">:</span> background<span class="token number">1</span>s linear<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_char<span class="token punctuation">{<!-- --></span>     width<span class="token punctuation">:</span><span class="token number">259</span>px<span class="token punctuation">;</span>     height<span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>     background<span class="token punctuation">:</span> #<span class="token number">272</span>b35<span class="token punctuation">;</span>     border<span class="token operator">-</span>radius<span class="token punctuation">:</span><span class="token number">20</span>px<span class="token punctuation">;</span>     top<span class="token punctuation">:</span><span class="token number">239</span>px<span class="token punctuation">;</span>     font<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">24</span>px<span class="token punctuation">;</span>     font<span class="token operator">-</span>family<span class="token punctuation">:</span> Microsoft YaHei<span class="token punctuation">;</span>     font<span class="token operator">-</span>weight<span class="token punctuation">:</span><span class="token number">400</span><span class="token punctuation">;</span>     text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>     line<span class="token operator">-</span>height<span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>     transition<span class="token punctuation">:</span> color<span class="token number">1</span>s linear<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//变化后的样式</span><span class="token punctuation">.</span>select_charNoactive<span class="token punctuation">{<!-- --></span>     color<span class="token punctuation">:</span> #<span class="token number">8e9</span>fa8<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_charActive<span class="token punctuation">{<!-- --></span>     color<span class="token punctuation">:</span> #<span class="token number">67</span>fff8<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_a<span class="token punctuation">{<!-- --></span>     background<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../assets/home/nenglitupu.png"</span><span class="token punctuation">)</span> no<span class="token operator">-</span>repeat<span class="token punctuation">;</span>     background<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_b<span class="token punctuation">{<!-- --></span>     background<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../assets/home/changjing.png"</span><span class="token punctuation">)</span> no<span class="token operator">-</span>repeat<span class="token punctuation">;</span>     background<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220604/eb95e4298c9bce99a1e9b5800ad2d080.jpg" alt="vue中动态改变样式"></p> <h2><a id="_90" rel="nofollow"></a>对象语法</h2> <pre><code> 1.对象语法简单写一下，需要注意：对象里面多个样式的类，第二个需要用双引号括起来  2.对象语法其实就是：组件中style部分于data部分的结合</code></pre> <p><s>下面代码仅仅是在说明一个方式，代码并不具备操作性</s></p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"grid-content"</span><span class="token operator">&gt;</span><span class="token comment">//当 isActive 或者 hasError 变化时，class 列表将相应地更新。</span><span class="token comment">//例如，如果 hasError 的值为 true，class 列表将变为 "select_icon select_char select_charNoactive select_b"。</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"select_icon select_char"</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"{ select_charNoactive: isActive, 'select_b': hasError }"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>       isActive<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>       hasError<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span>   methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">mouseOver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>active<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">mouseLeave</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>active<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   computed<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">'less'</span> scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>select_icon<span class="token punctuation">{<!-- --></span>     width<span class="token punctuation">:</span><span class="token number">165</span>px<span class="token punctuation">;</span>     height<span class="token punctuation">:</span><span class="token number">144</span>px<span class="token punctuation">;</span>     position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>     top<span class="token punctuation">:</span><span class="token number">48</span>px<span class="token punctuation">;</span>     transition<span class="token punctuation">:</span> background<span class="token number">1</span>s linear<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_char<span class="token punctuation">{<!-- --></span>     width<span class="token punctuation">:</span><span class="token number">259</span>px<span class="token punctuation">;</span>     height<span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>     background<span class="token punctuation">:</span> #<span class="token number">272</span>b35<span class="token punctuation">;</span>     border<span class="token operator">-</span>radius<span class="token punctuation">:</span><span class="token number">20</span>px<span class="token punctuation">;</span>     top<span class="token punctuation">:</span><span class="token number">239</span>px<span class="token punctuation">;</span>     font<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">24</span>px<span class="token punctuation">;</span>     font<span class="token operator">-</span>family<span class="token punctuation">:</span> Microsoft YaHei<span class="token punctuation">;</span>     font<span class="token operator">-</span>weight<span class="token punctuation">:</span><span class="token number">400</span><span class="token punctuation">;</span>     text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>     line<span class="token operator">-</span>height<span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>     transition<span class="token punctuation">:</span> color<span class="token number">1</span>s linear<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//变化后的样式</span><span class="token punctuation">.</span>select_charNoactive<span class="token punctuation">{<!-- --></span>     color<span class="token punctuation">:</span> #<span class="token number">8e9</span>fa8<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_charActive<span class="token punctuation">{<!-- --></span>     color<span class="token punctuation">:</span> #<span class="token number">67</span>fff8<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_a<span class="token punctuation">{<!-- --></span>     background<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../assets/home/nenglitupu.png"</span><span class="token punctuation">)</span> no<span class="token operator">-</span>repeat<span class="token punctuation">;</span>     background<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>select_b<span class="token punctuation">{<!-- --></span>     background<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../assets/home/changjing.png"</span><span class="token punctuation">)</span> no<span class="token operator">-</span>repeat<span class="token punctuation">;</span>     background<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span></code></pre> <h2><a id="_166" rel="nofollow"></a>数组语法</h2> <p><s>下面代码仅仅是在说明一个方式，代码并不具备操作性</s></p> <pre><code> 1.数组语法简单写一下  2.数组语法其实就是：组件中style部分于data部分的结合，但是非常恶心的是他并不是非常的直接，样式的类名  其实是写在数据中。(看代码吧)  3. 如果你也想根据条件切换列表中的 class，可以用三元表达式：  &lt;div v-bind:class="[isActive ? activeClass : '', errorClass]"&gt;&lt;/div&gt;</code></pre> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div v<span class="token operator">-</span>bind<span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"[activeClass, errorClass]"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>     		  activeClass<span class="token punctuation">:</span><span class="token string">'active'</span><span class="token punctuation">,</span>               errorClass<span class="token punctuation">:</span><span class="token string">'text-danger'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span> methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span> computed<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">'less'</span> scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>active<span class="token punctuation">{<!-- --></span>  	text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>     line<span class="token operator">-</span>height<span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>     transition<span class="token punctuation">:</span> color<span class="token number">1</span>s linear<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>text<span class="token operator">-</span>danger<span class="token punctuation">{<!-- --></span> 	text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>     line<span class="token operator">-</span>height<span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>     transition<span class="token punctuation">:</span> color<span class="token number">1</span>s linear<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token comment">//最终渲染为 &lt;div class="active text-danger"&gt;&lt;/div&gt;</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68606.htm">字符动态数组 c语言,用C语言实现一个动态数组</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-45172.htm" title="宠物粮食品牌前十名排名图片大全（宠物粮食品牌前十名排名图片大全及价格）">宠物粮食品牌前十名排名图片大全（宠物粮食品牌前十名排名图片大全及价格）</a></li>
+                        <li class="py-2"><a href="/news/article-35630.htm" title="猫粮品牌大全进口有哪些牌子（猫粮进口什么牌子好）">猫粮品牌大全进口有哪些牌子（猫粮进口什么牌子好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-clash-verge-rev-node-github.htm" title="「1月4日」最高速度19.8M/S，2025年Clash Verge每天更新免费机场订阅链接地址">「1月4日」最高速度19.8M/S，2025年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-64840.htm" title="成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）">成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）</a></li>
+                        <li class="py-2"><a href="/news/article-44216.htm" title="上海动物疫苗控制中心官网（上海动物预防疾病控制中心）">上海动物疫苗控制中心官网（上海动物预防疾病控制中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-subscribe-node.htm" title="「1月22日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月22日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-latest-clash-verge-rev-node.htm" title="「2月8日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月8日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-clash-verge-rev-node.htm" title="「3月4日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月4日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-57206.htm" title="开宠物店的弊端（开宠物店好不好）">开宠物店的弊端（开宠物店好不好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-clash-verge-rev-github.htm" title="「2月4日」最高速度18.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月4日」最高速度18.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
