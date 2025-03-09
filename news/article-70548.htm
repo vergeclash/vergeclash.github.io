@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-70548.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mybatis动态SQL原理解析</title>
+        <meta name="description" content="官网 &nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（https://mybatis.org/mybatis-3/dynamic-sql.html）这页文档首先描述了Myb" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-70548.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="Mybatis动态SQL原理解析" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/50429b4405303dc914fbc208f85cfa22.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:47:11" />
+    <meta property="og:updated_time" content="2025-03-09T09:47:11" />
+        <meta property="og:description" content="官网 &nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（https://mybatis.org/mybatis-3/dynamic-sql.html）这页文档首先描述了Myb" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Mybatis动态SQL原理解析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Mybatis动态SQL原理解析</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h2>官网</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mybatis.org/mybatis-3/dynamic-sql.html"  rel="nofollow">https://mybatis.org/mybatis-3/dynamic-sql.html</a>）这页文档首先描述了Mybatis的动态SQL是多么牛逼，解决了哪些问题，又讲了如何使用，而我们想知道他是如何实现的，所以这不是我们想要的。</p> <blockquote> <h2>Dynamic SQL</h2> <p>One of the most powerful features of MyBatis has always been its Dynamic SQL capabilities. If you have any experience with JDBC or any similar framework, you understand how painful it is to conditionally concatenate strings of SQL together, making sure not to forget spaces or to omit a comma at the end of a list of columns. Dynamic SQL can be downright painful to deal with.</p> <p>While working with Dynamic SQL will never be a party, MyBatis certainly improves the situation with a powerful Dynamic SQL language that can be used within any mapped SQL statement.</p> </blockquote> <h2>源码&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</h2> <p>现在，我们去找mybatis源码（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/mybatis/mybatis-3/releases/tag/mybatis-3.5.4"  rel="nofollow">https://github.com/mybatis/mybatis-3/releases/tag/mybatis-3.5.4</a>）</p> </h1> <h2>1.从哪创建的SqlSource</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，在Mybatis中，首先从可以看到<strong>LanguageDriver</strong>接口中的createSqlSource方法，该类其中有2个方法，和2个实现类<strong>XMLLanguageDriver</strong>和<strong>RawLanguageDriver</strong>，他们的关系如下：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img fetchpriority="high" decoding="async" alt="" height="243" src="http://img.555519.xyz/uploads/20230129/afb2c56da092e6c81bff14312523b908.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 接下来我们可以看到该接口的其中2个方法：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 1.<strong>通过解析XML文件为XNode数据</strong></p> <pre><code class="language-java">/**  * Creates an {@link SqlSource} that will hold the statement read from a mapper xml file.   * It is called during startup, when the mapped statement is read from a class or an xml file.  *   * @param configuration The MyBatis configuration  * @param script XNode parsed from a XML file  * @param parameterType input parameter type got from a mapper method or specified in the parameterType xml attribute. Can be null.  * @return  */ SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>2.通过解析注解内容</strong></p> <pre><code class="language-java">/**  * Creates an {@link SqlSource} that will hold the statement read from an annotation.  * It is called during startup, when the mapped statement is read from a class or an xml file.  *   * @param configuration The MyBatis configuration  * @param script The content of the annotation  * @param parameterType input parameter type got from a mapper method or specified in the parameterType xml attribute. Can be null.  * @return   */ SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这两种方式都是为了获得<strong>SqlSource</strong>对象，第一个方法就是我们常规的通过XML配置SQL语句的方式创建，而第二种是在数据访问层通过对方法加对应注解（eg：@Select）的方式创建。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而<strong>XMLLanguageDriver</strong>类实现了这两个方法</p> <pre><code class="language-java">@Override   public SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType) {     XMLScriptBuilder builder = new XMLScriptBuilder(configuration, script, parameterType);     return builder.parseScriptNode();   }    @Override   public SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType) {     // issue #3     if (script.startsWith("&lt;script&gt;")) {       XPathParser parser = new XPathParser(script, false, configuration.getVariables(), new XMLMapperEntityResolver());       return createSqlSource(configuration, parser.evalNode("/script"), parameterType);     } else {       // issue #127       script = PropertyParser.parse(script, configuration.getVariables());       TextSqlNode textSqlNode = new TextSqlNode(script);       if (textSqlNode.isDynamic()) {         return new DynamicSqlSource(configuration, textSqlNode);       } else {         return new RawSqlSource(configuration, script, parameterType);       }     }   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 可以看到，在通过尝试使用注解的方式创建SqlSource对象时，仍然会检查是否是包含以“script”为开头的字符串，若包含，则仍会调用XML方式对其进行解析，也就是说，我们可以在注解中加入script头的方式使用动态语句使其使用XML方式解析。当然，不是必要的情况下不建议这么做。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在方法结尾处，会通过TextSqlNode对象来判定该SqlNode是否是动态的，如果是动态的则使用<strong>DynamicSqlSource</strong>方式解析，若是静态，则使用<strong>RawSqlSource</strong>方式解析。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而在<strong>LanguageDriver</strong>中，我们也看到了<strong>RawLanguageDriver</strong>类又继承了<strong>XMLLanguageDriver</strong>，但它和前者的区别就是<strong>RawLanguageDriver</strong>仅支持静态语句方式解析。</p> <h2>2.它是怎样解析数据的</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这时，我们回到<strong>XMLLanguageDriver</strong>的<strong>createSqlSource</strong>方法中，它是调用了<strong>XMLScriptBuilder</strong>的<strong>parseScriptNode</strong>方法来进行解析创建的，而这个方法又做了什么呢？</p> <pre><code class="language-java">XMLScriptBuilder builder = new XMLScriptBuilder(configuration, script, parameterType);     return builder.parseScriptNode();</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这个方法做了2个事，首先是将SqlNode集合混合，转换为MixedSqlNode对象，再判断是否为动态语句，再来决定是通过DynamicSqlSource还是RawSqlSource解析。</p> <pre><code class="language-java">public SqlSource parseScriptNode() {     MixedSqlNode rootSqlNode = parseDynamicTags(context);     SqlSource sqlSource = null;     if (isDynamic) {       sqlSource = new DynamicSqlSource(configuration, rootSqlNode);     } else {       sqlSource = new RawSqlSource(configuration, rootSqlNode, parameterType);     }     return sqlSource;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而我们目前需要关心的是它的parseDynamicTags方法，看它是如何将多个SqlNode转换为MixedSqlNode对象的。</p> <pre><code class="language-java">protected MixedSqlNode parseDynamicTags(XNode node) {     List&lt;SqlNode&gt; contents = new ArrayList&lt;SqlNode&gt;();     NodeList children = node.getNode().getChildNodes();     for (int i = 0; i &lt; children.getLength(); i++) {       XNode child = node.newXNode(children.item(i));       if (child.getNode().getNodeType() == Node.CDATA_SECTION_NODE || child.getNode().getNodeType() == Node.TEXT_NODE) {         String data = child.getStringBody("");         TextSqlNode textSqlNode = new TextSqlNode(data);         if (textSqlNode.isDynamic()) {           contents.add(textSqlNode);           isDynamic = true;         } else {           contents.add(new StaticTextSqlNode(data));         }       } else if (child.getNode().getNodeType() == Node.ELEMENT_NODE) { // issue #628         String nodeName = child.getNode().getNodeName();         NodeHandler handler = nodeHandlerMap.get(nodeName);         if (handler == null) {           throw new BuilderException("Unknown element &lt;" + nodeName + "&gt; in SQL statement.");         }         handler.handleNode(child, contents);         isDynamic = true;       }     }     return new MixedSqlNode(contents);   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在上述方法中，会将节点中所有childNode转换为<strong>List&lt;SqlNode&gt;</strong>对象，再调用节点处理方法。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先将当前标签（&lt;SELECT&gt;）中所有子Node获取出来，再检查Node的类型：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 1.若该childNode类型为CDATA节点或静态SQL节点，再检查是否为动态语句，若为动态语句则直接将当前Node加入到SqlNode中，若为静态语句，则使用StaticTextSqlNode对象加入到SqlNode。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 2.若该childNode类型为元素节点（if，choose），则根据节点名从预设节点处理集合中找到Node处理方式，若未从预设节点处理集合中找到对应的处理方法，则抛出构造器异常。</p> <p><strong>（注意，在这里处理动态SQLNode的时候，会进行handleNode方法的递归调用，用于处理所有嵌套的动态语句）</strong></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 现在，我们继续看下去（以<strong>IfHandler</strong>为例）</p> <pre><code class="language-java">MixedSqlNode mixedSqlNode = parseDynamicTags(nodeToHandle);       String test = nodeToHandle.getStringAttribute("test");       IfSqlNode ifSqlNode = new IfSqlNode(mixedSqlNode, test);       targetContents.add(ifSqlNode);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在处理完所有节点后，会返回一个MixedSqlNode节点，再通过nodeToHandle方法获取到对应的校验字符串（eg ：null ！= a），再将上述节点与该校验字符串混合，生成IfSqlNode对象，最后将IfSqlNode对象加入<strong>List&lt;SqlNode&gt;</strong>。</p> <h2>3.它是如何处理数据的</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在处理数据的时候，就会用到我们上面每个动态语句对应的nodeHandler了，同样，以IfHandler为例，</p> <pre><code class="language-java">@Override   public boolean apply(DynamicContext context) {     if (evaluator.evaluateBoolean(test, context.getBindings())) {       contents.apply(context);       return true;     }     return false;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在IfHandler中，它只需要判断True/False,再根据是否结果，决定是否将当前动态语句是否加入到SqlNode中。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在当前运算中，调用了表达式评估器ExpressionEvaluator的evaluateBoolean方法，传入了表达式与参数值。</p> <pre><code class="language-java">public boolean evaluateBoolean(String expression, Object parameterObject) {     Object value = OgnlCache.getValue(expression, parameterObject);     if (value instanceof Boolean) {       return (Boolean) value;     }     if (value instanceof Number) {       return new BigDecimal(String.valueOf(value)).compareTo(BigDecimal.ZERO) != 0;     }     return value != null;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在evaluateBoolean方法中，将表达式通过OgnlCache方法进行判定，若结果是Boolean，则直接返回，若结果是Number，再通过BigDecimal对象的compareTo对象检查，然后返回最终结果。</p> <p>（<strong>注意：这里的对象使用的是OgnlCache，打开类描述可以看到这里面对表达式有缓存</strong>）</p> <p>&nbsp;</p> <p>至此，从动态语句的创建，到解析，到处理完成，过两天下一篇来看看Mybatis的<strong>SqlSessionFactory</strong>是如何构建的！！！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69906.htm">宠物粮种类（宠物粮品牌大全）</a></p>
+                                        <p>下一个：<a href="/news/article-70550.htm">广州宠物领养中心具体地址电话号码（广州市宠物领养中心）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-clash-verge-rev-node-github.htm" title="「1月4日」最高速度19.8M/S，2025年Clash Verge每天更新免费机场订阅链接地址">「1月4日」最高速度19.8M/S，2025年Clash Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48128.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
+                        <li class="py-2"><a href="/news/article-51716.htm" title="好忙的动物医院幼儿园教案（好忙的动物医院中班教案）">好忙的动物医院幼儿园教案（好忙的动物医院中班教案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-clash-verge-rev-node-share.htm" title="「2月13日」最高速度22.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月13日」最高速度22.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40714.htm" title="猫粮十大品牌排行榜前十名（猫粮十大品牌排行榜前十名有哪些）">猫粮十大品牌排行榜前十名（猫粮十大品牌排行榜前十名有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-69906.htm" title="宠物粮种类（宠物粮品牌大全）">宠物粮种类（宠物粮品牌大全）</a></li>
+                        <li class="py-2"><a href="/news/article-50664.htm" title="广州有领养宠物猫的地方吗?（广州有领养宠物猫的地方吗在哪里）">广州有领养宠物猫的地方吗?（广州有领养宠物猫的地方吗在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-42693.htm" title="宠物寄养协议合同电子版有效吗安全吗可靠吗（寄养宠物协议合同怎么写）">宠物寄养协议合同电子版有效吗安全吗可靠吗（寄养宠物协议合同怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-57205.htm" title="CEPH-4：ceph RadowGW对象存储功能详解">CEPH-4：ceph RadowGW对象存储功能详解</a></li>
+                        <li class="py-2"><a href="/news/article-44693.htm" title="js(JavaScript)代码实现的TAB标签切换效果">js(JavaScript)代码实现的TAB标签切换效果</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
