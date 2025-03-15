@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-73863.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>【远程文件浏览器】Unity+Lua开发调试利器</title>
+        <meta name="description" content="Remote File Explorer是一个跨平台的远程文件浏览器，用户通过Unity Editor就能操作运行在手机上的游戏或是应用的的目录文件。比如当项目打包运行到设备上时，可通过Remote " />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-73863.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="【远程文件浏览器】Unity+Lua开发调试利器" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/b4feb0622921674cc5292ac46231099c.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:07:06" />
+    <meta property="og:updated_time" content="2025-03-14T07:07:06" />
+        <meta property="og:description" content="Remote File Explorer是一个跨平台的远程文件浏览器，用户通过Unity Editor就能操作运行在手机上的游戏或是应用的的目录文件。比如当项目打包运行到设备上时，可通过Remote " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【远程文件浏览器】Unity+Lua开发调试利器">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">【远程文件浏览器】Unity+Lua开发调试利器</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer"  target="_blank" rel="nofollow">Remote File Explorer</a>是一个跨平台的<strong>远程文件浏览器</strong>，用户通过Unity Editor就能操作运行在手机上的游戏或是应用的的目录文件。比如当项目打包运行到设备上时，可通过<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer"  target="_blank" rel="nofollow">Remote File Explorer</a>直接浏览设备上的目录文件，并进行下载，上传，删除等操作。尤其是Unity+Lua开发环境下的调试利器，当然，这里的调试不是指代码的逐行调试，而是泛指定位排查问题</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/db91ca9ff33a96b6121bb9f6ffeaa366.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <h2 id="用武之地">用武之地</h2> <p>在很多场景下利用Remote File Explorer都可以极大的提高开发调试效率。例如：</p> <ul> <li>应用真机上运行时出现异常情况，推测可能是关键资源丢失导致。此时可以通过本工具直接浏览手机上的相关文件，查看关键资源是否存在</li> <li>通过本工具直接拉取手机上的日志文件或内存分析文件等各类文件，从此告别数据线</li> <li><strong>如果项目采用了XLua或SLua开发，在真机开发调试时，可通过本工具直接上传修改后的Lua代码，重启应用即可生效。从而避免每修改一次代码就重新构建一次应用的繁琐过程，大大提高调试效率</strong></li> </ul> <p>接下来，将以一些具体的案例，来演示Remote File Explorer工具的使用。下面用例的代码都可以在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/RemoteFileExplorerDemo"  target="_blank" rel="nofollow">Remote File Explorer Demo</a>找到</p> <h4 id="用例1-无需重新打包修改代码逻辑">用例1-无需重新打包修改代码逻辑</h4> <ol> <li>客户端打包，启动后，初始界面如下图所示。其中"Hello, Wlrod"的文本故意拼写错误，用来演示如何不重新打包，通过Remote File Explorer来修复此错误</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e0845a86557e4e35498f091c30002588.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <ol start="2"> <li>在UnityEditor中，通过"Window &gt; Remote File Explorer"打开Remote File Explorer工具窗口，通过Stats面板可以查看服务端IP</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7fbb11bac2c96f98ec92d9383dd71dae.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <ol start="3"> <li>在客户端输入正确的服务端IP，然后点击Connect。连接成功后Stats面板的State将显示为"Established"</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a16d4a1c990d129df0d18fd928f463f3.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <ol start="4"> <li>拼写错误是在这个文件<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/RemoteFileExplorerDemo/blob/main/Assets/StreamingAssets/changetextcontent.lua"  target="_blank" rel="nofollow">changetextcontent.lua</a>内写错的，如下所示修改文件内容（主要是将"Hello, Wlrod"拼写修正为"Hello, World"）</li> </ol> <pre><code class="language-lua">local obj = CS.UnityEngine.Object.FindObjectOfType(typeof(CS.Game.ChangeTextColor)) local textComponent = obj:GetComponent(typeof(CS.UnityEngine.UI.Text)); textComponent.text = "Hello, World"</code></pre> <ol start="5"> <li>通过Remote File Explorer工具窗口，GoTo到Application.persistentDataPath目录。这个目录下的Lua文件将会被优先加载（这是工程内的Lua加载机制决定的，详情可参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/RemoteFileExplorerDemo/blob/main/Assets/Scripts/XLuaManager.cs"  target="_blank" rel="nofollow">XLuaManager.cs</a>）</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1522ea7bb2fb33e2d6e993379247916a.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <ol start="6"> <li>拖拽<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/RemoteFileExplorerDemo/blob/main/Assets/StreamingAssets/changetextcontent.lua"  target="_blank" rel="nofollow">changetextcontent.lua</a>文件上传到该目录。之后重启客户端，"Hello, Wlrod"的拼写错误将会被修复。完整的操作流程如下所示</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ac89122a9bde9f95ab814ed36384b397.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <ol start="7"> <li>另外，利用xLua的hotfix特性，还可以修改C#代码的逻辑。例如，"Hello, World"文本的颜色是由C#代码设置的红色，可以通过修改<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/RemoteFileExplorerDemo/blob/main/Assets/StreamingAssets/changetextcontent.lua"  target="_blank" rel="nofollow">changetextcontent.lua</a>文件将文本设置为绿色，内容如下所示</li> </ol> <pre><code class="language-lua">local obj = CS.UnityEngine.Object.FindObjectOfType(typeof(CS.Game.ChangeTextColor)) local textComponent = obj:GetComponent(typeof(CS.UnityEngine.UI.Text)); textComponent.text = "Hello, World"  xlua.hotfix(CS.Game.ChangeTextColor, "Start", function(self)     self:GetComponent(typeof(CS.UnityEngine.UI.Text)).color = CS.UnityEngine.Color.green     xlua.hotfix(CS.Game.ChangeTextColor, "Start", nil) end)</code></pre> <ol start="8"> <li>之后同样的操作，将文件上传到Application.persistentDataPath目录，重启客户端后，文本颜色将改变。完整的操作流程如下所示</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/50b98c2292b3a901b01101174cb29f7c.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <h4 id="用例2-直接拉取手机上的日志文件">用例2-直接拉取手机上的日志文件</h4> <ol> <li>如果某个固定文件会被频繁拉取，比如日志文件或是性能分析文件。可以通过配置<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer/blob/main/Editor/Utilities/CustomMenuAttribute.cs"  target="_blank" rel="nofollow">CustomMenuAttribute</a>为该文件添加一个自定义拉取操作。以拉取日志文件game.log为例，新增一个CustomMenuAttribute修饰的方法</li> </ol> <pre><code class="language-csharp">using UnityEngine; using RemoteFileExplorer.Editor;  public class TestAttribute {     [CustomMenu("pull game log")]     public static void PullLog(ManipulatorWrapper manipulator)     {         string remoteLogPath = manipulator.GetRemotePath("Application.persistentDataPath") + "/Logs/game.log";         manipulator.Download(remoteLogPath, Application.dataPath.Replace("/Assets", "") + "/Logs/game.log");  // 将log文件下载到本地     } }</code></pre> <ol start="2"> <li>代码添加后，重新打开Remote File Explorer工具窗口将出现"Custom"菜单，点击该菜单后会执行PullLog方法</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7b913430e57e4de2ba375af16287b755.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <ol start="3"> <li>连接建立成功后，通过"pull game log"操作可以一键拉取game.log文件。完整的操作流程如下所示</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/269844f85b4781ca3f3ea88cd378e873.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <h2 id="安装">安装</h2> <p>本工具是采用Unity的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.unity3d.com/cn/2019.4/Manual/PackagesList.html"  target="_blank" rel="nofollow">包</a>形式，可以通过<em>Unity Package Manager</em>直接安装</p> <p>这里介绍两种常用方式</p> <ul> <li>打开"Window &gt; Package Manager"窗口后，单击状态栏左侧的"+"按钮，选择"Add package from git URL"，然后在文本框中输入本工具的git地址<code>https://github.com/iwiniwin/unity-remote-file-explorer.git</code>，单击"Add"按钮后完成安装</li> <li>或直接克隆本工具到项目的"Packages"目录下</li> </ul> <p>详细安装方式可以查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer/blob/main/Documentation~/RemoteFileExplorer.md"  target="_blank" rel="nofollow">使用文档</a>，更多将本工具作为包进行安装的方式可查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.unity3d.com/cn/2019.4/Manual/upm-ui-actions.html"  target="_blank" rel="nofollow">Unity官方文档</a></p> <h2 id="使用">使用</h2> <p>安装本工具后，可通过"Window &gt; Analysis &gt; Remote File Explorer"打开本工具窗口，将自动启动服务器</p> <p>给项目的任意游戏对象添加<em>FileExplorerClient</em>组件</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f180a23ebcac24cf762d6c3dcba78943.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <p>如果是固定连接到某台机器上，可直接通过Inspector面板在"Host"域输入这台机器的IP地址，然后勾选"Connect Automatically"，则会在应用启动时自动连接</p> <p>如果希望应用启动后能主动选择连接到哪台机器，则可在Debug模式下封装一套简单的UI，使开发人员能够输入想要连接到的IP地址。例如在自己的菜单中添加一个条目或按钮，点击后弹出输入窗口。在成功获取到的IP地址后，将其赋值给FileExplorerClient组件的"Host"属性，然后调用FileExplorerClient组件的"StartConnect"方法开启连接</p> <p>也可以使用本工具自带的一个简易UI，给项目的任意游戏对象添加<em>FileExplorerWindow</em>组件（此时不用再额外添加<em>FileExplorerClient</em>组件）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9f8442da8fa676219913e98896450c11.jpg" alt="【远程文件浏览器】Unity+Lua开发调试利器"></p> <p>游戏启动后将自动打开连接窗口</p> <h2 id="功能列表">功能列表</h2> <p>详细的图文功能介绍请查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer/blob/main/Documentation~/RemoteFileExplorer.md"  target="_blank" rel="nofollow">使用文档</a></p> <ul> <li>通过状态栏的"GOTO"可直接跳转到Unity预定义的一些路径</li> <li>通过单击路径栏可打开输入框，以直接输入路径跳转或复制当前路径</li> <li>右键所选中的文件夹或文件支持下载</li> <li>右键所选中的文件夹或文件支持删除</li> <li>右键空白区域支持上传文件夹或文件</li> <li>右键空白区域支持刷新当前路径的内容</li> <li>支持直接从Unity Project窗口拖拽文件夹或文件到本工具上传</li> <li>支持直接从系统文件浏览器拖拽文件夹或文件到本工具上传</li> <li>通过本工具"status"面板可查看连接状态以及已连接设备的信息，可用于辨别连接的是哪台设备</li> <li>通过配置<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer/blob/main/Editor/Utilities/BeforeUploadAttribute.cs"  target="_blank" rel="nofollow">BeforeUploadAttribute</a>自定义上传时的额外操作，例如上传lua代码时自动加密</li> <li>通过配置<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer/blob/main/Editor/Utilities/CustomMenuAttribute.cs"  target="_blank" rel="nofollow">CustomMenuAttribute</a>自定义操作菜单</li> </ul> <h2 id="链接">链接</h2> <ul> <li>Remote File Explorer<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/unity-remote-file-explorer"  target="_blank" rel="nofollow">https://github.com/iwiniwin/unity-remote-file-explorer</a></li> <li>Remote File Explorer Demo<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iwiniwin/RemoteFileExplorerDemo"  target="_blank" rel="nofollow">https://github.com/iwiniwin/RemoteFileExplorerDemo</a></li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73862.htm">JavaScript中的变量</a></p>
+                                        <p>下一个：<a href="/news/article-74528.htm">动物防疫疫苗中标公告查询网（动物防疫疫苗中标公告查询网站）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-subscribe-node.htm" title="「1月22日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月22日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41702.htm" title="宠物粮批发网站大全免费（宠物粮网店）">宠物粮批发网站大全免费（宠物粮网店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-clash-verge-rev-node.htm" title="「2月16日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月16日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48127.htm" title="Python清理PC端微信产生的超大数据">Python清理PC端微信产生的超大数据</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-clash-verge-rev-node-share.htm" title="「1月23日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月23日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62417.htm" title="宠物粮食加工厂设备有哪些品牌好用（宠物粮食加工厂需要投资多少钱）">宠物粮食加工厂设备有哪些品牌好用（宠物粮食加工厂需要投资多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-latest-clash-verge-rev-node.htm" title="「1月31日」最高速度22.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月31日」最高速度22.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-subscribe-node.htm" title="「2月6日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月6日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-today-clash-verge-rev-node.htm" title="「3月1日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月1日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-high-speed-nodes.htm" title="「1月17日」最高速度22.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月17日」最高速度22.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-73862.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript中的变量</title>
+        <meta name="description" content="变量， 是编程语言的核心，也是编程语言的灵魂。那么JavaScript中的变量是怎么回事？ 1 写在开始的废话 之前我写过一篇JavaScript中的四兄弟，介绍了JavaScript中声明变量的四种" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-73862.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="JavaScript中的变量" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/7dcc0d90a2b9c2eb78755cab9b39ddbf.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:07:06" />
+    <meta property="og:updated_time" content="2025-03-14T07:07:06" />
+        <meta property="og:description" content="变量， 是编程语言的核心，也是编程语言的灵魂。那么JavaScript中的变量是怎么回事？ 1 写在开始的废话 之前我写过一篇JavaScript中的四兄弟，介绍了JavaScript中声明变量的四种" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript中的变量">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">JavaScript中的变量</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><code>变量， 是编程语言的核心，也是编程语言的灵魂。那么JavaScript中的变量是怎么回事？</code></p> <h3 id="1-写在开始的废话">1 写在开始的废话</h3> <p>之前我写过一篇JavaScript中的四兄弟，介绍了JavaScript中声明变量的四种方式<code>var</code>,<code>function</code>,<code>let</code>和<code>const</code>。我就知道那个时候我就挖了一个坑，这篇文章我们详细一些。</p> <h3 id="2-导言">2 导言</h3> <p>JavaScript中的变量可以在两个维度进行分类，<strong>①域， ②可变性</strong></p> <table> <thead> <tr> <th>域</th> <th>可变性</th> </tr> </thead> <tbody> <tr> <td>全局</td> <td>值可变量</td> </tr> <tr> <td>局部</td> <td>常量</td> </tr> </tbody> </table> <h3 id="21-域作用域">2.1 域（作用域）</h3> <p>什么是域？ 可访问、操作一个变量的区域（范围）。有顶层域，也叫全局域，也有局部域，局部域可在函数和{}内产生。在全局域内创建的变量就是全局变量，以此类推，在局部域内创建的变量</p> <p><strong>作用域是在定义的时候产生的</strong></p> <pre><code class="language-javascript"> var name = 'jianyanzhi';   function say() {     var name = 'jianyanzhi-say';     console.log(name);     name = 'say-end-name';     console.log('say-end-name:', name);  }  say();  console.log(name);</code></pre> <p>上面这段代码哪些是全局变量哪些是局部变量呢？我们来分析一下。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2c433929920157695ec77a0063942f3a.jpg" alt="JavaScript中的变量"></p> <p>图中，红框的部分就是全局域，在全局域中，我们创建了<code>name</code>和<code>say</code>两个变量。再缩小范围，绿框的部分就是由函数<code>say</code>创建的局部域，在<code>say</code>中只创建了<code>name</code>这个变量，所以绿色下划线的<code>name</code>变量就是局部变量。而函数<code>say</code>中第三行又把<code>name</code>这个变量重新赋值，此时操作的是局部变量。</p> <pre><code class="language-javascript"> var allowVar = 'jianyanzhi', allow = true;  if (allow) {      function allowFunction () {          console.log('allow-say')      }      let allowLet = 'allowLet';      const allowConst = 'allowConst';      var allowVar = 'allowVar';      console.log('allow', allowFunction);      console.log('allow', allowLet);      console.log('allow', allowConst);      console.log('allow', allowVar);  } console.log('global', allowFunction); console.log('global', allowVar); console.log('global', allowLet); console.log('global', allowConst);</code></pre> <p>同样的问题，哪些是局部变量，哪些又是全局变量？我们来分析下；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/31b5ad8c40633243f3df7e9feb811d96.jpg" alt="JavaScript中的变量"></p> <p>代码执行的结果是什么？</p> <pre><code class="language-javascript">allow "function allowFunction () {console.log('allow-say')}" allow "allowLet" allow "allowConst" allow "allowVar" global "function allowFunction () {console.log('allow-say')}" global "allowVar" ReferenceError allowConst is not defined // global "allowConst" ReferenceError allowLet is not defined //  global "allowLet"</code></pre> <p>为什么会产生这样的结果？</p> <ol> <li><code>if</code>条件语句中由<code>var</code>和<code>function</code>创建的变量，会自动归到<code>if</code>语句所属的域中 因此我们看到global的输出中，<code>var</code>和<code>function</code>的输出和allow的输出是一致的。不只是<code>if</code>语句，还有单纯的{}也是,比如<code>{ var a = 1; function aFn() {} }</code>;</li> <li><code>var</code>和<code>function</code>创建局部变量的时候，只能在<code>function</code>中创建有效，<code>var</code>是无法在{}块级作用域中创建局部变量的;</li> <li><code>let</code>和<code>const</code>创建的变量则属于声明时所在的域,包括函数和{}。</li> </ol> <p><strong>全局变量和局部变量的使用</strong></p> <ol> <li> <p>全局变量作为持久性变量使用，全程有效，而不是拿来存储某个临时的值，谨慎修改</p> </li> <li> <p>全局变量和局部变量存在同名的情况下，根据就近原则，优先使用局部变量，要防止污染全局变量</p> </li> </ol> <h3 id="22-可变性">2.2 可变性</h3> <p>根据值的可变性来分类，可变的是变量，不可变的是常量。变量可后续随意更改，值是动态的，而常量一旦确定则无法修改，值是恒定、静态的。</p> <pre><code class="language-javascript">var date = '2022-01-01'; const codeLang = 'JavaScript'; const articleData = { title: 'JavaScript中的变量', author: '简言之' };  date = '2022-04-04'; // success  codeLang = 'Java'; // TypeError: Assignment to constant variable  articleData = { title: 'haha', author: '简言之' } // TypeError: Assignment to constant variable articleData['title'] = 'haha';  // success</code></pre> <p>创建了两个常量和一个变量。变量<code>date</code>后续可以随意更改，更改有效。<br /> 常量就无法更改了，<code>codeLang</code>和<code>articleData</code>在修改的时候抛出了类型错误。表示它们都是常量，无法更改。可为什么后面把<code>title</code>改为<code>haha</code>的时候就更改成功了？因为<strong>常量保存的是变量的值，这个值可以是一个普通值也可以是一个内存地址值，只要确保这个值是恒定的，其他由你使劲造</strong>。</p> <p><strong>变量与常量的使用</strong></p> <ol> <li> <p>根据编码逻辑来适当使用常量，虽然变量可满足所有要求，但是合适使用常量可以增强代码的语义性</p> </li> <li> <p>上述案例中的<code>articleData</code>通过访问属性并修改值这种方式谨慎使用，修改的属性过多时，还是键值对合并之后保存到一个新常量中较为妥当</p> </li> </ol> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73199.htm">动物疫苗接种简报范文怎么写（动物防疫疫苗管理工作）</a></p>
+                                        <p>下一个：<a href="/news/article-73863.htm">【远程文件浏览器】Unity+Lua开发调试利器</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-52790.htm" title="用浏览器快速开启Docker的体验之旅 &#8211; 陈希章 _在线工具">用浏览器快速开启Docker的体验之旅 &#8211; 陈希章 _在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-latest-clash-verge-rev-node.htm" title="「2月26日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月26日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59494.htm" title="延吉市宠物店电话（延吉市宠物店电话地址）">延吉市宠物店电话（延吉市宠物店电话地址）</a></li>
+                        <li class="py-2"><a href="/news/article-65450.htm" title="宠物领养信息怎么发布（宠物领养信息怎么发布朋友圈）">宠物领养信息怎么发布（宠物领养信息怎么发布朋友圈）</a></li>
+                        <li class="py-2"><a href="/news/article-64239.htm" title="宠物美容一个月能挣多少（宠物美容师一个月大概多少钱）">宠物美容一个月能挣多少（宠物美容师一个月大概多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-39723.htm" title="动物疫苗防疫站上班时间是几点的（动物防疫站打针免费吗）">动物疫苗防疫站上班时间是几点的（动物防疫站打针免费吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-clash-verge-rev-windows.htm" title="「2月25日」最高速度20.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月25日」最高速度20.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-clash-verge-rev-nodes.htm" title="「1月20日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月20日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-56082.htm" title="宠物批发进货渠道（宠物批发进货渠道有哪些）">宠物批发进货渠道（宠物批发进货渠道有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-67968.htm" title="免费赠送领养边牧 免费赠送领养边牧 北京">免费赠送领养边牧 免费赠送领养边牧 北京</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
