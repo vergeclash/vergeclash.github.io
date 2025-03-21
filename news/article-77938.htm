@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-77938.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ｔensorflow使用笔记（１）　怎么保存和使用训练好的参数和模型</title>
+        <meta name="description" content="引言 最近在学习Tensorflow 构建CNN，训练需要耗费时间，把训练好的各个参数保存下来是最简便的，网上有很多教程，但是跟着教程走不一定一帆风顺还是踩了一些坑，然后自己填了一下坑 如何保存好训练" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-77938.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="Ｔensorflow使用笔记（１）　怎么保存和使用训练好的参数和模型" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/0af44671c1e99325ca89d9cb8499c003.webp" />
+        <meta property="og:release_date" content="2025-03-20T10:02:54" />
+    <meta property="og:updated_time" content="2025-03-20T10:02:54" />
+        <meta property="og:description" content="引言 最近在学习Tensorflow 构建CNN，训练需要耗费时间，把训练好的各个参数保存下来是最简便的，网上有很多教程，但是跟着教程走不一定一帆风顺还是踩了一些坑，然后自己填了一下坑 如何保存好训练" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Ｔensorflow使用笔记（１）　怎么保存和使用训练好的参数和模型">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Ｔensorflow使用笔记（１）　怎么保存和使用训练好的参数和模型</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2 id="引言">引言</h2> <p>最近在学习Tensorflow 构建CNN，训练需要耗费时间，把训练好的各个参数保存下来是最简便的，网上有很多<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/u012235274/article/details/52588690"  target="_blank" rel="nofollow">教程</a>，但是跟着教程走不一定一帆风顺还是踩了一些坑，然后自己填了一下坑</p> <h2 id="如何保存好训练的结果">如何保存好训练的结果：</h2> <p>假设会话为sess，计算图为graph <br /> 网上看了很多资料，使用 </p> <pre class="prettyprint"><code class="hljs bash">saver=tf.train.Saver()  <span class="hljs-comment"># 不传入参数代表默认存入全部参数</span> file_name = <span class="hljs-string">'saved_model/model.ckpt'</span>  <span class="hljs-comment"># 将保存到当前目录下的的saved_model文件夹下model.ckpt文件</span> saver.saver(sess,file_name )  <span class="hljs-comment"># 保存好的模型文件</span></code></pre> <p>这样来保存模型，这样就行了吗？还不行 <br /> 但是按照这个方式，开始IDE总是会报错：No Variable to save</p> <hr/> <p>然后我的想法是：可能要把sess传给saver是吗？下面是我的代码，和一次尝试性的修改</p> <pre class="prettyprint"><code class="hljs r">graph = tf.Graph()  <span class="hljs-comment"># 计算图</span> with graph.as_default():     <span class="hljs-comment"># 定义计算图</span>     <span class="hljs-keyword">...</span>     <span class="hljs-comment"># 以上是一些权重和卷积层的定义，这里就不贴出来了</span> sess = tf.Session(graph=graph)  <span class="hljs-comment"># 把上一步定义的计算图载入到会话中</span> <span class="hljs-comment"># 给定义saver一个sess作为输入，结果也是不行的</span> saver=tf.train.Saver(sess)  <span class="hljs-comment"># 不传入参数代表默认存入全部参数</span> saver.saver(sess,<span class="hljs-string">'saved_model/model.ckpt'</span>)</code></pre> <p>这样还是会报错：没有可以被用来保存的变量。我思来想去，可能要载入graph?</p> <pre class="prettyprint"><code class="hljs r">graph = tf.Graph() with graph.as_default():     <span class="hljs-comment"># 定义计算图</span>     <span class="hljs-keyword">...</span>      <span class="hljs-comment"># ---</span> sess = tf.Session(graph=graph)  <span class="hljs-comment"># 把上一步定义的计算图载入到会话中</span> <span class="hljs-comment"># 这次把graph传进来做参数</span> saver = tf.train.Saver(graph) saver.saver(sess,<span class="hljs-string">'saved_model/model.ckpt'</span>)</code></pre> <p>结果还是不行</p> <hr/> <p>多次尝试之后，终于修改正确了</p> <pre class="prettyprint"><code class="hljs r">graph = tf.Graph() with graph.as_default():     <span class="hljs-comment"># 定义计算图</span>     <span class="hljs-keyword">...</span>      <span class="hljs-comment"># ---</span>     saver = tf.train.Saver()  <span class="hljs-comment"># 默认存储上面全部定义参数，如果不想全部存下来，也可以输入你想要保存的参数</span>  sess = tf.Session(graph=graph)  <span class="hljs-comment"># 把上一步定义的计算图载入到会话中</span> <span class="hljs-comment"># 保存，这次就可以成功了</span> saver.saver(sess,<span class="hljs-string">'saved_model/model.ckpt'</span>)</code></pre> <p>保存成功，文件夹saved_model下会出现几个文件 <br /> checkpoint文件（这个文件很重要，记录了） 还有几个文件，它们的后缀分别是 .data , .index , .meta 。我们似乎可以不搭理这三个文件</p> <hr/> <h3 id="先小结一下">先小结一下</h3> <p>如果定义了子图，或者说自己定义graph而不使用tensorflow的默认计算图的时候，定义要在定义graph最后进行定义，想保存哪个子图的变量，就要在哪个子图定义相关的Saver，这样才能实现想要的效果。 <br /> Tensorflow的图graph和会话session还是有点抽象的，一不小心就整乱了。</p> <hr/> <p><strong>Notes</strong>: 假设没有使用with graph.as_graph():这种结构，直接在脚本上定义了tensorflow的变量，再使用saver()应该是没有问题的。</p> <hr/> <h2 id="读取和使用保存好的模型参数">读取和使用保存好的模型参数</h2> <p>那存好了之后，该怎么调用了 <br /> 假设我需要在另一个新的脚本，例如 ：test.py文件上使用我的代码做测试，要怎么使用保存好的模型参数呢</p> <p><strong>有两种方式：</strong></p> <hr/> <p>先把之前训练，构建计算图已经你定义网络参数的那些代码粘贴到test.py文件下</p> <pre class="prettyprint"><code class="hljs r">graph = tf.Graph() with graph.as_default():     <span class="hljs-comment"># 定义计算图</span>     <span class="hljs-keyword">...</span>      <span class="hljs-comment"># ---</span>     saver = tf.train.Saver()</code></pre> <p>特别注意，运行到上一步的时候</p> <p>然后再使用如下代码</p> <pre class="prettyprint"><code class="hljs python"><span class="hljs-keyword">with</span> tf.Session(graph=graph) <span class="hljs-keyword">as</span> sess:         check_point_path = <span class="hljs-string">'saved_model/'</span> <span class="hljs-comment"># 保存好模型的文件路径</span>         ckpt = tf.train.get_checkpoint_state(checkpoint_dir=check_point_path)  <span class="hljs-comment"># 从模型中恢复参数      saver.restore(sess,ckpt.model_checkpoint_path)  # 讀取成功，然后就可以使用模型参数进行预测，或者测试了。</span></code></pre> <hr/> <p>如果你觉得上面那个方式有点繁琐，可以直接<code>import train.py</code> <br /> 假设train.py这个脚本的代码是这样的：</p> <pre class="prettyprint"><code class="hljs r">graph = tf.Graph() with graph.as_default():     <span class="hljs-comment"># 定义计算图</span>     <span class="hljs-keyword">...</span>      <span class="hljs-comment"># ---</span>     saver = tf.train.Saver()</code></pre> <p>那么你在你的test.py中可以这样写</p> <pre class="prettyprint"><code class="hljs python"><span class="hljs-keyword">import</span> train <span class="hljs-comment"># 参考python的命名空间方法</span> graph = train.graph sess = train.sess  <span class="hljs-keyword">with</span> tf.Session(graph=graph) <span class="hljs-keyword">as</span> sess:         check_point_path = <span class="hljs-string">'saved_model/'</span> <span class="hljs-comment"># 保存好模型的文件路径</span>         ckpt = tf.train.get_checkpoint_state(checkpoint_dir=check_point_path)  <span class="hljs-comment"># 从模型中恢复参数      saver.restore(sess,ckpt.model_checkpoint_path)  </span> </code></pre> <hr/> <p><strong>Notes</strong>: 在使用<code>saver.restore(sess,ckpt.model_checkpoint_path)</code> 后，这个时候，就不需要再次使用sess.run(init) 对参数进行初始化了（否则会覆盖掉训练好的参数），如果你在前面使用run，进行初始化，权重会根据你的定义进行初始化，但是你使用这个语句后，模型中的参数会把它覆盖掉</p> <hr/> <h2 id="最后再说一下">最后再说一下</h2> <p>好像高级的使用方法，可以根据选择不同迭代次数更新时候的权重，这里只做简单总结一下，以后学习到了再更新吧</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77254.htm">动物疫苗管理法律法规最新版本全文（动物疫苗政策）</a></p>
+                                        <p>下一个：<a href="/news/article-77939.htm">500公斤饲料粉碎搅拌机 500公斤饲料粉碎搅拌机多少钱</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-latest-clash-verge-rev-node.htm" title="「2月26日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月26日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46656.htm" title="宠物手工零食制作方法（宠物手工零食加盟）">宠物手工零食制作方法（宠物手工零食加盟）</a></li>
+                        <li class="py-2"><a href="/news/article-69254.htm" title="违反宠物领养协议可以报警吗有用吗（违反宠物领养协议可以报警吗有用吗安全吗）">违反宠物领养协议可以报警吗有用吗（违反宠物领养协议可以报警吗有用吗安全吗）</a></li>
+                        <li class="py-2"><a href="/news/article-46655.htm" title="spring boot Actuator之自定义Endpoint">spring boot Actuator之自定义Endpoint</a></li>
+                        <li class="py-2"><a href="/news/article-51212.htm" title="动物医院叫什么名字好听 动物医院叫什么名字好听点">动物医院叫什么名字好听 动物医院叫什么名字好听点</a></li>
+                        <li class="py-2"><a href="/news/article-52791.htm" title="动物疫苗板块股票行情（动物疫苗概念龙头股票）">动物疫苗板块股票行情（动物疫苗概念龙头股票）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share-links.htm" title="「1月26日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月26日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-56082.htm" title="宠物批发进货渠道（宠物批发进货渠道有哪些）">宠物批发进货渠道（宠物批发进货渠道有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-37255.htm" title="小型颗粒饲料机器多少钱一台（小型饲料颗粒机原理动态图）">小型颗粒饲料机器多少钱一台（小型饲料颗粒机原理动态图）</a></li>
+                        <li class="py-2"><a href="/news/article-46178.htm" title="vue如何使用watch监听指定数据的变化_vue.js">vue如何使用watch监听指定数据的变化_vue.js</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
