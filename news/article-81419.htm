@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-81419.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>feign接口调用使用header</title>
+        <meta name="description" content="场景： 在做运营平台调用AIID项目接口，需要将header里面的语言传递给AIID项目。但是AIID里面取不到header里面的数据 解决： 1、修改hytrix配置，配置hytrix的&nbsp;" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-81419.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="feign接口调用使用header" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/26389305cdb2d603052d37cd6f964713.webp" />
+        <meta property="og:release_date" content="2025-03-25T08:20:40" />
+    <meta property="og:updated_time" content="2025-03-25T08:20:40" />
+        <meta property="og:description" content="场景： 在做运营平台调用AIID项目接口，需要将header里面的语言传递给AIID项目。但是AIID里面取不到header里面的数据 解决： 1、修改hytrix配置，配置hytrix的&nbsp;" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="feign接口调用使用header">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">feign接口调用使用header</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>场景：</p> <p>在做运营平台调用AIID项目接口，需要将header里面的语言传递给AIID项目。但是AIID里面取不到header里面的数据</p> <p>解决：</p> <p><span style="color:#f33b45;"><em><strong>1、修改hytrix配置，配置hytrix的&nbsp;strategy为&nbsp;SEMAPHORE。</strong></em></span></p> <p>Hystrix 提供两种执行隔离策略( ExecutionIsolationStrategy ) ：<code>SEMAPHORE</code>&nbsp;、<code>THREAD</code></p> <ul> <li><code>SEMAPHORE</code>&nbsp;：信号量，命令在调用线程执行。</li> <li><code>THREAD</code>&nbsp;：线程池，命令在线程池执行</li> </ul> <p>如果不修改配置，默认配置的为THREAD，因为不在同一个线程中，无法获得请求的上下文对象，无法执行第二步操作</p> <pre><code class="language-java">feign:   httpclient:     enabled: false   okhttp:     enabled: true   hystrix:     enabled: true hystrix:   command:     default:       execution:         timeout:           enabled: true         isolation:           strategy: SEMAPHORE           thread:             timeoutInMilliseconds: 30000</code></pre> <p><span style="color:#f33b45;"><em><strong>2、增加拦截器</strong></em></span></p> <p>feign提供的&nbsp;RequestInterceptor 接口会默认拦截feign发出去所有请求，所以在这里拦截运营平台的服务operation发送给AIID服务的请求，然后再请求头中添加language</p> <p>如果再第一步没有修改&nbsp;hystrix 的 strategy，则这一步中&nbsp;RequestContextHolder.getRequestAttributes()的结果无法获取到，结果为null</p> <p>拦截器写在operation项目中</p> <pre><code class="language-java">@Slf4j @Component public class FeignTokenInterceptor implements RequestInterceptor {       @Override     public void apply(RequestTemplate template) {         HttpServletRequest request = getServletRequest();         if (null == request){             return;         }         template.header("language", getHeaders(request));     }       private HttpServletRequest getServletRequest() {         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();         return ((ServletRequestAttributes) requestAttributes).getRequest();     }       private String getHeaders(HttpServletRequest request){         String lang = request.getHeader("lang");         if("cn".equals(lang)){             lang="zh";         }         log.info("lang:{}",lang);         return lang;     } }</code></pre> <pre>这样 在运营平台operation项目里面添加了拦截器并且更改Hystrix策略，这样B项目里面就可以直接取到header里面的参数了。</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-80687.htm">葱葱茏茏的意思（葱葱茏茏的意思是什么）</a></p>
+                                        <p>下一个：<a href="/news/article-81421.htm">动物诊疗许可申请表格（动物诊疗许可证的申办程序）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-77938.htm" title="Ｔensorflow使用笔记（１）　怎么保存和使用训练好的参数和模型">Ｔensorflow使用笔记（１）　怎么保存和使用训练好的参数和模型</a></li>
+                        <li class="py-2"><a href="/news/article-62418.htm" title="动物疫苗价格排行前十的有哪些品种呢视频（动物疫苗多少钱一支）">动物疫苗价格排行前十的有哪些品种呢视频（动物疫苗多少钱一支）</a></li>
+                        <li class="py-2"><a href="/news/article-49634.htm" title="2020三国杀武将台词总览图的简单介绍">2020三国杀武将台词总览图的简单介绍</a></li>
+                        <li class="py-2"><a href="/news/article-36150.htm" title="宠物领养协议书范本模板大全下载电子版（宠物领养协议文案）">宠物领养协议书范本模板大全下载电子版（宠物领养协议文案）</a></li>
+                        <li class="py-2"><a href="/news/article-44692.htm" title="我们如何从MySQL表中删除所有行？">我们如何从MySQL表中删除所有行？</a></li>
+                        <li class="py-2"><a href="/news/article-50664.htm" title="广州有领养宠物猫的地方吗?（广州有领养宠物猫的地方吗在哪里）">广州有领养宠物猫的地方吗?（广州有领养宠物猫的地方吗在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-76582.htm" title="vue-element-admin模板，点击跳转到另一个页面传参">vue-element-admin模板，点击跳转到另一个页面传参</a></li>
+                        <li class="py-2"><a href="/news/article-82788.htm" title="宠物粮食品牌取名字大全四个字 宠物粮食品牌取名字大全四个字开头">宠物粮食品牌取名字大全四个字 宠物粮食品牌取名字大全四个字开头</a></li>
+                        <li class="py-2"><a href="/news/article-44693.htm" title="js(JavaScript)代码实现的TAB标签切换效果">js(JavaScript)代码实现的TAB标签切换效果</a></li>
+                        <li class="py-2"><a href="/news/article-64838.htm" title="宠物粮十大品牌排名（宠物粮十大品牌排名）">宠物粮十大品牌排名（宠物粮十大品牌排名）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
