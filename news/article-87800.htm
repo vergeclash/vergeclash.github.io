@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-87800.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>算法：在一个集合中选取所有符合条件的元素组合</title>
+        <meta name="description" content="做了好几个题目都遇到题中的场景。于是写了个算法，元素组合条件是求和。算法能适应的场景要求组合条件可以拆分的，有对应的逆运算。 代码实现的是取三个元素和在40~60之间的组合。循环n（testList." />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-87800.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="算法：在一个集合中选取所有符合条件的元素组合" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/7dcc0d90a2b9c2eb78755cab9b39ddbf.webp" />
+        <meta property="og:release_date" content="2025-04-03T08:34:26" />
+    <meta property="og:updated_time" content="2025-04-03T08:34:26" />
+        <meta property="og:description" content="做了好几个题目都遇到题中的场景。于是写了个算法，元素组合条件是求和。算法能适应的场景要求组合条件可以拆分的，有对应的逆运算。 代码实现的是取三个元素和在40~60之间的组合。循环n（testList." />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="算法：在一个集合中选取所有符合条件的元素组合">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">算法：在一个集合中选取所有符合条件的元素组合</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>做了好几个题目都遇到题中的场景。于是写了个算法，元素组合条件是求和。<br /><strong>算法能适应的场景要求组合条件可以拆分的，有对应的逆运算。</strong></p> <p>代码实现的是取三个元素和在40~60之间的组合。循环n（testList.size()）次可以获取所有符合条件的组合。</p> <pre class="prettyprint"><code class="language-java hljs"><span class="hljs-keyword">import</span> org.junit.Test;<span class="hljs-keyword">import</span> java.util.ArrayList;<span class="hljs-keyword">import</span> java.util.List;<span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">JunitTest</span> {<!-- --></span><span class="hljs-annotation">@Test</span><span class="hljs-keyword">public</span><span class="hljs-keyword">void</span><span class="hljs-title">test</span>()<span class="hljs-keyword">throws</span> InterruptedException {         List&lt;Integer&gt; testList =<span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();         testList.add(<span class="hljs-number">5</span>);         testList.add(<span class="hljs-number">10</span>);         testList.add(<span class="hljs-number">15</span>);         testList.add(<span class="hljs-number">20</span>);         testList.add(<span class="hljs-number">25</span>);         testList.add(<span class="hljs-number">30</span>);         testList.add(<span class="hljs-number">35</span>);          System.out.println(select(<span class="hljs-number">40</span>,<span class="hljs-number">60</span>,<span class="hljs-number">3</span>, testList));     }<span class="hljs-comment">//递归选择指定个数　符合条件的所有组合</span><span class="hljs-keyword">private</span> List&lt;List&lt;Integer&gt;&gt;<span class="hljs-title">select</span>(<span class="hljs-keyword">int</span> min,<span class="hljs-keyword">int</span> max,<span class="hljs-keyword">int</span> count, List&lt;Integer&gt; resourceList) {<span class="hljs-keyword">if</span> (count ==<span class="hljs-number">1</span>) {<span class="hljs-keyword">return</span> eligible(min, max, resourceList);         }<span class="hljs-keyword">else</span> {             List&lt;List&lt;Integer&gt;&gt; rsList =<span class="hljs-keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();              Integer i = resourceList.remove(<span class="hljs-number">0</span>);<span class="hljs-keyword">if</span> (resourceList.size() &gt;= count) {                 List&lt;Integer&gt; tmpList =<span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;(resourceList);<span class="hljs-comment">//去掉第一个元素 剩余元素中的组合</span>                 rsList.addAll(select(min, max, count, tmpList));             }<span class="hljs-comment">//个数--，条件拆分 min - i, max - i</span>             rsList.addAll(assembly(i, select(min - i, max - i, --count, resourceList)));<span class="hljs-keyword">return</span> rsList;         }     }<span class="hljs-comment">//选择符合条件的结果</span><span class="hljs-keyword">private</span> List&lt;List&lt;Integer&gt;&gt;<span class="hljs-title">eligible</span>(<span class="hljs-keyword">int</span> min,<span class="hljs-keyword">int</span> max, List&lt;Integer&gt; resourceList) {         List&lt;List&lt;Integer&gt;&gt; rsList =<span class="hljs-keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();<span class="hljs-keyword">for</span> (Integer i : resourceList) {<span class="hljs-keyword">if</span> (i &gt;= min &amp;&amp; i &lt;= max) {                 List&lt;Integer&gt; tmp =<span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();                 tmp.add(i);                 rsList.add(tmp);             }         }<span class="hljs-keyword">return</span> rsList;     }<span class="hljs-comment">//组合</span><span class="hljs-keyword">private</span> List&lt;List&lt;Integer&gt;&gt;<span class="hljs-title">assembly</span>(Integer base, List&lt;List&lt;Integer&gt;&gt; resourceList) {         List&lt;List&lt;Integer&gt;&gt; rsList =<span class="hljs-keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();<span class="hljs-keyword">for</span> (List&lt;Integer&gt; list : resourceList) {             list.add(base);             rsList.add(list);         }<span class="hljs-keyword">return</span> rsList;     } }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87103.htm">孕期让猫挠了轻微出血有事吗（怀孕让猫挠了出血有事吗）</a></p>
+                                        <p>下一个：<a href="/news/article-87801.htm">宠物粮加工厂总投资多少亿（宠物粮加工厂总投资多少亿元）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe-links.htm" title="「3月2日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月2日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-clash-verge-rev-node.htm" title="「3月31日」最高速度21.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月31日」最高速度21.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-68607.htm" title="vue中动态改变样式">vue中动态改变样式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-clash-verge-rev-node-share.htm" title="「3月18日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月18日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-free-subscribe-node.htm" title="「3月29日」最高速度19.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月29日」最高速度19.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-82066.htm" title="宠物领养须知内容大全集（宠物领养需要注意什么）">宠物领养须知内容大全集（宠物领养需要注意什么）</a></li>
+                        <li class="py-2"><a href="/news/article-87800.htm" title="算法：在一个集合中选取所有符合条件的元素组合">算法：在一个集合中选取所有符合条件的元素组合</a></li>
+                        <li class="py-2"><a href="/news/article-80686.htm" title="海拉鲁大陆怎么没有城市 海拉鲁大陆外面">海拉鲁大陆怎么没有城市 海拉鲁大陆外面</a></li>
+                        <li class="py-2"><a href="/news/article-84246.htm" title="动物疫苗冷藏温度是多少（动物疫苗的储存温度）">动物疫苗冷藏温度是多少（动物疫苗的储存温度）</a></li>
+                        <li class="py-2"><a href="/news/article-71865.htm" title="动物疫苗研发流程（动物疫苗制造技术）">动物疫苗研发流程（动物疫苗制造技术）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -136,6 +136,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <p>首先，我们要知道axios是一个库，并不是vue中的第三方插件，使用时不能通过Vue.use()安装插件，需要在原型上进行绑定</p> <pre><code>import Vue from 'vue'  import axios from ‘axios’  Vue.prototype.$http = axios</code></pre> <p>然而，在vue3.0，并不是直接创建的vue实例，而是通过createApp来创建的</p> <pre><code>createApp(App)</code></pre> <p>那么问题就来了，这样的话，vue3.0要通过app.config.globalProperties.$axios&nbsp;=&nbsp;axios进行挂载</p> <p>二：vue-axios</p> <p>vue-axios是将axios集成到Vue.js的小包装器，可以像插件一样进行安装</p> <p>在mian.js中引用axios，vue-axios，通过全局方法 Vue.use() 使用插件，就相当于调用install方法</p> <pre><code>import axios from 'axios'  import VueAxios from 'vue-axios'  createApp(App).use(VueAxios, axios)</code></pre> <p>即可，后续使用，还是照常用</p> <pre><code>vue.axios.get(api).then((response) =&gt; {     console.log(response.data) }) this.axios.get(api).then((response) =&gt; {      console.log (response.data) }) this.$http.get(api).then((response) =&gt;{     console.log( response.data) })</code></pre> <p>使用&nbsp;Vue&nbsp;的插件写法，更符合&nbsp;Vue&nbsp;整体生态环境。直接写原型链，感觉有些粗暴了，搞定</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-85659.htm">SpringBoot运行错误：java.lang.NoClassDefFoundError:org/springframework/web/util/UriTemplateHandler</a></p>
+                                        <p>下一个：<a href="/news/article-86386.htm">开个宠物诊所需要多少钱（开一家宠物诊所收入怎么样）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -145,16 +146,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-subscribe-node.htm" title="「3月26日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月26日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-8-latest-clash-verge-rev-node.htm" title="「2月8日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月8日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-66688.htm" title="Halo 开源项目学习（六）：事件监听机制_在线工具">Halo 开源项目学习（六）：事件监听机制_在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-64840.htm" title="成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）">成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）</a></li>
-                        <li class="py-2"><a href="/news/article-77939.htm" title="500公斤饲料粉碎搅拌机 500公斤饲料粉碎搅拌机多少钱">500公斤饲料粉碎搅拌机 500公斤饲料粉碎搅拌机多少钱</a></li>
-                        <li class="py-2"><a href="/news/article-58927.htm" title="南京宠物医院领养狗狗 南京宠物医院领养狗狗多少钱">南京宠物医院领养狗狗 南京宠物医院领养狗狗多少钱</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-clash-verge-rev-node.htm" title="「2月15日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月15日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-high-speed-nodes.htm" title="「1月14日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「1月14日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-25-clash-verge-rev-windows.htm" title="「2月25日」最高速度20.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「2月25日」最高速度20.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-70548.htm" title="Mybatis动态SQL原理解析">Mybatis动态SQL原理解析</a></li>
+                        <li class="py-2"><a href="/news/article-85660.htm" title="vue3.0引入axios">vue3.0引入axios</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-verge-rev-github.htm" title="「4月1日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月1日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-79309.htm" title="养猫咪要打什么针大概多少钱（养猫咪需要打疫苗要多少钱）">养猫咪要打什么针大概多少钱（养猫咪需要打疫苗要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-86386.htm" title="开个宠物诊所需要多少钱（开一家宠物诊所收入怎么样）">开个宠物诊所需要多少钱（开一家宠物诊所收入怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-81421.htm" title="动物诊疗许可申请表格（动物诊疗许可证的申办程序）">动物诊疗许可申请表格（动物诊疗许可证的申办程序）</a></li>
+                        <li class="py-2"><a href="/news/article-78633.htm" title="宠物领养须知内容大全视频（宠物领养中心领养条件是什么）">宠物领养须知内容大全视频（宠物领养中心领养条件是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-67964.htm" title="动物疫苗品牌排行前十（动物疫苗排行榜）">动物疫苗品牌排行前十（动物疫苗排行榜）</a></li>
+                        <li class="py-2"><a href="/news/article-68606.htm" title="字符动态数组 c语言,用C语言实现一个动态数组">字符动态数组 c语言,用C语言实现一个动态数组</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-today-clash-verge-rev-node.htm" title="「3月16日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月16日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-76583.htm" title="动物医院好评模板100字怎么写的 动物医院好评模板100字怎么写的啊">动物医院好评模板100字怎么写的 动物医院好评模板100字怎么写的啊</a></li>
                     </ul>
     </div>
 </div>
@@ -166,13 +167,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                     </ul>
     </div>
