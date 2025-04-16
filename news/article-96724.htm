@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-96724.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript从数组中计数/ par元素以下方法详解</title>
+        <meta name="description" content="我们需要编写一个函数来计算给定数字以下/上方的数组中有多少个元素。 以下是我们的数字数组- const&nbsp;array&nbsp;=&nbsp;[54,54,65,73,43,78,54,54," />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-96724.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="JavaScript从数组中计数/ par元素以下方法详解" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/ddafae324edfb5d67e5eaebdd903119b.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:02:18" />
+    <meta property="og:updated_time" content="2025-04-15T06:02:18" />
+        <meta property="og:description" content="我们需要编写一个函数来计算给定数字以下/上方的数组中有多少个元素。 以下是我们的数字数组- const&nbsp;array&nbsp;=&nbsp;[54,54,65,73,43,78,54,54," />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript从数组中计数/ par元素以下方法详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">JavaScript从数组中计数/ par元素以下方法详解</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>我们需要编写一个函数来计算给定数字以下/上方的数组中有多少个元素。</p> <p>以下是我们的数字数组-</p> <pre>const&nbsp;array&nbsp;=&nbsp;[54,54,65,73,43,78,54,54,76,3,23,78];</pre> <p>例如，如果数字为60，则答案应在数字下方五个元素-</p> <pre>54,54,43,3,23</pre> <p>和五个元素相加-</p> <pre>65,73,78,76,78</pre> <h2>示例</h2> <p>以下是代码-</p> <pre>const&nbsp;array&nbsp;=&nbsp;[54,54,65,73,43,78,54,54,76,3,23,78]; const&nbsp;belowParNumbers&nbsp;=&nbsp;(arr,&nbsp;num)&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;return&nbsp;arr.reduce((acc,&nbsp;val)&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;legend&nbsp;=&nbsp;['par',&nbsp;'below']; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;isBelow&nbsp;=&nbsp;val&nbsp;&lt;&nbsp;num; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acc[legend[+isBelow]]++; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;acc; &nbsp;&nbsp;&nbsp;},&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;below:&nbsp;0, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;par:&nbsp;0 &nbsp;&nbsp;&nbsp;}); }; console.log(belowParNumbers(array,&nbsp;50)); console.log(belowParNumbers(array,&nbsp;60)); console.log(belowParNumbers(array,&nbsp;70));</pre> <p>输出结果</p> <p>这将在控制台中产生以下输出-</p> <pre>{&nbsp;below:&nbsp;3,&nbsp;par:&nbsp;9&nbsp;} {&nbsp;below:&nbsp;7,&nbsp;par:&nbsp;5&nbsp;} {&nbsp;below:&nbsp;8,&nbsp;par:&nbsp;4&nbsp;}</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96009.htm">合肥宠物领养中心地址查询电话（合肥市宠物领养中心）</a></p>
+                                        <p>下一个：<a href="/news/article-96725.htm">被猫抓了把血挤出来了并打疫苗（被猫抓了把血挤出来了并打疫苗可以吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-clash-verge-rev-node-github.htm" title="「3月24日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月24日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-node-share.htm" title="「3月12日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月12日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-90755.htm" title="聊城宠物用品专卖店在哪里（聊城哪里有宠物大市场!）">聊城宠物用品专卖店在哪里（聊城哪里有宠物大市场!）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-clash-verge-rev-node-github.htm" title="「3月5日」最高速度23M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月5日」最高速度23M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86386.htm" title="开个宠物诊所需要多少钱（开一家宠物诊所收入怎么样）">开个宠物诊所需要多少钱（开一家宠物诊所收入怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-67964.htm" title="动物疫苗品牌排行前十（动物疫苗排行榜）">动物疫苗品牌排行前十（动物疫苗排行榜）</a></li>
+                        <li class="py-2"><a href="/news/article-74529.htm" title="动物疫苗多少钱一支啊图片高清大全（动物疫苗一般多少钱）">动物疫苗多少钱一支啊图片高清大全（动物疫苗一般多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-clash-verge-rev-node-share.htm" title="「3月18日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月18日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88547.htm" title="深圳宠物领养中心在哪儿啊 深圳宠物领养中心在哪儿啊多少钱">深圳宠物领养中心在哪儿啊 深圳宠物领养中心在哪儿啊多少钱</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-high-speed-nodes.htm" title="「3月3日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月3日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
