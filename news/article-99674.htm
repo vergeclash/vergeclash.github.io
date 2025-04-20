@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-99674.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>夯实基础图解作用域链和闭包</title>
+        <meta name="description" content="前言 本文承接上篇夯实基础上篇-图解 JavaScript 执行机制，请先阅读上篇~ 讲基础不容易，本文通过 7个demo和6张图，和大家一起学习温故作用域链和闭包，本文大纲：  什么是作用域链 什么" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-99674.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="夯实基础图解作用域链和闭包" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/9635309660cccd3f09bd53198c803802.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:59:10" />
+    <meta property="og:updated_time" content="2025-04-19T08:59:10" />
+        <meta property="og:description" content="前言 本文承接上篇夯实基础上篇-图解 JavaScript 执行机制，请先阅读上篇~ 讲基础不容易，本文通过 7个demo和6张图，和大家一起学习温故作用域链和闭包，本文大纲：  什么是作用域链 什么" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="夯实基础图解作用域链和闭包">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">夯实基础图解作用域链和闭包</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="前言">前言</h2> <p>本文承接上篇<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/qcjay/p/16122334.html"  target="_blank" rel="nofollow">夯实基础上篇-图解 JavaScript 执行机制</a>，请<strong>先阅读上篇</strong>~</p> <p>讲基础不容易，本文通过 7个demo和6张图，和大家一起学习温故作用域链和闭包，本文大纲：</p> <ol> <li>什么是作用域链</li> <li>什么是词法作用域</li> <li>什么是闭包</li> <li>闭包的实际使用案例</li> </ol> <h2 id="什么是作用域链">什么是作用域链</h2> <p>正文开始~</p> <p>请思考下面 demo 的 name 打印什么</p> <pre><code class="language-js">    function test() {       console.log(name)     }     function test1() {       const name = 'test1的name'       test()     }     const name = 'global的name'     test1()</code></pre> <p>通过执行上下文来分析代码的执行流程，执行到 test 函数时：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3a8f614a8f90fe33db06c15fc41742b6.jpg" alt="夯实基础图解作用域链和闭包"></p> <p>那 test 函数里的 name 是哪个呢？这就涉及到了作用域链的定义：<strong>变量和函数的查找</strong>链条就是作用域链。它决定了各级上下文中的代码在访问变量和函数时的顺序：查找变量和函数时，先在当前执行上下文找，当前没有，到下一个执行上下文找，没有再到下一个，直到全局执行上下文，都没有就报错<code>使用未定义的变量或函数</code>。</p> <p>而在每个执行上下文的变量环境中，都包含了一个外部引用 outer，用来指向外部的执行上下文，链条结构是<code>当前执行上下文 &gt; 包含当前上下文的上下文1 &gt; 包含上下文1的上下文2 ...</code>。</p> <p>而这个 demo 会打印<code>global的name</code>，原因是 test 执行上下文的 outer 指向全局执行上下文，包括 test1 的 outer 也是指向全局执行上下文：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/77a47f71da7dcd3d603f53d6d1703f0d.jpg" alt="夯实基础图解作用域链和闭包"></p> <p>也许会有同学疑惑，为什么 test 的 outer 指向全局执行上下文，而不是 test1，这是因为在 JavaScript 执行过程中，其作用域链是由词法作用域决定的。</p> <h2 id="什么是词法作用域">什么是词法作用域</h2> <p>词法作用域就是作用域是由代码中<strong>函数声明的位置</strong>来决定的，它是静态的作用域，通过它就能够预测代码在执行过程中如何查找标识符，它<strong>与函数是怎样调用的没有关系</strong>。所以刚才的例子打印的是<code>global的name</code>。</p> <p>看个具体例子：</p> <pre><code class="language-js">    const count = 0     function test() {       const count = 1        function test1() {         const count = 2          function test2() {           const count = 3         }       }     }</code></pre> <p>其包含关系和作用域链：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/411df79297f904c2775c8010b8fe8c25.jpg" alt="夯实基础图解作用域链和闭包"></p> <p>事实上在 Global Scope 全局作用域（Window）之前，还有一个 Script Scope 脚本作用域，它存放的是当前 Script 内可访问的 let 变量和 const 变量，而 var 变量存放在 Global 上的就不在 Script Scope，它类似于是<strong>脚本范围内</strong>的全局作用域。在下面的 demo 中再举例。</p> <h2 id="什么是闭包">什么是闭包</h2> <p>闭包指的是那些<strong>引用了另一个函数作用域中变量</strong>的函数，通常是在嵌套函数中实现的。</p> <p>比如这个例子：</p> <pre><code class="language-js">    var globalVariable = 1     const scriptVariable = 2          function test() {       let name = 'Jaychou'        return {         getName() {           const count = 1           return name         },         setName(newValue) {           name = newValue         }       }     }      const testFun = test()     console.log(testFun.getName()) // Jaychou     testFun.setName('小明')     console.log(testFun.getName()) // 小明</code></pre> <p>大家可以根据作用域链的知识，思考一下执行到<code>console.log(testFun.getName())</code>的 getName 里面的时候作用域链是怎样的~</p> <p>我们用浏览器的开发者工具看一下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e2db2b9bccfafd90f8159c2e558ce501.jpg" alt="夯实基础图解作用域链和闭包"><br /> 作用域链是<code>当前作用域 》test 函数的闭包 》Script 作用域 》Global 作用域</code></p> <ol> <li>为什么叫 test 函数的闭包？因为当<code>const testFun = test()</code>的 test 函数执行完之后，test 的函数执行上下文已经被销毁了，但它返回的<code>{ getName(){}, setName(){} }</code>对象被 testFun 引用着，而 getName 和 setName 引用着 test 函数内定义的 name 变量，所以这些被引用的变量依然需要被保存在内存中，而这些变量的集合称为闭包 Closure；</li> <li>目前闭包内的 name 变量就只能通过 getName 和 setName 去访问和设置，而这也是闭包的作用之一：封装私有变量；</li> <li>刚才说的 Script Scope 中保存着 scriptVariable 变量，globalVariable 变量是 var 声明的，所以在 Global Scope（Window）中。</li> </ol> <p>再看1个具体案例理解闭包：</p> <pre><code class="language-js">    const globalCount = 0      function test() {       const count = 0       return test1        function test1() {         const count1 = 1         return test2          function test2() {           const count2 = 2           console.log('test2', globalCount + count + count1 + count2)         }       }     }     test()()()</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8507654efd3eaf385d294567c41399ec.jpg" alt="夯实基础图解作用域链和闭包"><br /> 执行到 test2 内部的 console.log 那一行时，其作用域链是<code>当前作用域 》test1 的闭包 》test 的闭包 》Script Scope 》Global Scope</code></p> <blockquote> <p>闭包使用建议：当不需要使用了之后，注意要解除引用着闭包的变量，这样闭包才会被释放。比如第1个案例的 testFun 如果不需要用了，就把它释放 testFun = null。</p> </blockquote> <h2 id="闭包的实际使用案例">闭包的实际使用案例</h2> <h3 id="封装私有变量">封装私有变量</h3> <p>就是刚才的 getName、setName 案例，通过 getName 获取 name，通过 setName 设置 name</p> <h3 id="封装单例">封装单例</h3> <pre><code class="language-js">    const Single = (function () {       let instance = null        return function () {         if (!instance) {           instance = {             name: 'jaychou',             age: 40           }         }         return instance       }     })()     const obj1 = new Single()     const obj2 = new Single()     console.log(obj1 === obj2) // true</code></pre> <p>这里只是举个例子，具体的 instance 是什么类型，支持什么功能要看实际项目。</p> <h3 id="防抖和节流">防抖和节流</h3> <p>防抖：</p> <pre><code class="language-js">    function debounce(fn, delay) {       let timer = null;        return function () {         let context = this;         let args = arguments;          timer &amp;&amp; clearTimeout(timer);          timer = setTimeout(function () {           fn.apply(context, args);         }, delay);       }     }</code></pre> <p>节流：</p> <pre><code class="language-js">    function throttle(fn, interval) {       let last = 0;        return function () {         let now = +new Date()         if (now - last &gt;= interval) {           fn.apply(this, arguments);           last = now;         }       }     }</code></pre> <p>更完整的防抖和节流的实现可参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://lodash.com/"  target="_blank" rel="nofollow"> Lodash</a>，这里主要是演示闭包的使用</p> <h3 id="总结">总结</h3> <p>闭包的使用场景很多，功能很强大，可以说在前端项目中经常可见例如 React Hooks 等等，这里只列举了几个很简单的很实用的应用场景。</p> <h2 id="总结-1">总结</h2> <p>本文主要介绍了作用域链和闭包，沿着<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/qcjay/p/16122334.html"  target="_blank" rel="nofollow">夯实基础上篇-图解 JavaScript 执行机制</a> 来一起看的话应该比较容易理解，若对大家有所帮助，请不吝点赞关注~</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99673.htm">pycharm连接sqlite</a></p>
+                                        <p>下一个：<a href="/news/article-100443.htm">JavaScript实现的多功能侧边导航菜单源码</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share.htm" title="「4月3日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月3日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-84927.htm" title="长春无偿领养猫咪 长春无偿领养猫咪的地方">长春无偿领养猫咪 长春无偿领养猫咪的地方</a></li>
+                        <li class="py-2"><a href="/news/article-67309.htm" title="动物医院好评语大全简短 动物医院好评语大全简短一点">动物医院好评语大全简短 动物医院好评语大全简短一点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-clash-verge-rev-node.htm" title="「4月11日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月11日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80005.htm" title="兽医站打的疫苗可靠吗（去兽医站打疫苗需要什么条件）">兽医站打的疫苗可靠吗（去兽医站打疫苗需要什么条件）</a></li>
+                        <li class="py-2"><a href="/news/article-90758.htm" title="活体宠物猫托运一般多少钱（活体宠物托运费用）">活体宠物猫托运一般多少钱（活体宠物托运费用）</a></li>
+                        <li class="py-2"><a href="/news/article-95255.htm" title="宠物粮食加工厂设备生产厂家有哪些品牌好 宠物粮食加工厂设备生产厂家有哪些品牌好">宠物粮食加工厂设备生产厂家有哪些品牌好 宠物粮食加工厂设备生产厂家有哪些品牌好</a></li>
+                        <li class="py-2"><a href="/news/article-71865.htm" title="动物疫苗研发流程（动物疫苗制造技术）">动物疫苗研发流程（动物疫苗制造技术）</a></li>
+                        <li class="py-2"><a href="/news/article-82789.htm" title="动物疫苗排名前十位有哪些种类图片（十大动物疫苗公司）">动物疫苗排名前十位有哪些种类图片（十大动物疫苗公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-high-speed-nodes.htm" title="「3月17日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月17日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

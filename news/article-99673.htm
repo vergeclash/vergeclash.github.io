@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-99673.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pycharm连接sqlite</title>
+        <meta name="description" content="进行创建上了一个Django项目之后，进行点击 菜单中的view 菜单。&nbsp;  进行点击了view菜单之后，进行点击下拉菜单选中为tool windows的选项。  弹出了下拉下一级菜单选中为" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-99673.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="pycharm连接sqlite" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/4df8f147ee4cb483cf7dfe94db9f3ef1.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:59:10" />
+    <meta property="og:updated_time" content="2025-04-19T08:59:10" />
+        <meta property="og:description" content="进行创建上了一个Django项目之后，进行点击 菜单中的view 菜单。&nbsp;  进行点击了view菜单之后，进行点击下拉菜单选中为tool windows的选项。  弹出了下拉下一级菜单选中为" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pycharm连接sqlite">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">pycharm连接sqlite</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>进行创建上了一个Django项目之后，进行点击 菜单中的view 菜单。&nbsp;</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/7ff453d2d311a50b4851de9672a78f25.jpg"></p> <p>进行点击了view菜单之后，进行点击下拉菜单选中为tool windows的选项。</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/d03e42718fee30715a4c3459a25abee7.jpg"></p> <p>弹出了下拉下一级菜单选中为 database 的选项。</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/b405beb6cf50346a2faa785d340e7566.jpg"></p> <p>　　弹出了database的选项之后，进行点击 添加 按钮。</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/63933728a93807be8b66b82f3672064f.jpg"></p> <p>　　弹出了下拉菜单选中为data source后，选中为sqlite的选项。</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/7d1a03df5c14e057135a13185ddd4865.jpg"></p> <p>　　然后点击窗口中的 download的选项。进行安装驱动。</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/86a4394a4d1f0d9a445274ce17eaa27b.jpg"></p> <p>　　然后进行再file的路径中，进行选中数据库文件</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/098ce316b355983579893349c4f1b3c4.jpg"></p> <p>　　这样数据库就连接完成了，可以看到的是列表当中显示了数据库。</p> <p><img decoding="async" alt="sqlite" class="has" src="http://img.555519.xyz/uploads/20230110/11c3ac7f1512e487e9b523eb1b385b6e.jpg"></p> <p>转载自<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pcedu.pconline.com.cn/1227/12270536.html"  rel="nofollow">https://pcedu.pconline.com.cn/1227/12270536.html</a></p> <p>若无database。则：</p> <p>第一步，点击file/setting/plugins 如下图所示</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230110/518140db2f43a7594d2c8752544a2fc3.jpg"></p> <p>第二步，搜索database 安装database Nivagator 并Apply</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230110/d4e7173b29b3707556b0e864b17aec2a.jpg"></p> <p>第三步，新建数据库连接，open sql console，并test conection</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230110/1cd91baa76945b3655cc40d51c84d893.jpg"></p> <p>第四步，在pycharm右下角点击图标如下（DB Browser）</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230110/b01d81b0e225c8e99fc568302edcef80.jpg"></p> <p>最后，打开数据库（双击表单选择 no filter）如图</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230110/ce60f196d4ce18291805f1e8277eb997.jpg"></p> <p>现在，就可以像database一样可以连接并查看数据库的内容了。</p> <p>参考自<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/perl2py/p/6593769.html"  rel="nofollow">https://www.cnblogs.com/perl2py/p/6593769.html</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98888.htm">去动物医院花多少钱啊（去动物医院花多少钱啊一次）</a></p>
+                                        <p>下一个：<a href="/news/article-99674.htm">夯实基础图解作用域链和闭包</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-90758.htm" title="活体宠物猫托运一般多少钱（活体宠物托运费用）">活体宠物猫托运一般多少钱（活体宠物托运费用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-node-share.htm" title="「3月14日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月14日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-83524.htm" title="大兴天照爱宠动物医院电话（8字书法作品欣赏楷书）">大兴天照爱宠动物医院电话（8字书法作品欣赏楷书）</a></li>
+                        <li class="py-2"><a href="/news/article-77254.htm" title="动物疫苗管理法律法规最新版本全文（动物疫苗政策）">动物疫苗管理法律法规最新版本全文（动物疫苗政策）</a></li>
+                        <li class="py-2"><a href="/news/article-93714.htm" title="python自动化系列之使用openpyxl读写Excel">python自动化系列之使用openpyxl读写Excel</a></li>
+                        <li class="py-2"><a href="/news/article-84927.htm" title="长春无偿领养猫咪 长春无偿领养猫咪的地方">长春无偿领养猫咪 长春无偿领养猫咪的地方</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-clash-verge-rev-node.htm" title="「4月9日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月9日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share-links.htm" title="「3月13日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月13日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share.htm" title="「4月3日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月3日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-clash-verge-rev-node.htm" title="「4月11日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月11日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

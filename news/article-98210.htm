@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-98210.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue项目中数据更新页面不刷新问题</title>
+        <meta name="description" content="这种情况可以分为很多种.但是究其原因就是vue3.0以下版本无法监听对象（包括数组以及对象）的变化，当数据发生变化的时候vue的刷新机制是监听不到数据变化的，所以需要我们在实际应用过程中通过各种处理来" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-98210.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="vue项目中数据更新页面不刷新问题" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/b1fed4f62ef68c5f026b18332aa5bc47.webp" />
+        <meta property="og:release_date" content="2025-04-17T09:02:02" />
+    <meta property="og:updated_time" content="2025-04-17T09:02:02" />
+        <meta property="og:description" content="这种情况可以分为很多种.但是究其原因就是vue3.0以下版本无法监听对象（包括数组以及对象）的变化，当数据发生变化的时候vue的刷新机制是监听不到数据变化的，所以需要我们在实际应用过程中通过各种处理来" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue项目中数据更新页面不刷新问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">vue项目中数据更新页面不刷新问题</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>这种情况可以分为很多种.但是究其原因就是vue3.0以下版本无法监听对象（包括数组以及对象）的变化，当数据发生变化的时候vue的刷新机制是监听不到数据变化的，所以需要我们在实际应用过程中通过各种处理来达到页面刷新的目的。</p> <p>1.这是一种简单粗暴的解决方案吧,那就是在数据更新完成之后对页面进行重排和重绘操纵,但是这种方式对页面的消耗会急剧上升,不到万不得已还是不要使用的好，具体实现方法如下:</p> <pre><code>在data中定义一个阈值,比如show，初始为true;  代码实现：  this.show = false; setTimeout(() =&gt; {    this.show = true  },0)</code></pre> <p>2.在数据都处理完成之后,使用this.$froceUpdate()进行强制刷新；</p> <p>3.在数据处理完成之后进行数据重置操作,但是值得注意的是这种方式只对对象有效(亲测数组无效,有朋友能搞来的话欢迎留言,让我膜拜一下,嘿嘿)，并且这种方式不适用于对象中有键值为引用类型的数据源（针对这种方式,个人觉得可以将引用类型数据显示的模板单独封装一个组件,再在这个组件中进行数据刷新,当然,监听数据变化是必不可少的,这个方法没有测试过,按理说应该没问题）</p> <pre><code>let temp = this.data; this.data = null; this.data = temp</code></pre> <p>4.采用官方提供的方法,使用过this.$set全局方法进行数据更新;这里我们要说一下vue的数据绑定机制了;当一个页面创建的过程中，html模板只有只会绑定在data中初始创建的时候已经存在的数据，如果在页面创建之后我们追加数据的话就会出现数据更新了，但是页面却没有刷新的情况,this.$set(数据源,要追加的数据的键 / 在源数据中的索引,新数据)这个方法就是vue官方提供的用于追加数据的,并能够实现页面刷新！</p> <p>5.针对数组数据,常见修改数据之后页面不刷新的原因有:</p> <ol> <li>通过数组下标修改数组元素</li> <li>修改数组长度</li> </ol> <p>那么在修改数组数据的时候,我们应该使用push(),pop(),shift(),unshift(),splice(),sort()，reverse()等原生的方法去操作数据,因为vue可以直接检测这些方法所带来的数组数据变化。</p> <p>6.数据不刷新最根本的原因还是因为vue认为模板结构没有更新，所以不会生成新的虚拟的dom，所以我们可以为需要更新的dom添加一个会由操作结束而发生变化的key值，这样就会刷新了（这是最近学到的一个新技能，再来补充一下）。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98208.htm">电话簿荣耀升级版</a></p>
+                                        <p>下一个：<a href="/news/article-98887.htm">领养宠物的app有哪些（领养宠物的平台）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74528.htm" title="动物防疫疫苗中标公告查询网（动物防疫疫苗中标公告查询网站）">动物防疫疫苗中标公告查询网（动物防疫疫苗中标公告查询网站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe-links.htm" title="「3月2日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月2日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-77253.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/news/article-73862.htm" title="JavaScript中的变量">JavaScript中的变量</a></li>
+                        <li class="py-2"><a href="/news/article-80004.htm" title="宠物店打了一针疫苗没有疫苗本（宠物打疫苗没给疫苗本）">宠物店打了一针疫苗没有疫苗本（宠物打疫苗没给疫苗本）</a></li>
+                        <li class="py-2"><a href="/news/article-75883.htm" title="动物医院实践心得体会范文大全 动物医院实践心得体会范文大全图片">动物医院实践心得体会范文大全 动物医院实践心得体会范文大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-83526.htm" title="宠物粮食公司排名 宠物粮食公司排名前十">宠物粮食公司排名 宠物粮食公司排名前十</a></li>
+                        <li class="py-2"><a href="/news/article-86387.htm" title="宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续">宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续</a></li>
+                        <li class="py-2"><a href="/news/article-96724.htm" title="JavaScript从数组中计数/ par元素以下方法详解">JavaScript从数组中计数/ par元素以下方法详解</a></li>
+                        <li class="py-2"><a href="/news/article-87801.htm" title="宠物粮加工厂总投资多少亿（宠物粮加工厂总投资多少亿元）">宠物粮加工厂总投资多少亿（宠物粮加工厂总投资多少亿元）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
