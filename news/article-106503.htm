@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-106503.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nginx高并发优化+日志管理+配置参数详解</title>
+        <meta name="description" content="文章目录  前言 一、Nginx高并发   1.cpu核心数的优化 2.最大连接数的优化 3.网络阻塞 4.erro日志存放位置设定 5.访问日志的控制方式 6.日志的采集格式设定   二、平滑升级N" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-106503.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="Nginx高并发优化+日志管理+配置参数详解" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/b6cf5fb863992c5e87563faea72c3901.webp" />
+        <meta property="og:release_date" content="2025-04-28T09:49:13" />
+    <meta property="og:updated_time" content="2025-04-28T09:49:13" />
+        <meta property="og:description" content="文章目录  前言 一、Nginx高并发   1.cpu核心数的优化 2.最大连接数的优化 3.网络阻塞 4.erro日志存放位置设定 5.访问日志的控制方式 6.日志的采集格式设定   二、平滑升级N" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Nginx高并发优化+日志管理+配置参数详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">Nginx高并发优化+日志管理+配置参数详解</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"><font color="#999AAA"></font></p> <div class="toc"> <h3>文章目录</h3> <ul> <li>前言</li> <li>一、Nginx高并发</li> <li> <ul> <li>1.cpu核心数的优化</li> <li>2.最大连接数的优化</li> <li>3.网络阻塞</li> <li>4.erro日志存放位置设定</li> <li>5.访问日志的控制方式</li> <li>6.日志的采集格式设定</li> </ul> </li> <li>二、平滑升级Nginx以及版本回退</li> <li> <ul> <li>1.平滑升级</li> <li>2.版本回退</li> </ul> </li> <li>三、Nginx配置详解</li> <li> <ul> <li>1.Nginx对于访问流量的限制</li> <li>2.对于当个IP的高频次访问控制</li> <li>3.nginx的访问控制</li> <li>4.监控模块的设开启以及设定</li> <li>5.nginx对https搭建方式、重定向功能以及php网页缓存的构建方式</li> </ul> </li> <li>总结</li> </ul> </div> </h1> <p><font color="#999AAA"></font></p> <hr color="#000000" size="1&quot;"/><font color="#999AAA"></font></p> </h1> <pre><code class="prism language-bash">Linux下高并发socket最大连接数所受的各种限制<span class="token number">1</span>.修改用户进程可打开文件数限制   /etc/security/limits.conf   nginx - nofile<span class="token number">65535</span><span class="token number">2</span>.Linux系统级的最大打开文件数限制   fs.file-max<span class="token operator">=</span><span class="token number">188414</span>		//和内存容量相关<span class="token number">3</span>.修改网络内核对TCP连接的有关限制   net.ipv4.ip_local_port_range<span class="token operator">=</span><span class="token number">1024</span><span class="token number">4</span>.限制接收新 TCP 连接侦听队列的大小   net.core.somaxconn<span class="token operator">=</span><span class="token number">2048</span><span class="token number">5</span>.启用tcp连接timewait快速回收和重用   net.ipv4.tcp_tw_recycle<span class="token operator">=</span><span class="token number">1</span>   net.ipv4.tcp_tw_reuse<span class="token operator">=</span><span class="token number">1</span></code></pre> <h2>1.cpu核心数的优化</h2> <pre><code class="prism language-bash"><span class="token function">vim</span> nginx.conf<span class="token number">3</span> worker_processes  auto<span class="token punctuation">;</span><span class="token comment">#设定cpu核心自动分配</span><span class="token number">3</span> worker_processes<span class="token number">2</span><span class="token punctuation">;</span><span class="token comment">#设定只是用2个核心</span><span class="token number">4</span> worker_cpu_affinity 01<span class="token number">10</span><span class="token punctuation">;</span><span class="token comment">#进行cpu核心的绑定</span></code></pre> <h2>2.最大连接数的优化</h2> <pre><code class="prism language-bash"><span class="token function">vim</span> nginx.conf events<span class="token punctuation">{<!-- --></span><span class="token number">14</span>     worker_connections<span class="token number">65535</span><span class="token punctuation">;</span><span class="token comment">#设定nginx的最大连接数</span><span class="token number">15</span><span class="token punctuation">}</span><span class="token function">vim</span> /etc/security/limits.conf<span class="token number">60</span> nginx   -       nofile<span class="token number">65535</span><span class="token comment">#添加后即可生效使用热插拔模块在内存中立刻生效</span></code></pre> <p>切换到nginx用户查看最大打开文件数即可看到为65535<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/78567136b70d833976030b1667c1ef55.jpg" alt="Nginx高并发优化+日志管理+配置参数详解"></p> <h2>3.网络阻塞</h2> <pre><code class="prism language-bash"><span class="token function">vim</span> /usr/local/nginx.com<span class="token number">28</span>     sendfile        on<span class="token punctuation">;</span><span class="token comment">#开启sendfile可以开启高效文件传输模式（zero copy 方式），避免内核缓冲区数据和用户缓冲区数据之间的拷贝。</span><span class="token number">29</span>     tcp_nopush     on<span class="token punctuation">;</span><span class="token comment">#采用tcp_cork标准进行传输即客户的访问数据在Nginx的缓冲区域到达一定量的时候会进行发送有助于解决网络阻塞</span><span class="token number">30</span>     tcp_nodelay     on<span class="token punctuation">;</span><span class="token comment">#此参数和tcp_nopush互斥可以开启nginx会自行兼容本身参数，表示将所有的数据有了不论是否填满缓冲区域立刻发送</span>  tcp_nopush，tcp_nodelay，开启前提必须开启sendfile</code></pre> <p><code>三个指令都开启的好处是，sendfile可以开启高效的文件传输模式，tcp_nopush开启可以确保在发送到客户端之前数据包已经充分“填满”， 这大大减少了网络开销，并加快了文件发送的速度。 然后，当它到达最后一个可能因为没有“填满”而暂停的数据包时，Nginx会忽略tcp_nopush参数， 然后，tcp_nodelay强制套接字发送数据。所以三个都开启比开启单个效率更高</code></p> <h2>4.erro日志存放位置设定</h2> <pre><code class="prism language-bash"><span class="token number">7</span> error_log  logs/error.log info<span class="token punctuation">;</span><span class="token comment">#设定日至的存放为位置以及日志级别日志输出级别有 debug,info,notice,warn,error,crit 可供选择,其中debug输出日志最为详细crit(严重)输出日志最少。默认是error</span></code></pre> <p><code>该日志的采集格式暂时不支持自定义方式采集，但是可以分开存储方式集进行存储不同级别的日志</code><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/f3dd6dc195519002d925637ddf03eb8d.jpg" alt="Nginx高并发优化+日志管理+配置参数详解"></p> <p><code>脚本示例</code></p> <pre><code class="prism language-bash"><span class="token shebang important">#!/bin/bash</span><span class="token builtin class-name">cd</span> /usr/local/nginx/logs<span class="token operator">&amp;&amp;</span><span class="token function">mv</span> access.log access_<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%F -d -1day<span class="token variable">)</span></span>.log<span class="token function">kill</span> -USR1<span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> /usr/local/nginx/logs/nginx.pid<span class="token variable">`</span></span> 写好后加入creoutab定时任务中定时执行一次即可，日志文件所在的目录不需要给nginx用户权限 chmo -R<span class="token number">700</span> /usr/local/nginx/logs</code></pre> <h2>5.访问日志的控制方式</h2> <pre><code class="prism language-bash"> location ~ .*<span class="token punctuation">\</span>.<span class="token punctuation">(</span>js<span class="token operator">|</span>jpg<span class="token operator">|</span>jpeg<span class="token operator">|</span>png<span class="token operator">|</span>css<span class="token operator">|</span>bmp<span class="token operator">|</span>gif<span class="token punctuation">)</span>$<span class="token punctuation">{<!-- --></span>                 access_log off<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <table> <thead> <tr> <th>参数</th> <th>作用</th> </tr> </thead> <tbody> <tr> <td>main</td> <td>指定日志的采集格式</td> </tr> <tr> <td>gzip</td> <td>指定使用gzip的方式进行日志的压缩，压缩比率分为1-9默认为1压缩越高速度越慢</td> </tr> <tr> <td>buffer=32k</td> <td>指定日志写入时缓存数据为32K默认为64K</td> </tr> <tr> <td>flush</td> <td>设置缓存的有效时间。如果超过 flush 指定的时间，缓存中的内容将被清空</td> </tr> <tr> <td>if</td> <td>if 条件判断。如果指定的条件计算为 0 或空字符串，那么该请求不会写入日志。</td> </tr> </tbody> </table> <h2>6.日志的采集格式设定</h2> <p>日志采集格式的设定方式</p> <pre><code class="prism language-bash"><span class="token variable">$remote_addr</span>       客户端地址<span class="token variable">$remote_user</span>       客户端用户名称<span class="token variable">$time_local</span>        访问时间和时区<span class="token variable">$request</span>           请求的URI和HTTP协议<span class="token variable">$status</span>            HTTP请求状态<span class="token variable">$body_bytes_sent</span>   发送给客户端文件内容大小<span class="token variable">$http_referer</span>      url跳转来源<span class="token variable">$http_user_agent</span>   用户终端浏览器等信息<span class="token variable">$http_host</span>         请求地址，即浏览器中你输入的地址（IP或域名）<span class="token variable">$request_time</span>      处理请求的总时间,包含了用户数据接收时间<span class="token variable">$upstream_response_time</span> 建立连接和从上游服务器接收响应主体的最后一个字节之间的时间<span class="token variable">$upstream_connect_time</span>  花费在与上游服务器建立连接上的时间<span class="token variable">$upstream_header_time</span>   建立连接和从上游服务器接收响应头的第一个字节之间的时间</code></pre> <p><font color="#999AAA"></font></p> </h1> <h2>1.平滑升级</h2> <p>重新制作一个新Nginx二进制程序</p> <pre><code class="prism language-bash"><span class="token punctuation">\</span>cp -f objs/nginx /usr/local/nginx/sbin/ngin<span class="token comment">#复制nginx二进制文件到sbin目录下同时保证系统不会读取这一步复制过去的文件所以要加\进行转译</span><span class="token function">ps</span> ax<span class="token operator">|</span><span class="token function">grep</span> nginx<span class="token comment">#获取主程pid</span><span class="token function">kill</span> -USR2<span class="token number">27867</span><span class="token comment">#使得原来的主程序不再获得新的请求</span><span class="token function">kill</span> -WINCH<span class="token number">27867</span><span class="token comment">#使新版本的主程序开始接受请求</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/a0d71562d269dc8df45ed8cce6df9071.jpg" alt="Nginx高并发优化+日志管理+配置参数详解"></p> <h2>2.版本回退</h2> <pre><code class="prism language-bash"><span class="token punctuation">\</span>cp -f objs/nginx /usr/local/nginx/sbin/nginx<span class="token comment">#将新版本的程序覆盖过去</span><span class="token function">kill</span> -HUP<span class="token number">28120</span><span class="token comment">#唤醒原有进程</span><span class="token function">kill</span> -WINCH<span class="token number">28149</span><span class="token comment">#停止新的进程</span><span class="token function">kill</span> -9<span class="token number">28121</span><span class="token comment">#新版本的worker已经没用了可以禁掉了</span></code></pre> <p><font color="#999AAA"></font></p> </h1> <h2>1.Nginx对于访问流量的限制</h2> <pre><code>https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/ 官方文档位置</code></pre> <pre><code class="prism language-bash">http<span class="token punctuation">{<!-- --></span> upstream westos<span class="token punctuation">{<!-- --></span>         sticky<span class="token punctuation">;</span>         server<span class="token number">172.25</span>.254.92:80<span class="token punctuation">;</span>         server<span class="token number">172.25</span>.254.93:80<span class="token punctuation">;</span><span class="token punctuation">}</span> limit_conn_zone<span class="token variable">$binary_remote_addr</span><span class="token assign-left variable">zone</span><span class="token operator">=</span>addr:10m<span class="token punctuation">;</span><span class="token comment">#在内存中开一个10M大小的区域使得访问数据可以被记录同时</span> server<span class="token punctuation">{<!-- --></span>         listen<span class="token number">80</span><span class="token punctuation">;</span>         server_name www.westos.com<span class="token punctuation">;</span>                 location /<span class="token punctuation">{<!-- --></span>                         limit_conn addr<span class="token number">10</span><span class="token punctuation">;</span><span class="token comment">#限制最大的并发连接数为10</span>                         limit_rate 50k<span class="token punctuation">;</span><span class="token comment">#限制下载的带宽速度为50k</span>                         proxy_pass http://westos<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><code>上传一张图片可以尝试进行压力测试可以看到的效果更加直观，测试后并发量为10时可以完成1000的并发数10次的访问量，限制带宽后明显很慢</code></p> <h2>2.对于当个IP的高频次访问控制</h2> <pre><code class="prism language-bash">http<span class="token punctuation">{<!-- --></span>         upstream westos<span class="token punctuation">{<!-- --></span>         server<span class="token number">172.25</span>.0.93:80<span class="token punctuation">;</span>         server<span class="token number">172.25</span>.0.94:80<span class="token punctuation">;</span><span class="token punctuation">}</span>     include       mime.types<span class="token punctuation">;</span>     default_type  application/octet-stream<span class="token punctuation">;</span>      log_format  main<span class="token string">'$remote_addr - $remote_user [$time_local] "$request" '</span><span class="token string">'$status $body_bytes_sent "$http_referer" '</span><span class="token string">'"$http_user_agent" "$http_x_forwarded_for"'</span><span class="token punctuation">;</span>     access_log logs/access.log main<span class="token punctuation">;</span><span class="token comment">#limit_conn_zone $binary_remote_addr zone=addr:200m;</span>     sendfile        on<span class="token punctuation">;</span>     tcp_nopush     on<span class="token punctuation">;</span>     tcp_nodelay on<span class="token punctuation">;</span>     limit_req_zone<span class="token variable">$binary_remote_addr</span><span class="token assign-left variable">zone</span><span class="token operator">=</span>one:10m<span class="token assign-left variable">rate</span><span class="token operator">=</span>1r/s<span class="token punctuation">;</span><span class="token comment">#限制了同一个IP对与该服务器每一秒只能访问一次</span><span class="token comment">#keepalive_timeout  0;</span>     keepalive_timeout<span class="token number">10</span><span class="token punctuation">;</span><span class="token function">gzip</span>  on<span class="token punctuation">;</span>     server<span class="token punctuation">{<!-- --></span>         listen<span class="token number">80</span><span class="token punctuation">;</span>         server_name  localhost<span class="token punctuation">;</span>          charset utf-8<span class="token punctuation">;</span>          access_log logs/access.server.log. main<span class="token punctuation">;</span>           location /<span class="token punctuation">{<!-- --></span>           proxy_pass http://westos<span class="token punctuation">;</span>           limit_req<span class="token assign-left variable">zone</span><span class="token operator">=</span>one<span class="token punctuation">;</span><span class="token comment">#开启访问频次限制他功能在RS上</span><span class="token comment">#limit_conn addr 1;										#以经限制访问频次最大连接数不必限制</span><span class="token comment">#limit_rate 50k;											#访问带宽不必限制</span><span class="token punctuation">}</span></code></pre> <h2>3.nginx的访问控制</h2> <pre><code class="prism language-bash">location ~ /<span class="token punctuation">\</span>.ht<span class="token punctuation">{<!-- --></span>             deny  all<span class="token punctuation">;</span><span class="token comment">#拒绝所有人访问</span>             allow<span class="token number">127.0</span>.0.1<span class="token punctuation">;</span><span class="token comment">#允许本地回环环访问</span>             allow<span class="token number">172.25</span>.0.90<span class="token punctuation">;</span><span class="token comment">#只允许某个IP访问固</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2>4.监控模块的设开启以及设定</h2> <pre><code class="prism language-bash">location /status<span class="token punctuation">{<!-- --></span>  				stub_status on<span class="token punctuation">;</span><span class="token comment">#开启监控模块</span>                 deny all<span class="token punctuation">;</span>                 allow<span class="token number">127.0</span>.0.1<span class="token punctuation">;</span>                 access_log off<span class="token punctuation">;</span><span class="token comment">#禁止访问监控模块时还进行日志的统计</span>                 error_log off<span class="token punctuation">;</span><span class="token comment">#禁止错误日志的统计</span><span class="token punctuation">}</span></code></pre> <h2>5.nginx对https搭建方式、重定向功能以及php网页缓存的构建方式</h2> <pre><code class="prism language-bash">server<span class="token punctuation">{<!-- --></span>         listen<span class="token number">443</span> ssl<span class="token punctuation">;</span>         server_name  localhost<span class="token punctuation">;</span>          ssl_certificate      cert.pem<span class="token punctuation">;</span>         ssl_certificate_key  cert.pem<span class="token punctuation">;</span>          ssl_session_cache    shared:SSL:1m<span class="token punctuation">;</span>         ssl_session_timeout  5m<span class="token punctuation">;</span>          ssl_ciphers  HIGH:<span class="token operator">!</span>aNULL:<span class="token operator">!</span>MD5<span class="token punctuation">;</span>         ssl_prefer_server_ciphers  on<span class="token punctuation">;</span>          location /westos.org/<span class="token punctuation">{<!-- --></span><span class="token comment">#代理westos.org/后边的内容但是不会代理indx.php,直接代理index.php是有危险的</span>                 proxy_pass http://www.westos.org/index.php<span class="token punctuation">;</span><span class="token punctuation">}</span> 		 		location ~ .*<span class="token punctuation">\</span>.<span class="token punctuation">(</span>gif<span class="token operator">|</span>jpg<span class="token operator">|</span>png<span class="token punctuation">)</span>$<span class="token punctuation">{<!-- --></span><span class="token comment">#将网站的数据缓存到站点上节省网站服务端的带宽</span>     		expires 365d<span class="token punctuation">;</span>     		root /www<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><font color="#999AAA"></font></p> <hr color="#000000" size="1&quot;"/> </h1> <p><font color="#999AAA"></font></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-105729.htm">宠物品牌大全排名前十名图片（宠物品牌排行榜前十名）</a></p>
+                                        <p>下一个：<a href="/news/article-106504.htm">动物疫站给猫打疫苗收钱吗现在（动物防疫站可以给猫打三联么）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-16-latest-clash-verge-rev-node.htm" title="「4月16日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月16日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-75883.htm" title="动物医院实践心得体会范文大全 动物医院实践心得体会范文大全图片">动物医院实践心得体会范文大全 动物医院实践心得体会范文大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-70550.htm" title="广州宠物领养中心具体地址电话号码（广州市宠物领养中心）">广州宠物领养中心具体地址电话号码（广州市宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-79309.htm" title="养猫咪要打什么针大概多少钱（养猫咪需要打疫苗要多少钱）">养猫咪要打什么针大概多少钱（养猫咪需要打疫苗要多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-clash-verge-rev-node.htm" title="「3月31日」最高速度21.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月31日」最高速度21.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-87801.htm" title="宠物粮加工厂总投资多少亿（宠物粮加工厂总投资多少亿元）">宠物粮加工厂总投资多少亿（宠物粮加工厂总投资多少亿元）</a></li>
+                        <li class="py-2"><a href="/news/article-83524.htm" title="大兴天照爱宠动物医院电话（8字书法作品欣赏楷书）">大兴天照爱宠动物医院电话（8字书法作品欣赏楷书）</a></li>
+                        <li class="py-2"><a href="/news/article-77253.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/news/article-76582.htm" title="vue-element-admin模板，点击跳转到另一个页面传参">vue-element-admin模板，点击跳转到另一个页面传参</a></li>
+                        <li class="py-2"><a href="/news/article-67310.htm" title="广州宠物领养平台电话是多少号码啊（广州领养宠物救助站）">广州宠物领养平台电话是多少号码啊（广州领养宠物救助站）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
