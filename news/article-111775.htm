@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vergeclash.github.io/news/article-111775.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>python 针对在子文件夹中的md文档实现批量md转word_python_</title>
+        <meta name="description" content="前言; 最近想要实现批量将mardown文档转化为word。网上有很多解决的方法，但是自己保存的md文档在不同的文件夹，而大部分只能实现同一文件夹内的转换，因此稍加改进，得出以下功能。     fro" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Verge Clash节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vergeclash.github.io/news/article-111775.htm" />
+    <meta property="og:site_name" content="Verge Clash节点订阅官网" />
+    <meta property="og:title" content="python 针对在子文件夹中的md文档实现批量md转word_python_" />
+    <meta property="og:image" content="https://vergeclash.github.io/uploads/20240822/b4feb0622921674cc5292ac46231099c.webp" />
+        <meta property="og:release_date" content="2025-05-04T09:29:45" />
+    <meta property="og:updated_time" content="2025-05-04T09:29:45" />
+        <meta property="og:description" content="前言; 最近想要实现批量将mardown文档转化为word。网上有很多解决的方法，但是自己保存的md文档在不同的文件夹，而大部分只能实现同一文件夹内的转换，因此稍加改进，得出以下功能。     fro" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python 针对在子文件夹中的md文档实现批量md转word_python_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1J0SRBETJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J1J0SRBETJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>Verge Clash</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">python 针对在子文件夹中的md文档实现批量md转word_python_</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p><strong>前言;</strong></p> <p>最近想要实现批量将mardown文档转化为word。网上有很多解决的方法，但是自己保存的md文档在不同的文件夹，而大部分只能实现同一文件夹内的转换，因此稍加改进，得出以下功能。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/6bb418195e100274a8537e614771e909.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/8baf874d6a9c7a865dbbfd0d392ddf78.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/78b7ea9065bb804a4f97e00e30e0807a.jpg"></p> <div class="ay1code"> <pre class="brush:py;">from glob import glob  from pathlib import Path  import os    dirs = [ d for d in glob("./**/")]    # 用在本文件夹内则调整为下列代码  # dirs = [ d for d in glob("./")]    # 提取所有的md文档路径  al1_file_pathes=[]  for dir in dirs:      file_list=Path(dir).glob("*.md")      for file in file_list:          al1_file_pathes.append(".\\"+str(file))          print(file)              # 批量转化所有的md文档为docx  for md_path in al1_file_pathes:      doc_path=md_path.replace(".md",".docx")      command_new="pandoc -s "+md_path+" -o "+doc_path       print(command_new)      try:          res=os.popen(command_new).readlines()          if len(res)==0:              print(md_path,"已经转化为",doc_path_2)      except Exception as e:          print(e)</pre> </div> <p>若要将转化的word文档集中到python程序所在文件夹内。</p> <p><strong>代码如下：</strong></p> <div class="ay1code"> <pre class="brush:py;">from glob import glob  from pathlib import Path  import os    dirs = [d for d in glob("./**/")]    # 用在本文件夹内则调整为下列代码  # dirs = [ d for d in glob("./")]    # 提取所有的md文档路径  for dir in dirs:      file_list = Path(dir).glob("*.md")      for file in file_list:          md_path = ".\\" + str(file)          doc_path_1 = os.path.split(file)[1].replace(".md", ".docx")          command_new_1 = "pandoc -s "+md_path+" -o "+doc_path_1          try:              res=os.popen(command_new_1).readlines()              if len(res)==0:                  print(md_path,"已经转化为",doc_path_1)          except Exception as e:              print(e)</pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110943.htm">养猫要打多少次疫苗（养只猫要打多少针）</a></p>
+                                        <p>下一个：<a href="/news/article-111776.htm">猫咪打针没反应（猫咪打针没反应怎么回事）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-109226.htm" title="动物打疫苗能管用多长时间呢（动物注射疫苗）">动物打疫苗能管用多长时间呢（动物注射疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-104105.htm" title="宠物领养活动方案模板（宠物领养活动广告词）">宠物领养活动方案模板（宠物领养活动广告词）</a></li>
+                        <li class="py-2"><a href="/news/article-96006.htm" title="宠物领养中心上海地址（宠物领养中心上海地址查询）">宠物领养中心上海地址（宠物领养中心上海地址查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-5-node-share-links.htm" title="「5月5日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「5月5日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-111775.htm" title="python 针对在子文件夹中的md文档实现批量md转word_python_">python 针对在子文件夹中的md文档实现批量md转word_python_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-20-clash-verge-rev-windows.htm" title="「4月20日」最高速度22M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月20日」最高速度22M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-101078.htm" title="宠物店卖逗猫棒吗知乎（宠物店买宠物玩具吗）">宠物店卖逗猫棒吗知乎（宠物店买宠物玩具吗）</a></li>
+                        <li class="py-2"><a href="/news/article-96009.htm" title="合肥宠物领养中心地址查询电话（合肥市宠物领养中心）">合肥宠物领养中心地址查询电话（合肥市宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-90016.htm" title="附近免费领养狗狗的地方在哪里呀最近（哪有领养狗狗的地方）">附近免费领养狗狗的地方在哪里呀最近（哪有领养狗狗的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-103430.htm" title="青岛动物医院 南京路 青岛动物医院 南京路分院电话">青岛动物医院 南京路 青岛动物医院 南京路分院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
