@@ -111,7 +111,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                     <div class="inner-banner-content">
-                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">「9月17日」最高速度19M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</h1>
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">「9月17日」最高速度19M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</h1>
                         <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -159,8 +159,8 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅链接</h2><p>&nbsp;</p><p><strong>clash订阅链接</strong></p><p>https://vergeclash.github.io/uploads/2025/09/0-20250917.yaml</p><p>https://vergeclash.github.io/uploads/2025/09/1-20250917.yaml</p><p>https://vergeclash.github.io/uploads/2025/09/3-20250917.yaml</p><p>https://vergeclash.github.io/uploads/2025/09/4-20250917.yaml</p><p>&nbsp;</p><p><strong>v2ray订阅链接:</strong></p><p>https://vergeclash.github.io/uploads/2025/09/0-20250917.txt</p><p>https://vergeclash.github.io/uploads/2025/09/1-20250917.txt</p><p>https://vergeclash.github.io/uploads/2025/09/2-20250917.txt</p><p><strong>sing-box订阅链接</strong></p><p>https://vergeclash.github.io/uploads/2025/09/20250917.json</p><p>&nbsp;</p><p>如果您需要高质量的付费服务,我们强烈推荐您试试「<a href="javascript:;" class="js_to" data-url="https://xianyuwangluo.top/#/register?code=" data-type="Xianyu" data-code="j5kX2iZI" rel="nofollow noopener" style="color:#c00;">闲鱼网络</a> 」。提供全球范围内快速稳定的高速节点,轻松处理8K高清视频流量,并可解锁流媒体网站和chatGPT。其服务器性能出色,确保您享受到高品质的体验。</p><h2>全面解析V2Ray官方脚本执行失败的原因与解决方案</h2>  <p>在当今互联网环境下，网络安全和隐私保护日益受到重视，V2Ray作为一款高效、灵活的代理工具，被广泛用于数据加速、网络穿透及隐私保护。许多用户选择通过官方提供的自动化脚本来快速部署V2Ray，然而在实际操作中，不少用户反馈遇到了脚本无法正常执行的问题。这可能是由于网络、权限、环境依赖或系统兼容性等多种因素导致的。本文将深入分析V2Ray官方脚本执行失败的常见原因，并提供一套详尽的排查与解决方法，帮助用户顺利完成安装与配置。</p>  <h2>V2Ray简介及其重要性</h2>  <p>V2Ray是一个基于VMess协议的开源网络代理工具，设计初衷是帮助用户突破网络限制，同时保护数据传输的隐私与安全。自发布以来，V2Ray以其稳定性、高性能和丰富的功能逐渐成为众多用户的首选，尤其适用于需要高速、安全网络连接的环境。通过官方脚本安装V2Ray是最常见的部署方式，但执行过程中可能会遇到各种障碍，影响使用体验。</p>  <h2>脚本无法执行的常见原因分析</h2>  <h3>网络连接问题</h3>  <p>网络连接不稳定或无法访问外部资源是导致脚本执行失败的首要原因。V2Ray安装脚本通常需要从GitHub或其他官方源下载必要的文件和依赖，如果网络环境存在限制（如防火墙阻挡、DNS污染或服务器响应慢），就会导致下载失败，进而使脚本中断。</p>  <p>例如，在一些地区，由于网络管控，用户可能无法直接访问GitHub。此时，脚本中的下载命令（如wget或curl）会返回错误，使得整个安装过程无法继续。此外，临时性的网络波动也可能造成连接超时或数据包丢失。</p>  <h3>脚本权限不足</h3>  <p>在Linux系统中，执行脚本需要相应的权限。如果用户没有为脚本文件添加执行权限，或者当前用户账户权限不足（例如未使用sudo），系统会拒绝执行，并提示“Permission denied”错误。这尤其常见于新手用户，他们对文件权限管理不熟悉，容易忽略这一步骤。</p>  <h3>环境依赖缺失</h3>  <p>V2Ray官方脚本依赖于特定的系统环境和工具，例如Bash解释器、wget、curl、git等。如果这些基础工具未安装，或者版本过旧，脚本就可能无法正常运行。例如，某些旧版Linux发行版默认未安装curl，而脚本中使用了curl命令来下载文件，这就会导致执行失败。</p>  <h3>操作系统兼容性问题</h3>  <p>V2Ray官方脚本主要针对主流Linux发行版（如Ubuntu、Debian、CentOS）进行优化，但在其他系统（如Windows或macOS）上可能表现不佳。部分脚本使用了Linux特有的命令或功能，在非Linux环境下无法执行。此外，不同Linux发行版的版本差异也可能带来兼容性挑战，例如较旧的系统内核可能不支持新特性。</p>  <h2>逐步排查与解决方法</h2>  <p>针对上述问题，用户可以按照以下步骤系统性地排查和解决脚本执行失败的情况。</p>  <h3>1. 检查网络连接</h3>  <p>首先，确保网络连接正常。可以通过以下方法测试：</p>  <ul> <li><p>使用ping命令检查与目标服务器（如github.com）的连通性： <code>bash ping github.com</code> 如果无法ping通，可能是DNS问题或网络封锁。尝试更换DNS服务器（如使用8.8.8.8）或通过代理访问。</p></li> <li><p>手动下载脚本所需文件： 使用浏览器或命令行工具（如wget）尝试下载脚本中的URL，看是否能够成功。如果无法下载，可以考虑使用镜像源或设置代理。</p></li> </ul>  <p>对于网络受限的用户，建议配置临时代理或使用加速器，确保脚本能正常访问外部资源。</p>  <h3>2. 确认脚本权限</h3>  <p>确保脚本具有执行权限。在终端中，使用chmod命令为脚本添加执行权限： <code>bash chmod +x v2ray-install.sh</code> 然后使用ls -l命令查看权限设置是否正确： <code>bash ls -l v2ray-install.sh</code> 输出应显示文件具有x（执行）权限。如果脚本需要更高权限（如修改系统设置），使用sudo执行： <code>bash sudo ./v2ray-install.sh</code></p>  <h3>3. 检查环境依赖</h3>  <p>安装脚本依赖的基础工具。例如，在Ubuntu/Debian系统上，运行： <code>bash sudo apt-get update sudo apt-get install wget curl git -y</code> 在CentOS/RHEL系统上，使用： <code>bash sudo yum install wget curl git -y</code> 确保这些工具已正确安装，并通过版本命令（如wget --version）验证。</p>  <p>如果脚本需要特定版本的依赖，请参考官方文档进行升级或配置。</p>  <h3>4. 处理操作系统兼容性</h3>  <p>确认操作系统版本是否被支持。运行以下命令查看系统信息： <code>bash cat /etc/os-release</code> 对于非Linux系统，建议使用虚拟机或容器（如Docker）运行脚本，以避免兼容性问题。此外，查阅V2Ray官方文档，获取针对特定系统的安装指南。</p>  <p>如果遇到命令不兼容的情况，可以尝试修改脚本或使用替代工具（例如在macOS上安装GNU版本的核心工具）。</p>  <h3>5. 获取和执行官方脚本</h3>  <p>从官方源获取脚本是避免问题的关键。通过git克隆仓库： <code>bash git clone https://github.com/v2fly/fhs-install-v2ray.git cd fhs-install-v2ray chmod +x build.sh ./build.sh</code> 如果git不可用，可以直接下载脚本文件，并手动验证完整性。</p>  <h2>常见问题解答（FAQ）</h2>  <p><strong>Q1: V2Ray官方脚本的来源是什么？</strong><br /> A1: 脚本托管在GitHub的V2Fly官方仓库（https://github.com/v2fly/fhs-install-v2ray），这是唯一可信的源，用户应避免使用第三方提供的脚本，以防安全风险。</p>  <p><strong>Q2: 脚本对系统有什么要求？</strong><br /> A2: 官方脚本支持主流Linux发行版，如Ubuntu 16.04以上、Debian 9以上、CentOS 7以上。Windows和macOS用户可能需要通过WSL或手动安装方式部署。</p>  <p><strong>Q3: 如何解决权限不足问题？</strong><br /> A3: 使用sudo提升权限，并确保当前用户属于sudo组。如果问题持续，检查文件所有权（通过chown命令修改）。</p>  <p><strong>Q4: 脚本执行出错时如何调试？</strong><br /> A4: 查看错误输出信息，通常它会指示具体问题（如缺失依赖或网络失败）。搜索错误消息或咨询社区论坛（如V2Ray官方论坛或GitHub Issues）获取帮助。</p>  <p><strong>Q5: 安装成功但无法连接V2Ray服务怎么办？</strong><br /> A5: 这可能是配置问题。检查V2Ray配置文件（通常位于/etc/v2ray/config.json），确保设置正确，并重启服务： <code>bash sudo systemctl restart v2ray</code> 同时，验证防火墙设置是否允许相关端口通信。</p>  <h2>总结与点评</h2>  <p>V2Ray作为一款强大的网络工具，其官方脚本极大简化了部署过程，但执行失败的问题往往源于细节疏忽。通过本文提供的全面指南，用户可以逐步排查网络、权限、环境和兼容性等因素，有效解决脚本无法执行的问题。从实践角度看，这类问题不仅考验用户的技术能力，也突出了在复杂网络环境中保持灵活性和耐心的重要性。</p>  <p>总体而言，成功部署V2Ray的关键在于细心和系统性操作。随着技术的迭代，V2Ray社区也在不断优化脚本的兼容性和用户体验，建议用户定期关注官方更新。最终，掌握这些排查方法不仅能解决当前问题，还能提升整体运维技能，为未来的网络管理打下坚实基础。</p>                 </div>
                 <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/free-nodes/2025-9-16-free-high-speed-nodes.htm">「9月16日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></p>
-                                        <p>下一个：<a href="/free-nodes/2025-9-18-clash-verge-rev-node-share.htm">「9月18日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></p>
+                                        <p>上一个：<a href="/free-nodes/2025-9-16-free-high-speed-nodes.htm">「9月16日」最高速度18M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></p>
+                                        <p>下一个：<a href="/free-nodes/2025-9-18-clash-verge-rev-node-share.htm">「9月18日」最高速度21.4M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></p>
                                     </div>
                                 <div class="panel panel-default mt-5">
                     <div class="panel-heading">
@@ -168,16 +168,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
                     </div>
                     <div class="panel-body">
                         <ul class="p-0 x-0">
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-high-speed-nodes.htm">「9月16日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-15-clash-verge-rev-nodes.htm">「9月15日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-14-clash-verge-rev-node-share.htm">「9月14日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-13-latest-clash-verge-rev-node.htm">「9月13日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-12-free-node-subscribe-links.htm">「9月12日」最高速度19.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-11-clash-verge-rev-node-github.htm">「9月11日」最高速度20.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-10-clash-verge-rev-windows.htm">「9月10日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-9-today-clash-verge-rev-node.htm">「9月9日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-8-clash-verge-rev-node-github.htm">「9月8日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                                                        <li class="py-2"><a href="/free-nodes/2025-9-7-free-high-speed-nodes.htm">「9月7日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-high-speed-nodes.htm">「9月16日」最高速度18M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-15-clash-verge-rev-nodes.htm">「9月15日」最高速度21.8M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-14-clash-verge-rev-node-share.htm">「9月14日」最高速度21.8M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-13-latest-clash-verge-rev-node.htm">「9月13日」最高速度20.9M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-12-free-node-subscribe-links.htm">「9月12日」最高速度19.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-11-clash-verge-rev-node-github.htm">「9月11日」最高速度20.8M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-10-clash-verge-rev-windows.htm">「9月10日」最高速度18.6M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-9-today-clash-verge-rev-node.htm">「9月9日」最高速度22.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-8-clash-verge-rev-node-github.htm">「9月8日」最高速度18.1M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                                                        <li class="py-2"><a href="/free-nodes/2025-9-7-free-high-speed-nodes.htm">「9月7日」最高速度18.4M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
                                                     </ul>
                     </div>
                 </div>
@@ -189,16 +189,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-high-speed-nodes.htm" title="「9月16日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月16日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-22-node-share.htm" title="「8月22日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月22日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-9-9-today-clash-verge-rev-node.htm" title="「9月9日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月9日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-13-clash-verge-rev-windows.htm" title="「8月13日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月13日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-27-free-node-subscribe-links.htm" title="「8月27日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月27日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-9-8-clash-verge-rev-node-github.htm" title="「9月8日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月8日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-15-free-node-subscribe-links.htm" title="「8月15日」最高速度19.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月15日」最高速度19.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-9-4-clash-verge-rev-windows.htm" title="「9月4日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月4日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-5-latest-clash-verge-rev-node.htm" title="「8月5日」最高速度20.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月5日」最高速度20.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-8-free-node-subscribe.htm" title="「8月8日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月8日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-11-clash-verge-rev-nodes.htm" title="「8月11日」最高速度20.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「8月11日」最高速度20.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-12-free-node-subscribe-links.htm" title="「9月12日」最高速度19.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「9月12日」最高速度19.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-3-clash-verge-rev-node.htm" title="「9月3日」最高速度20.1M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「9月3日」最高速度20.1M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-9-today-clash-verge-rev-node.htm" title="「9月9日」最高速度22.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「9月9日」最高速度22.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-15-clash-verge-rev-nodes.htm" title="「9月15日」最高速度21.8M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「9月15日」最高速度21.8M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-19-free-clash-verge-rev-node.htm" title="「8月19日」最高速度19.4M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「8月19日」最高速度19.4M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-25-free-clash-verge-rev-node.htm" title="「9月25日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月25日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-28-latest-clash-verge-rev-node.htm" title="「8月28日」最高速度19.6M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「8月28日」最高速度19.6M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-20-clash-verge-rev-github.htm" title="「9月20日」最高速度18.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「9月20日」最高速度18.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-21-clash-verge-rev-node-share.htm" title="「8月21日」最高速度19.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址">「8月21日」最高速度19.5M/S，Clash节点/V2ray节点/SSR/Verge每天更新免费机场订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -210,7 +210,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">28</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
@@ -229,7 +229,8 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                                        <p>
+                                        <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
                                                 <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
