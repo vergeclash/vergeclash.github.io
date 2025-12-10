@@ -373,14 +373,9 @@ A：初期搭建有一定技术门槛，推荐使用图形化面板（x-ui、V2R
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何精确匹配端口流量？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 项目是什么？</h5></div>
     <div class="panel-body">
-        Sing-box 支持按端口设置流量分流规则，将不同类型流量分配到不同节点。结合策略组使用，可提高访问速度和稳定性，实现精准流量管理和优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何优化视频播放？</h5></div>
-    <div class="panel-body">
-        通过分流规则，将流媒体域名匹配到高速节点，而其他流量走备用节点。保证视频播放流畅，同时节约带宽资源，提升整体网络速度和体验。<hr />    </div>
+        Matsuri 是基于 sing-box 的跨平台 GUI 客户端，界面现代，支持多种协议和分流方式。它提供直观的节点管理和日志监控功能，适合喜欢图形化操作的用户。Matsuri 的设计目标是简洁、高效、易于上手。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-Go 的 MUX 功能能降低延迟吗？</h5></div>
@@ -388,24 +383,9 @@ A：初期搭建有一定技术门槛，推荐使用图形化面板（x-ui、V2R
         启用 MUX 后，多条 TCP/QUIC 连接可以共享单个隧道，减少握手次数和连接延迟。对于频繁短连接应用如游戏或社交软件，可以明显提升响应速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用在短连接中优势是什么？</h5></div>
+    <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
     <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接场景，如游戏和即时通讯，提升吞吐量和连接稳定性，优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在 Windows 上安装 Clash for Windows？</h5></div>
-    <div class="panel-body">
-        在 Windows 上安装 Clash for Windows 十分简单。只需前往官方 GitHub 页面下载最新版安装包，运行安装程序后导入订阅链接或配置文件即可。安装完成后，用户可以通过图形化界面方便地切换节点、编辑规则和控制代理模式。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 项目是什么？</h5></div>
-    <div class="panel-body">
-        Matsuri 是基于 sing-box 的跨平台 GUI 客户端，界面现代，支持多种协议和分流方式。它提供直观的节点管理和日志监控功能，适合喜欢图形化操作的用户。Matsuri 的设计目标是简洁、高效、易于上手。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何为 Trojan 配置 ALPN 与 SNI 提升伪装效果？</h5></div>
-    <div class="panel-body">
-        在服务器与客户端配置中设置合适的 SNI（伪装域名）并启用 ALPN（例如 http/1.1），确保 TLS 握手时使用常见的应用层协议标识，从而增加流量与普通 HTTPS 的相似度，降低被检测概率。<hr />    </div>
+        选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何使用 Clash 配置订阅链接？</h5></div>
@@ -413,14 +393,34 @@ A：初期搭建有一定技术门槛，推荐使用图形化面板（x-ui、V2R
         在 Clash 中添加订阅链接时，用户需复制提供的 URL 并在客户端的配置界面中粘贴。Clash 会自动下载并更新配置文件。通过订阅，用户可以一键更新节点信息，无需手动导入，适合长期维护多个节点来源的用户。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何精确匹配端口流量？</h5></div>
     <div class="panel-body">
-        选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
+        Sing-box 支持按端口设置流量分流规则，将不同类型流量分配到不同节点。结合策略组使用，可提高访问速度和稳定性，实现精准流量管理和优化网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何在 Windows 上安装 Clash for Windows？</h5></div>
+    <div class="panel-body">
+        在 Windows 上安装 Clash for Windows 十分简单。只需前往官方 GitHub 页面下载最新版安装包，运行安装程序后导入订阅链接或配置文件即可。安装完成后，用户可以通过图形化界面方便地切换节点、编辑规则和控制代理模式。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何为 Trojan 配置 ALPN 与 SNI 提升伪装效果？</h5></div>
+    <div class="panel-body">
+        在服务器与客户端配置中设置合适的 SNI（伪装域名）并启用 ALPN（例如 http/1.1），确保 TLS 握手时使用常见的应用层协议标识，从而增加流量与普通 HTTPS 的相似度，降低被检测概率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何优化视频播放？</h5></div>
+    <div class="panel-body">
+        通过分流规则，将流媒体域名匹配到高速节点，而其他流量走备用节点。保证视频播放流畅，同时节约带宽资源，提升整体网络速度和体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的 QUIC 多路复用在游戏中有什么优势？</h5></div>
     <div class="panel-body">
-        QUIC 多路复用减少握手次数和延迟，适合高频短连接场景，如游戏和即时通讯。它能提高吞吐量和连接稳定性，在高丢包或高延迟环境下保持低延迟网络体验。    </div>
+        QUIC 多路复用减少握手次数和延迟，适合高频短连接场景，如游戏和即时通讯。它能提高吞吐量和连接稳定性，在高丢包或高延迟环境下保持低延迟网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 多路复用在短连接中优势是什么？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接场景，如游戏和即时通讯，提升吞吐量和连接稳定性，优化网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -449,16 +449,16 @@ A：初期搭建有一定技术门槛，推荐使用图形化面板（x-ui、V2R
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-29-clash-verge-rev-node-share.htm" title="「11月29日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月29日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-free-subscribe-node.htm" title="「11月1日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月1日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-20-free-high-speed-nodes.htm" title="「11月20日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月20日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-19-free-node-subscribe-links.htm" title="「11月19日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月19日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-27-free-clash-verge-rev-node.htm" title="「10月27日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月27日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-15-node-share.htm" title="「11月15日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月15日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-28-free-subscribe-node.htm" title="「11月28日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月28日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-21-free-node-subscribe.htm" title="「11月21日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月21日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-3-clash-verge-rev-nodes.htm" title="「12月3日」最高速度20M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「12月3日」最高速度20M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-23-latest-clash-verge-rev-node.htm" title="「11月23日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月23日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-17-free-subscribe-node.htm" title="「11月17日」最高速度22.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月17日」最高速度22.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-9-free-node-subscribe-links.htm" title="「12月9日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「12月9日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-node-share-links.htm" title="「11月5日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月5日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-10-clash-verge-rev-node.htm" title="「11月10日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月10日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-15-node-share.htm" title="「11月15日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月15日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-6-clash-verge-rev-github.htm" title="「12月6日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「12月6日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-clash-verge-rev-github.htm" title="「11月13日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月13日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-5-free-high-speed-nodes.htm" title="「12月5日」最高速度18.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「12月5日」最高速度18.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-28-free-subscribe-node.htm" title="「11月28日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「11月28日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -470,13 +470,10 @@ A：初期搭建有一定技术门槛，推荐使用图形化面板（x-ui、V2R
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
