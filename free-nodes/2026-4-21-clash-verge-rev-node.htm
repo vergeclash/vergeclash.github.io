@@ -317,39 +317,9 @@ Clash本身为开源免费，但部分订阅节点服务可能需要付费。</p
         TUN 模式拦截系统 IP 层流量，实现全局代理。适合游戏、视频、浏览器等全局应用，保证所有流量走节点，提高网络稳定性和速度，比普通 SOCKS5 代理覆盖范围更广。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何使用 Clash 配置订阅链接？</h5></div>
-    <div class="panel-body">
-        在 Clash 中添加订阅链接时，用户需复制提供的 URL 并在客户端的配置界面中粘贴。Clash 会自动下载并更新配置文件。通过订阅，用户可以一键更新节点信息，无需手动导入，适合长期维护多个节点来源的用户。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的规则订阅更新频率如何设置？</h5></div>
-    <div class="panel-body">
-        Clash 支持设置订阅规则的更新频率，例如每小时或每天。定期更新可保证节点和规则最新，减少手动维护，提高访问速度和分流效率，同时保持网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的延迟测试如何影响策略组选择？</h5></div>
-    <div class="panel-body">
-        PassWall2 会根据节点延迟结果更新策略组的优先节点，自动选择延迟最低的节点处理流量。这样可以优化访问速度，提高网页浏览、视频和游戏体验的稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 支持 VLESS 吗？</h5></div>
-    <div class="panel-body">
-        Quantumult X 目前官方未原生支持 VLESS，但通过手动修改配置或第三方脚本可实现兼容。若主要使用 VLESS 协议，可考虑使用 Sing-box 或 Shadowrocket 作为替代。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的节点测速结果如何应用？</h5></div>
-    <div class="panel-body">
-        节点测速结果可用于策略组选择和自动切换，程序会根据延迟和丢包率选择最优节点。这样访问海外网站或流媒体时，可以保持高速和稳定的网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的伪装域名配置有哪些注意事项？</h5></div>
     <div class="panel-body">
         伪装域名必须真实可访问且证书有效，否则无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 Reality 功能是什么？</h5></div>
-    <div class="panel-body">
-        Reality 是 V2Ray 新增的伪装技术，可替代传统 TLS。它无需真实证书，通过公钥验证机制实现端到端加密。相比 Trojan 的 HTTPS 伪装方式，Reality 更轻量、安全且配置更简洁。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的端口转发功能如何开启？</h5></div>
@@ -357,9 +327,39 @@ Clash本身为开源免费，但部分订阅节点服务可能需要付费。</p
         在服务器端配置文件中启用 port_forwarding 参数并指定目标端口与地址。确保防火墙开放转发端口，客户端使用对应端口连接即可实现流量中继。此功能常用于内网穿透或端口复用。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Quantumult X 支持 VLESS 吗？</h5></div>
+    <div class="panel-body">
+        Quantumult X 目前官方未原生支持 VLESS，但通过手动修改配置或第三方脚本可实现兼容。若主要使用 VLESS 协议，可考虑使用 Sing-box 或 Shadowrocket 作为替代。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的规则订阅更新频率如何设置？</h5></div>
+    <div class="panel-body">
+        Clash 支持设置订阅规则的更新频率，例如每小时或每天。定期更新可保证节点和规则最新，减少手动维护，提高访问速度和分流效率，同时保持网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的 Reality 功能是什么？</h5></div>
+    <div class="panel-body">
+        Reality 是 V2Ray 新增的伪装技术，可替代传统 TLS。它无需真实证书，通过公钥验证机制实现端到端加密。相比 Trojan 的 HTTPS 伪装方式，Reality 更轻量、安全且配置更简洁。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何使用 Clash 配置订阅链接？</h5></div>
+    <div class="panel-body">
+        在 Clash 中添加订阅链接时，用户需复制提供的 URL 并在客户端的配置界面中粘贴。Clash 会自动下载并更新配置文件。通过订阅，用户可以一键更新节点信息，无需手动导入，适合长期维护多个节点来源的用户。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 为什么在 iOS 上广受欢迎？</h5></div>
     <div class="panel-body">
-        Potatso Lite 是一款操作简洁的代理工具，支持多种代理协议和自定义规则。它适合不需要复杂配置的用户，界面友好、性能稳定，非常适合日常轻量使用和应用代理。    </div>
+        Potatso Lite 是一款操作简洁的代理工具，支持多种代理协议和自定义规则。它适合不需要复杂配置的用户，界面友好、性能稳定，非常适合日常轻量使用和应用代理。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 的延迟测试如何影响策略组选择？</h5></div>
+    <div class="panel-body">
+        PassWall2 会根据节点延迟结果更新策略组的优先节点，自动选择延迟最低的节点处理流量。这样可以优化访问速度，提高网页浏览、视频和游戏体验的稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的节点测速结果如何应用？</h5></div>
+    <div class="panel-body">
+        节点测速结果可用于策略组选择和自动切换，程序会根据延迟和丢包率选择最优节点。这样访问海外网站或流媒体时，可以保持高速和稳定的网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -388,16 +388,16 @@ Clash本身为开源免费，但部分订阅节点服务可能需要付费。</p
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-15-clash-verge-rev-windows.htm" title="「3月15日」最高速度20M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月15日」最高速度20M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-14-free-node-subscribe.htm" title="「3月14日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月14日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-22-node-share-links.htm" title="「3月22日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月22日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-free-node-subscribe-links.htm" title="「3月16日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月16日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-10-free-high-speed-nodes.htm" title="「3月10日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月10日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-17-free-node-subscribe.htm" title="「3月17日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月17日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-9-free-subscribe-node.htm" title="「4月9日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月9日」最高速度21.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-26-clash-verge-rev-node-share.htm" title="「3月26日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「3月26日」最高速度21.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-26-clash-verge-rev-github.htm" title="「4月26日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月26日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-7-clash-verge-rev-windows.htm" title="「5月7日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「5月7日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-21-clash-verge-rev-node.htm" title="「4月21日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月21日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-20-node-share.htm" title="「4月20日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月20日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-22-latest-clash-verge-rev-node.htm" title="「4月22日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月22日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-19-latest-clash-verge-rev-node.htm" title="「4月19日」最高速度20M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月19日」最高速度20M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-29-clash-verge-rev-github.htm" title="「4月29日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月29日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-16-latest-clash-verge-rev-node.htm" title="「4月16日」最高速度22.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月16日」最高速度22.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-25-latest-clash-verge-rev-node.htm" title="「4月25日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月25日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-14-clash-verge-rev-nodes.htm" title="「4月14日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「4月14日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-2-clash-verge-rev-windows.htm" title="「5月2日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「5月2日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -409,10 +409,10 @@ Clash本身为开源免费，但部分订阅节点服务可能需要付费。</p
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
