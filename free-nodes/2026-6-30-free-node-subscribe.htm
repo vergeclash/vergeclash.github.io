@@ -407,9 +407,44 @@ sudo apt install shadowsocks-libev
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何配置？</h5></div>
+    <div class="panel-body">
+        用户可添加订阅 URL，Nekoray 会定期下载并替换旧节点。这样可保证节点列表始终最新，减少手动维护，提高使用效率，同时保证网络访问稳定可靠。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的透明代理适合哪些应用场景？</h5></div>
+    <div class="panel-body">
+        透明代理通过 TUN 或 WinDivert 拦截系统 IP 层流量，无需配置每个应用。适合全局科学上网、在线游戏或对局域网设备统一代理的场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
+    <div class="panel-body">
+        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 如何配置策略组优先节点？</h5></div>
+    <div class="panel-body">
+        在 Clash 中，用户可以通过策略组设置节点优先级，优先使用延迟低、稳定性高的节点。结合规则文件，可以根据域名或 IP 自动选择最优节点，实现更高效的网络访问体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的 UDP 转发功能如何启用？</h5></div>
+    <div class="panel-body">
+        SSR 支持 UDP 转发，可通过客户端设置开启。启用后，游戏和语音等 UDP 流量可通过节点代理，降低丢包率和延迟，提高实时网络应用体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 是否支持订阅自动更新？</h5></div>
+    <div class="panel-body">
+        是的，WinXray 支持定时订阅更新。用户可在设置中开启自动更新周期（如每天或每小时），程序会自动下载新节点并替换旧配置，确保使用最新的线路资源。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的 Rule Provider 有什么作用？</h5></div>
     <div class="panel-body">
         Rule Provider 是 Clash 的规则分发机制。用户可以订阅不同的规则集，比如广告拦截、社交媒体、流媒体等，实现按需加载。它让配置文件更加简洁、动态更新，并支持多源规则管理。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的路由规则如何实现国内直连？</h5></div>
+    <div class="panel-body">
+        通过配置域名列表或 IP 段，将国内流量指向直连出口，而国外流量走代理节点。结合策略组和定期更新规则，可保持国内访问速度，同时优化海外访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
@@ -419,42 +454,7 @@ sudo apt install shadowsocks-libev
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 节点延迟排序如何提高稳定性？</h5></div>
     <div class="panel-body">
-        Shadowrocket 测试节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量通过最优节点，提高连接稳定性和访问速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的路由规则如何实现国内直连？</h5></div>
-    <div class="panel-body">
-        通过配置域名列表或 IP 段，将国内流量指向直连出口，而国外流量走代理节点。结合策略组和定期更新规则，可保持国内访问速度，同时优化海外访问体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 是否支持订阅自动更新？</h5></div>
-    <div class="panel-body">
-        是的，WinXray 支持定时订阅更新。用户可在设置中开启自动更新周期（如每天或每小时），程序会自动下载新节点并替换旧配置，确保使用最新的线路资源。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的透明代理适合哪些应用场景？</h5></div>
-    <div class="panel-body">
-        透明代理通过 TUN 或 WinDivert 拦截系统 IP 层流量，无需配置每个应用。适合全局科学上网、在线游戏或对局域网设备统一代理的场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何配置策略组优先节点？</h5></div>
-    <div class="panel-body">
-        在 Clash 中，用户可以通过策略组设置节点优先级，优先使用延迟低、稳定性高的节点。结合规则文件，可以根据域名或 IP 自动选择最优节点，实现更高效的网络访问体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
-    <div class="panel-body">
-        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的 UDP 转发功能如何启用？</h5></div>
-    <div class="panel-body">
-        SSR 支持 UDP 转发，可通过客户端设置开启。启用后，游戏和语音等 UDP 流量可通过节点代理，降低丢包率和延迟，提高实时网络应用体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何配置？</h5></div>
-    <div class="panel-body">
-        用户可添加订阅 URL，Nekoray 会定期下载并替换旧节点。这样可保证节点列表始终最新，减少手动维护，提高使用效率，同时保证网络访问稳定可靠。    </div>
+        Shadowrocket 测试节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量通过最优节点，提高连接稳定性和访问速度。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -484,15 +484,13 @@ sudo apt install shadowsocks-libev
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">
-                    <img src="/assets/website/img/G/luniuyun.webp" class="avatar" alt="绿牛云">
+                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
+                    <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
-                        <p>高速稳定的网络加速</p>
-                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
-全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p>                    </dd>
+                        <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
             </div>
         </div>
@@ -504,16 +502,16 @@ sudo apt install shadowsocks-libev
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2026-7-8-latest-clash-verge-rev-node.htm" title="「7月8日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「7月8日」最高速度18.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-27-free-node-subscribe-links.htm" title="「6月27日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月27日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-9-clash-verge-rev-github.htm" title="「6月9日」最高速度19.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月9日」最高速度19.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-6-8-clash-verge-rev-node-share.htm" title="「6月8日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月8日」最高速度18M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-23-clash-verge-rev-github.htm" title="「6月23日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月23日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-2-latest-clash-verge-rev-node.htm" title="「6月2日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月2日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-17-today-clash-verge-rev-node.htm" title="「6月17日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月17日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-11-node-share-links.htm" title="「6月11日」最高速度18.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月11日」最高速度18.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-19-free-node-subscribe-links.htm" title="「5月19日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「5月19日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-6-free-node-subscribe.htm" title="「6月6日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月6日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-19-node-share-links.htm" title="「6月19日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月19日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-24-clash-verge-rev-node-share.htm" title="「6月24日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月24日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-26-clash-verge-rev-windows.htm" title="「6月26日」最高速度19.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月26日」最高速度19.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-7-free-clash-verge-rev-node.htm" title="「7月7日」最高速度18.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「7月7日」最高速度18.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-21-free-node-subscribe-links.htm" title="「6月21日」最高速度22.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月21日」最高速度22.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-14-free-subscribe-node.htm" title="「6月14日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月14日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-6-15-free-clash-verge-rev-node.htm" title="「6月15日」最高速度22.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「6月15日」最高速度22.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-23-free-node-subscribe.htm" title="「5月23日」最高速度19.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「5月23日」最高速度19.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -525,13 +523,10 @@ sudo apt install shadowsocks-libev
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                     </ul>
     </div>
@@ -559,9 +554,7 @@ sudo apt install shadowsocks-libev
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></b> <p>高速稳定的网络加速</p>
-                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
-全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                         <p>
                         <a href="/">Verge Clash节点订阅官网</a> 版权所有 Powered by WordPress
                     </p>
