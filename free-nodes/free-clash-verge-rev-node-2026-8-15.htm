@@ -383,9 +383,9 @@ Clash拍子支持包括Vmess（V2Ray）、Shadowsocks等多种协议，满足不
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的主要用途是什么？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 如何使用分流策略实现广告屏蔽？</h5></div>
     <div class="panel-body">
-        Hiddify Next 是 Hiddify 系列的新版本，集成了 VLESS、Trojan、Reality 等新型协议支持。它为用户提供一站式代理配置与分享功能，适合初学者快速上手使用。<hr />    </div>
+        QuantumultX 可通过规则匹配广告域名或路径，将请求重定向或直接阻断。结合策略组，可实现自动屏蔽网页和应用广告，提高用户浏览体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的自动切换功能如何配置？</h5></div>
@@ -393,19 +393,9 @@ Clash拍子支持包括Vmess（V2Ray）、Shadowsocks等多种协议，满足不
         Shadowrocket 支持根据策略组和节点延迟自动切换最优节点。用户可设置测速频率和延迟阈值，程序会定期测试节点并自动切换，以保证网络稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 支持哪些类型的分流规则？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的路由规则如何实现按应用分流？</h5></div>
     <div class="panel-body">
-        QuantumultX 支持域名、IP、端口、协议和用户自定义脚本分流。结合策略组使用，可实现精准流量控制，如广告屏蔽、视频加速和游戏优化，提高访问速度和体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何给 Clash 添加自定义域名白名单以提升访问体验？</h5></div>
-    <div class="panel-body">
-        在 rules 中添加 `DOMAIN-SUFFIX,example.com,DIRECT` 或 `DOMAIN-KEYWORD,example,DIRECT` 条目，将常用且可靠的站点设为直连，可减少代理绕行延迟并避免因代理造成的登录/验证问题。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 如何使用分流策略实现广告屏蔽？</h5></div>
-    <div class="panel-body">
-        QuantumultX 可通过规则匹配广告域名或路径，将请求重定向或直接阻断。结合策略组，可实现自动屏蔽网页和应用广告，提高用户浏览体验。<hr />    </div>
+        V2Ray 支持按用户标签或端口匹配应用流量，结合策略组可实现指定应用走特定节点。这样可以保证游戏、视频和浏览器流量各自走最优线路，提高访问效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 支持节点分类管理吗？</h5></div>
@@ -413,14 +403,14 @@ Clash拍子支持包括Vmess（V2Ray）、Shadowsocks等多种协议，满足不
         支持。用户可将节点按地区、用途或延迟分类，结合策略组和规则进行分流。这样可以快速选择最佳节点，提高访问效率并便于维护大量节点。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 ACL4SSR 规则与 Rule Provider 有何区别？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 支持哪些类型的分流规则？</h5></div>
     <div class="panel-body">
-        ACL4SSR 是第三方规则集合，专注于分流国内外网站。Rule Provider 是 Clash 的订阅机制，允许自动更新远程规则。二者可以结合使用，实现灵活分流管理。<hr />    </div>
+        QuantumultX 支持域名、IP、端口、协议和用户自定义脚本分流。结合策略组使用，可实现精准流量控制，如广告屏蔽、视频加速和游戏优化，提高访问速度和体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的路由规则如何实现按应用分流？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的多策略组能带来什么优势？</h5></div>
     <div class="panel-body">
-        V2Ray 支持按用户标签或端口匹配应用流量，结合策略组可实现指定应用走特定节点。这样可以保证游戏、视频和浏览器流量各自走最优线路，提高访问效率。<hr />    </div>
+        多策略组可将节点按用途或地域分类，结合路由规则实现精准分流。用户无需频繁切换节点即可自动使用最佳线路，提高网络访问效率和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络的优势？</h5></div>
@@ -428,9 +418,19 @@ Clash拍子支持包括Vmess（V2Ray）、Shadowsocks等多种协议，满足不
         QUIC 基于 UDP 支持多路复用和零握手，减少延迟和丢包。适合视频、游戏和即时通讯流量，保证高丢包环境下网络稳定性和访问速度，提高整体体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的多策略组能带来什么优势？</h5></div>
+    <div class="panel-heading"><h5>Clash 的 ACL4SSR 规则与 Rule Provider 有何区别？</h5></div>
     <div class="panel-body">
-        多策略组可将节点按用途或地域分类，结合路由规则实现精准分流。用户无需频繁切换节点即可自动使用最佳线路，提高网络访问效率和稳定性。    </div>
+        ACL4SSR 是第三方规则集合，专注于分流国内外网站。Rule Provider 是 Clash 的订阅机制，允许自动更新远程规则。二者可以结合使用，实现灵活分流管理。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何给 Clash 添加自定义域名白名单以提升访问体验？</h5></div>
+    <div class="panel-body">
+        在 rules 中添加 `DOMAIN-SUFFIX,example.com,DIRECT` 或 `DOMAIN-KEYWORD,example,DIRECT` 条目，将常用且可靠的站点设为直连，可减少代理绕行延迟并避免因代理造成的登录/验证问题。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 的主要用途是什么？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 是 Hiddify 系列的新版本，集成了 VLESS、Trojan、Reality 等新型协议支持。它为用户提供一站式代理配置与分享功能，适合初学者快速上手使用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -478,16 +478,16 @@ Clash拍子支持包括Vmess（V2Ray）、Shadowsocks等多种协议，满足不
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-subscribe-node.htm" title="「8月16日」最高速度21.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月16日」最高速度21.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-clash-verge-rev-node-github.htm" title="「7月26日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「7月26日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-today-clash-verge-rev-node.htm" title="「7月27日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「7月27日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-8-3.htm" title="「8月3日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月3日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-free-high-speed-nodes.htm" title="「7月21日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「7月21日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-clash-verge-rev-node-github.htm" title="「8月2日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月2日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-28-free-subscribe-node.htm" title="「7月28日」最高速度20.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「7月28日」最高速度20.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-7.htm" title="「8月7日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月7日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-9.htm" title="「8月9日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月9日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-clash-verge-rev-windows.htm" title="「8月22日」最高速度20.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月22日」最高速度20.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-12-clash-verge-rev-node-github.htm" title="「8月12日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月12日」最高速度19.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-node-subscribe.htm" title="「8月26日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月26日」最高速度21.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-9.htm" title="「8月9日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月9日」最高速度21.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-10-free-node-subscribe.htm" title="「8月10日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月10日」最高速度22.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-clash-verge-rev-node-2026-8-31.htm" title="「8月31日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月31日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-8-free-subscribe-node.htm" title="「8月8日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月8日」最高速度22.7M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-7.htm" title="「8月7日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月7日」最高速度19.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/today-clash-verge-rev-node-2026-9-1.htm" title="「9月1日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月1日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-subscribe-node.htm" title="「8月16日」最高速度21.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「8月16日」最高速度21.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -499,10 +499,10 @@ Clash拍子支持包括Vmess（V2Ray）、Shadowsocks等多种协议，满足不
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
