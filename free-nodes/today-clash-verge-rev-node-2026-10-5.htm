@@ -206,29 +206,9 @@ IP-CIDR,8.8.8.8/32,DIRECT</pre></div></li></ul><h3>3.2 耗电控制技巧</h3><u
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 的拥塞控制算法是什么？</h5></div>
     <div class="panel-body">
-        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的用户管理面板有哪些功能？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 面板可添加或删除用户、设置带宽限制、生成订阅链接、查看流量统计和节点状态。它提供直观的图形界面，无需命令行操作即可管理服务器资源。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化视频访问？</h5></div>
-    <div class="panel-body">
-        WinXray 定期测速节点延迟和丢包率，并结合策略组自动选择最佳节点。保证视频流量通过低延迟节点，减少缓冲和卡顿，提高播放流畅度和网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
-    <div class="panel-body">
-        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 节点延迟高、丢包严重，常见排查步骤有哪些？</h5></div>
-    <div class="panel-body">
-        先用 ping 和 traceroute 检查到服务器的延迟与路由跳数；再通过测速工具测带宽并尝试更换不同出站端口或混淆方式；若仍然不稳，考虑更换节点或联系客服查看服务端链路质量。<hr />    </div>
+        Hysteria2 基于 QUIC 协议，采用 BBR 拥塞控制算法。相比传统 TCP 机制，BBR 能更好地利用带宽资源，提高高延迟网络下的吞吐率和响应速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 如何导入 URL 格式的订阅？</h5></div>
@@ -236,14 +216,19 @@ IP-CIDR,8.8.8.8/32,DIRECT</pre></div></li></ul><h3>3.2 耗电控制技巧</h3><u
         在 Potatso Lite 的配置页点击“导入”，粘贴订阅链接并确认导入。系统会自动解析节点列表，可在主界面查看并选择不同线路。部分机场支持一键导入格式，省去手动配置步骤。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 的用户管理面板有哪些功能？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 面板可添加或删除用户、设置带宽限制、生成订阅链接、查看流量统计和节点状态。它提供直观的图形界面，无需命令行操作即可管理服务器资源。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
     <div class="panel-body">
         QUIC 协议基于 UDP，多路复用和拥塞控制优化，可减少握手延迟和包重传次数。Hysteria2 利用 QUIC 的特性，使高延迟或丢包网络下依然保持低延迟和高稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 TCP + TLS 模式适合什么场景？</h5></div>
+    <div class="panel-heading"><h5>SSR 节点延迟高、丢包严重，常见排查步骤有哪些？</h5></div>
     <div class="panel-body">
-        TCP + TLS 模式可模拟 HTTPS 流量，增强抗封锁能力。适合网络封锁严格的环境，通过策略组选择最佳节点，可保证访问速度和连接稳定性，尤其适用于网页浏览和视频播放。<hr />    </div>
+        先用 ping 和 traceroute 检查到服务器的延迟与路由跳数；再通过测速工具测带宽并尝试更换不同出站端口或混淆方式；若仍然不稳，考虑更换节点或联系客服查看服务端链路质量。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 如何结合手动节点选择优化访问？</h5></div>
@@ -251,9 +236,24 @@ IP-CIDR,8.8.8.8/32,DIRECT</pre></div></li></ul><h3>3.2 耗电控制技巧</h3><u
         用户可根据网络延迟和用途手动切换节点，选择最优节点处理不同流量。虽然不支持自动更新，但在节点不稳定或特定需求下可以灵活调整，提高访问效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的拥塞控制算法是什么？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的 TCP + TLS 模式适合什么场景？</h5></div>
     <div class="panel-body">
-        Hysteria2 基于 QUIC 协议，采用 BBR 拥塞控制算法。相比传统 TCP 机制，BBR 能更好地利用带宽资源，提高高延迟网络下的吞吐率和响应速度。    </div>
+        TCP + TLS 模式可模拟 HTTPS 流量，增强抗封锁能力。适合网络封锁严格的环境，通过策略组选择最佳节点，可保证访问速度和连接稳定性，尤其适用于网页浏览和视频播放。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
+    <div class="panel-body">
+        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化视频访问？</h5></div>
+    <div class="panel-body">
+        WinXray 定期测速节点延迟和丢包率，并结合策略组自动选择最佳节点。保证视频流量通过低延迟节点，减少缓冲和卡顿，提高播放流畅度和网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
+    <div class="panel-body">
+        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -301,16 +301,16 @@ IP-CIDR,8.8.8.8/32,DIRECT</pre></div></li></ul><h3>3.2 耗电控制技巧</h3><u
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-9-21.htm" title="「9月21日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月21日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-subscribe-node.htm" title="「9月6日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月6日」最高速度19.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-16-node-share.htm" title="「9月16日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月16日」最高速度18.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-3.htm" title="「10月3日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月3日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-2-clash-verge-rev-nodes.htm" title="「9月2日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月2日」最高速度22.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-27.htm" title="「9月27日」最高速度20.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月27日」最高速度20.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-22-clash-verge-rev-node-github.htm" title="「9月22日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月22日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-3.htm" title="「9月3日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月3日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-4-clash-verge-rev-nodes.htm" title="「10月4日」最高速度19.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月4日」最高速度19.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-20-node-share.htm" title="「9月20日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月20日」最高速度18.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-14-clash-verge-rev-nodes.htm" title="「9月14日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月14日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-28-clash-verge-rev-windows.htm" title="「9月28日」最高速度20.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月28日」最高速度20.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-7.htm" title="「10月7日」最高速度21.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月7日」最高速度21.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-10-15.htm" title="「10月15日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月15日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-9-19.htm" title="「9月19日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月19日」最高速度20.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-17.htm" title="「9月17日」最高速度19.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月17日」最高速度19.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-23.htm" title="「9月23日」最高速度19M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月23日」最高速度19M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-24-node-share.htm" title="「9月24日」最高速度22M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月24日」最高速度22M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -322,7 +322,7 @@ IP-CIDR,8.8.8.8/32,DIRECT</pre></div></li></ul><h3>3.2 耗电控制技巧</h3><u
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
