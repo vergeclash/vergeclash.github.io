@@ -360,14 +360,9 @@ A：选择低延迟、高稳定性的服务器节点；尽量靠近路由器使�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式适合哪些应用？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何按端口匹配流量分配节点？</h5></div>
     <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，可实现全局代理。适合游戏、视频、浏览器和其他全局应用，实现低延迟和稳定连接，保证所有流量通过代理节点，提高访问速度和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 可以用脚本自动切换节点吗？</h5></div>
-    <div class="panel-body">
-        可以。Quantumult X 支持通过脚本逻辑判断网络延迟或连接失败情况，并自动切换节点。用户可以编写自定义 JS 规则，从而实现智能代理与按需分流，适合高级用户使用。<hr />    </div>
+        Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 如何隐藏真实 IP？</h5></div>
@@ -375,29 +370,19 @@ A：选择低延迟、高稳定性的服务器节点；尽量靠近路由器使�
         通过启用 TLS、Reality 或 WebSocket + CDN 转发，V2Ray 可有效隐藏真实服务器 IP。这样外部监测只能看到中转节点，从而提升匿名性与安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
-    <div class="panel-body">
-        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和多出口节点，可提高访问速度和连接稳定性，保证用户体验流畅。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-Go 的端口不可达怎么办？</h5></div>
     <div class="panel-body">
         检查服务器防火墙是否开放对应端口，同时确认客户端和服务器端端口一致。还可以尝试更换节点或端口，确保 TLS 证书有效以保证连接成功。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 的主要功能是什么？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 的自动切换功能如何配置？</h5></div>
     <div class="panel-body">
-        Quantumult X 是一款功能极其强大的 iOS 网络代理应用，支持多种协议和脚本扩展。它可以通过规则分流、广告屏蔽、请求重写等方式优化网络体验。Quantumult X 常被技术用户用于高级自动化与自定义代理策略。<hr />    </div>
+        Shadowrocket 支持根据策略组和节点延迟自动切换最优节点。用户可设置测速频率和延迟阈值，程序会定期测试节点并自动切换，以保证网络稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何配置 Sing-box 使用 DoH 加密 DNS？</h5></div>
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式适合哪些应用？</h5></div>
     <div class="panel-body">
-        在 dns 模块中添加类型为 doh 的上游，如 `https://1.1.1.1/dns-query`，并指定 bootstrap 地址。启用加密 DNS 可防止 DNS 泄露并加快国际解析速度，提高整体隐私保护。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按端口匹配流量分配节点？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
+        TUN 模式拦截系统 IP 层流量，可实现全局代理。适合游戏、视频、浏览器和其他全局应用，实现低延迟和稳定连接，保证所有流量通过代理节点，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何按 IP 段实现智能分流？</h5></div>
@@ -405,9 +390,24 @@ A：选择低延迟、高稳定性的服务器节点；尽量靠近路由器使�
         Sing-box 支持根据 IP 段匹配流量，将国内流量直连、国外流量走代理。结合策略组和规则文件，实现精细化流量管理，保证访问速度和稳定性，同时提高节点使用效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的自动切换功能如何配置？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
     <div class="panel-body">
-        Shadowrocket 支持根据策略组和节点延迟自动切换最优节点。用户可设置测速频率和延迟阈值，程序会定期测试节点并自动切换，以保证网络稳定性和速度。    </div>
+        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和多出口节点，可提高访问速度和连接稳定性，保证用户体验流畅。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何配置 Sing-box 使用 DoH 加密 DNS？</h5></div>
+    <div class="panel-body">
+        在 dns 模块中添加类型为 doh 的上游，如 `https://1.1.1.1/dns-query`，并指定 bootstrap 地址。启用加密 DNS 可防止 DNS 泄露并加快国际解析速度，提高整体隐私保护。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Quantumult X 的主要功能是什么？</h5></div>
+    <div class="panel-body">
+        Quantumult X 是一款功能极其强大的 iOS 网络代理应用，支持多种协议和脚本扩展。它可以通过规则分流、广告屏蔽、请求重写等方式优化网络体验。Quantumult X 常被技术用户用于高级自动化与自定义代理策略。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Quantumult X 可以用脚本自动切换节点吗？</h5></div>
+    <div class="panel-body">
+        可以。Quantumult X 支持通过脚本逻辑判断网络延迟或连接失败情况，并自动切换节点。用户可以编写自定义 JS 规则，从而实现智能代理与按需分流，适合高级用户使用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -455,16 +455,16 @@ A：选择低延迟、高稳定性的服务器节点；尽量靠近路由器使�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-9.htm" title="「9月9日」最高速度19.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月9日」最高速度19.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-8-free-subscribe-node.htm" title="「10月8日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月8日」最高速度18.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-clash-verge-rev-windows.htm" title="「9月4日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月4日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-13.htm" title="「10月13日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月13日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-10-node-share.htm" title="「10月10日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月10日」最高速度20.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-4-clash-verge-rev-nodes.htm" title="「10月4日」最高速度19.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月4日」最高速度19.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-26-latest-clash-verge-rev-node.htm" title="「9月26日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月26日」最高速度19.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-10-21.htm" title="「10月21日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月21日」最高速度19.1M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-9-11.htm" title="「9月11日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月11日」最高速度21.2M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-clash-verge-rev-node-2026-10-9.htm" title="「10月9日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月9日」最高速度21.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-10-15.htm" title="「10月15日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月15日」最高速度20.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-9-21.htm" title="「9月21日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月21日」最高速度22.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-3.htm" title="「10月3日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月3日」最高速度20.5M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-14-clash-verge-rev-nodes.htm" title="「9月14日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月14日」最高速度18.8M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-clash-verge-rev-node-2026-9-25.htm" title="「9月25日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月25日」最高速度20.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-clash-verge-rev-node-2026-10-11.htm" title="「10月11日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月11日」最高速度18.6M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-18-free-node-subscribe.htm" title="「9月18日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月18日」最高速度21M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-clash-verge-rev-windows.htm" title="「9月12日」最高速度18.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「9月12日」最高速度18.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-2-clash-verge-rev-node-github.htm" title="「10月2日」最高速度22.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址">「10月2日」最高速度22.9M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -476,7 +476,7 @@ A：选择低延迟、高稳定性的服务器节点；尽量靠近路由器使�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
