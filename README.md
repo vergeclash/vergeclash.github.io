@@ -1,4 +1,4 @@
-# 「10月29日」最高速度22.4M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址  更新时间 2026-10-29 22:48:22
+# 「11月5日」最高速度22.3M/S，Clash/V2ray/SSR/Verge每天更新免费机场订阅链接地址  更新时间 2026-11-05 11:08:15
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://vergeclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://vergeclash.github.io/uploads/2026/10/0-20261029.yaml
-- https://vergeclash.github.io/uploads/2026/10/1-20261029.yaml
-- https://vergeclash.github.io/uploads/2026/10/2-20261029.yaml
-- https://vergeclash.github.io/uploads/2026/10/3-20261029.yaml
-- https://vergeclash.github.io/uploads/2026/10/4-20261029.yaml
+- https://vergeclash.github.io/uploads/2026/11/0-20261105.yaml
+- https://vergeclash.github.io/uploads/2026/11/1-20261105.yaml
+- https://vergeclash.github.io/uploads/2026/11/2-20261105.yaml
+- https://vergeclash.github.io/uploads/2026/11/3-20261105.yaml
+- https://vergeclash.github.io/uploads/2026/11/4-20261105.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://vergeclash.github.io/uploads/2026/10/0-20261029.txt
-- https://vergeclash.github.io/uploads/2026/10/1-20261029.txt
-- https://vergeclash.github.io/uploads/2026/10/2-20261029.txt
-- https://vergeclash.github.io/uploads/2026/10/3-20261029.txt
-- https://vergeclash.github.io/uploads/2026/10/4-20261029.txt
+- https://vergeclash.github.io/uploads/2026/11/0-20261105.txt
+- https://vergeclash.github.io/uploads/2026/11/1-20261105.txt
+- https://vergeclash.github.io/uploads/2026/11/2-20261105.txt
+- https://vergeclash.github.io/uploads/2026/11/3-20261105.txt
+- https://vergeclash.github.io/uploads/2026/11/4-20261105.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://vergeclash.github.io/uploads/2026/10/20261029.json
+- https://vergeclash.github.io/uploads/2026/11/20261105.json
 
 ## 更多Clash节点订阅 ：
 
